@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %}{% endblock headtitle %}
+
+{% block lside %}
+  {% block folder %}
+  <div class="fl-frame fl-aside fl-bg-gray">
+    {% include 'filer/folder.html' with folders=folders next=next %}
+  </div>
+  {% endblock folder %}
+{% endblock lside %}
+
+{% block main %}
+<div class="d-flex flex-column flex-lg-row justify-content-start align-items-start">
+  {% block size %}
+  <div class="fl-frame mx-1 my-1 fl-h-600 p-0 fl-large"> <!--fl-w-1150-->
+  {% endblock size %}
+    <!-- CONTAINER TO DISPLAY THE objects (files or images) -->
+    <div class="row d-flex flex-column justify-content-between h-100 align-items-start w-100 flex-nowrap ">
+
+      {% block content %}
+      {% endblock content %}
+
+        <!--</div> -->
+
+          <div class="d-flex flex-row justify-content-between flex-wrap  w-100 px-3" style="z-index:1500;">
+
+            {% if user.is_authenticated %}
+
+
+              {% block newelement %}
+              {% endblock newelement %}
+
+              {% block addtags %}
+              {% endblock addtags %}
+
+              {% block actionelement %}
+                {% include 'filer/file_actions.html' with folderid=folders.current.id uid=folders.current.uid next=next  %}
+              {% endblock actionelement %}
+
+            {% endif %}
+
+          {% block resize %}
+          {% endblock resize %}
+
+          {% if paginate %}
+            {% include 'filer/paginate.html' with files=files %}
+          {% endif %}
+
+          {% block switch %}
+          <div class="justify-content-center btn-group" role="group">
+              <a  class="btn fl-btn-bar left flowka  {% if 'datafile' in next %}disabled{% endif %}" href="{% url 'filer:datafile_list' folderid=folders.current.id uid=folders.current.uid %}"><i class="fal fa-database"></i></a>
+              <a  class="btn fl-btn-bar right flowka  {% if 'photo' in next  %}disabled{% endif %}" href="{% url 'filer:photo_list' folderid=folders.current.id uid=folders.current.uid %}""><i class="fal fa-images"></i></a>
+          </div>
+          {% endblock switch %}
+
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock main %}
+  {% block rside %}
+  <aside id="id-rside" class="d-flex flex-column justify-content-end align-items-start fl-aside my-1 flex-nowrap">
+
+        {% block messages %}
+          {% include 'message/message.html'%}
+        {% endblock messages %}
+
+        {% block tagsearch %}
+        {% endblock tagsearch %}
+
+        <!----
+        {% if paginate %}
+          {% include 'filer/paginate.html' with files=files %}
+        {% endif %}
+        -->
+
+  </aside>
+  {% endblock rside %}
+
+
+{% block css %}
+
+{% endblock css %}
+
+{% block js %}
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block headtitle %}pricelist' %}{% endblock headtitle %}
+
+{% block main %}
+<div class="container">
+    <h1 class="display-4 text-center fl-txt-prune">{% trans 'Pricing' %}</h1>
+    <p class="lead text-center">{% trans 'flowka pricing table may change.' %}</p>
+    <div class="row pb-3 d-flex flex-wrap flex-row justify-content-between">
+
+    {% if fees|length_is:'0' %}
+        <div class="text-center fl-txt-blood">
+            {% trans 'No Pricing option nor Feature matches with your search...' %}
+        </div>
+    {% else %}
+        {% for fee in fees %}
+        <div class="d-flex">
+            <div class="card card-fluid mx-2 mb-3 fl-minw-200">
+                <div class="card-header fl-bg-apricot  px-2">
+                    <h5 class="my-0 font-weight-normal text-uppercase fl-txt-prune text-center">{% trans fee.label %}</h5>
+                </div>
+                <div class="card-body flex-fill  px-2">
+                    <h1 class="card-title pricing-card-title fl-txt-peach text-center">{{ fee.price|floatformat:"0" }} € <small class="text-muted fl-txt-peach"> {% trans '/mo' %}</small></h1>
+                    <ul class="list-group list-group-flush">
+                    {% for feature in fee.features.all %}
+                        <li class="list-group-item text-capitalize fl-notxtbrk">{% trans feature.label %}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="card-footer px-2">
+                    <a class="btn btn-lg btn-block flowka text-truncate fl-txt-sm" href="{% url 'store:detail' fee_id=fee.id %}">{% blocktrans with feeLabel=fee.label %} Sign up for {{feeLabel}} {% endblocktrans %}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+</div>
+{% endblock main %}

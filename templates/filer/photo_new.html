@@ -1,0 +1,62 @@
+{% load i18n %}
+{% load static %}
+
+    <!-- FORM TO UPLOAD THE IMAGES -->
+<form method="post" enctype="multipart/form-data" id="id_PhotoCropForm" action="{% url 'filer:file_load' folderid=folderid uid=uid next=next %}">
+  {% csrf_token %}
+  <div class="">
+    {% if  folderAdd != 'disabled' %}
+      {% if textz %}
+        <label onClick="clickIt('id_fileToCrop');" for="file" class="btn btn-file flowka fl-text-white fl-bg_hov_sadsea  my-0  fl-pointer">{% trans 'import an image' %}</label>
+      {% else %}
+        <label onClick="clickIt('id_fileToCrop');" for="file"  class="fl-pointer">
+        <span><i class="fas fa-plus-circle fl-circle-bar {% if labelclass %}{{labelclass}}{% else %}{% endif %}" ></i></span>
+        </label>
+      {% endif %}
+    <input type="file" name="file" class="fl-hide" id="id_fileToCrop" multiple oninput="document.getElementById('id_spin').classList.remove('d-none');"oninput="document.getElementById('id_spin').classList.add('d-none');" />
+    <input type="hidden" name="height" id="id_height">
+    <input type="hidden" name="width" id="id_width">
+    <input type="hidden" name="x" id="id_x">
+    <input type="hidden" name="y" id="id_y">
+    <input type="hidden" name="photo_fileSave" id="id_photo_fileSave" value="True">
+    {% else %}
+      {% if textz %}
+        <button type="submit" class="btn flowka disabled my-0 fl-text-white" disabled=True>{% trans 'import an image' %}
+        </button>
+      {% else %}
+        <div class="">
+        <span><i class="fal fa-plus-circle disabled fl-circle-bar" disabled = "True" ></i></span>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</form>
+
+<!-- MODAL TO CROP THE IMAGE -->
+<div class="modal fade" name="modalCrop" id="id_modalCrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-row-reverse justify-content-between">
+        <button type="button" class="close" data-dismiss="modal" aria-label="{% trans 'Close' %}">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">{% trans 'Edit your picture' %}</h4>
+      </div>
+      <div class="modal-body px-0">
+        <img src="" name="cropImage" id="id_cropImage" height="auto" width="100%">
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group pull-left" role="group">
+          <button type="button" class="btn js-zoom-in flowka fl-txt-white">
+            <i class="oi oi-zoom-in mt-1" style="font-size:1.5em; font-weight:normal;"></i>
+          </button>
+          <button type="button" class="btn js-zoom-out flowka fl-txt-white ml-1">
+            <i class="oi oi-zoom-out mt-1" style="font-size:1.5em; font-weight:normal;"></i>
+          </button>
+        </div>
+        <button type="button" class="btn btn-outline flowka " data-dismiss="modal" >{% trans 'Nevermind' %}</button>
+        <button type="button" class="btn flowka js-crop-and-upload">{% trans 'save picture' %}</button>
+      </div>
+    </div>
+  </div>
+</div>

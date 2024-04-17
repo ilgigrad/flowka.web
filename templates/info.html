@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block headtitle %} Flowka - {{title}} {% endblock headtitle %}
+
+{% block main %}
+<div class="fl-infobox">
+	<div class="jumbotron-fluid d-flex flex-column justify-content-center align-items-center">
+		{% if info %}
+			{% if info.title %}
+    			<h3 class="text-uppercase text-center display-4 fl-txt-prune">{{info.title|safe}}</h3>
+			{% endif %}
+    	<p class="d-block lead text-center fl-txt-gray">
+    	{% if info.desc %}
+    			{{ info.desc|safe}}<br>
+    	{% endif %}
+    	{% if info.url %}
+    				<a class="fl-txt-dark fl-txt-hov-sadsea flowka" href="{{info.url}}">{{info.txt}}</a>
+    	{% endif %}
+   	{% endif %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block headtitle %} Flowka - {% trans 'parameters' %}{% endblock headtitle %}
+
+{% block main %}
+<div class="fl-bloc">
+    <img src="{% static 'pictures/flowka-login.jpg' %}" class="fl-account-img">
+    <div class="fl-frame" style="width:415px;">
+        <h4 class="text-uppercase text-center">{% trans 'PARAMETERS' %}</h4>
+        {% for error in errors %}
+            <ul class="p-2 alert alert-danger list-group" role="alert">
+                <li class="list-group-item">{{error}}</li>
+            </ul>
+        {% endfor %}
+        <form method="post" action="" class="form-group">
+            {% csrf_token %}
+            <label for="language">{% trans 'select your language' %}</label>
+            <select name="language" class="custom-select fl-mb-100" id="language">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                    {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+            <input class="btn btn-lg flowka btn-block" type="submit" value="{% trans 'save parameters' %}" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}

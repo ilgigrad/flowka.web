@@ -1,0 +1,47 @@
+
+{% load i18n %}
+<div class="d-flex flex-row flex-start">
+  <form method="post"  class="fl-bd-prune fl-w-150" id="id_tagactionform"
+    action="">
+    {% csrf_token %}
+    <div id="id_tags" class="fl-nolabel w-100" style="position:relative; top:4px;">
+      {{ tags_form.as_table }}
+      <input type="hidden" name="fileList" value="" >
+      <input type="hidden" name="strict" id="id_strict" value=false >
+    </div>
+  </form>
+  <button class="btn flowka disabled fl-btn-bar fl-bg-peach" type="submit"
+    name="addtag" id="id_addtag-button" onClick="setaction('add');">
+    <i class="fal fa-tags"></i>
+  </button>
+  <button class="btn flowka fl-btn-bar" type="submit"
+    name="search" id="id_search-button" onClick="setaction('search');">
+    <i class="fal fa-search"></i>
+  </button>
+  <button class="btn flowka fl-btn-bar right" type="submit"
+    name="searchstrict" id="id_searchstrict-button" onClick="setaction('strict');">
+    <i class="fal fa-search-plus"></i>
+  </button>
+</div>
+
+
+<script>
+
+  function setaction(action) {
+    var add= "{% url 'filer:file_addtags' folderid=folderid uid=uid next=next %}";
+    var search= "{% url 'tag:tag_search' next=next %}";
+    var form=document.getElementById('id_tagactionform');
+    if (action == "strict") {
+      var strict=document.getElementById("id_strict");
+      strict.value=true;
+    }
+    if (action=="add"){
+      form.action=add;
+      }
+    else {
+      form.action=search;
+    }
+    form.submit();
+  }
+
+</script>

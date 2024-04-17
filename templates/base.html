@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block headtitle %}{% endblock headtitle %}</title>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% include 'css.html' %}
+    {% block css %}
+    {% endblock css %}
+</head>
+
+<body>
+    <div id="id_void">FLOWKA IS NOT WORKING ON THIS DEVICE</div>
+    <div class="container-fluid px-0">
+      <!-- add  h-100 to container -->
+        <!-- .app-navbar -->
+         {% include 'home/header.html' %}
+         <!-- /.app-navbar -->
+
+        <!-- .insert element -->
+        <!-- / .insert element-->
+
+        <div class="row-fluid d-flex flex-column-reverse flex-lg-row border-bottom border-light">
+            <!--<aside class="col-12 col-md-3 col-xl-2 fl-side flex-column">-->
+            {% if user.is_authenticated %}
+            {% block lside %}
+                    {% include 'home/lside.html' %}
+            {% endblock lside %}
+            {% endif %}
+            <div class="container-fluid m-0 p-0">
+<!-- add w-100 h-100 to main-->
+                {% if homebg %}
+                <main class="row justify-content-start align-items-start fl-homebg ml-0 pr-0 mr-1  flex-column flex-lg-row">
+                {% else %}
+                <main class="row justify-content-start align-items-start ml-0 mr-1 flex-nowrap flex-column flex-lg-row">
+                {% endif %}
+                    {% block main %}
+                    {% endblock main %}
+                    {% if user.is_authenticated %}
+                    {% block rside %}
+                        {% include 'home/rside.html' %}
+                    {% endblock rside %}
+                    {% endif %}
+                </main>
+                <span id="id_spin" class="d-none" style="position:absolute;top:30%;left:30%;">
+                  <i class="fal fa-spinner fa-3x fa-pulse fl-txt-apricot"></i>
+                </span>
+            </div>
+
+        </div>
+        <footer class= "fl-bg-white w-100">
+            {% include 'home/footer.html' %}
+        </footer>
+    </div>
+    {% include 'js.html' %}
+    {% block js %}
+    {% endblock js %}
+</body>
+</html>

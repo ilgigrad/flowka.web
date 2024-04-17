@@ -1,0 +1,35 @@
+{% load i18n %}
+
+<div class="justify-content-center btn-group my-2" role="group">
+  <a
+    {% if files.has_previous %}
+      class="btn btn-sm flowka fl-px-15" href="?page={{ files.previous_page_number }}">
+    {% else %}
+      tabindex="-1" class="btn btn-sm flowka disabled fl-px-15">
+    {% endif %}
+    {% if files.paginator.num_pages > 2 %}
+      <i class="fas fa-arrow-alt-circle-left fl-txt-25"></i>
+    {% else %}
+      1
+    {% endif %}
+  </a>
+
+  {% if files.paginator.num_pages > 2 %}
+    <a  class="btn btn-sm flowka btn-outline fl-px-15" href="?page=1">1</a>
+    <a  class="btn btn-sm flowka btn-outline fl-px-15 disabled" disable=true >{{ files.number }}</a>
+    <a  class="btn btn-sm flowka btn-outline fl-px-15" href="?page={{ files.paginator.num_pages }}">{{ files.paginator.num_pages }}</a>
+  {% endif %}
+
+  <a
+    {% if files.has_next %}
+      class="btn btn-sm flowka fl-px-15" href="?page={{files.next_page_number }}">
+    {% else %}
+      tabindex="-1" class="btn btn-sm flowka disabled fl-px-10 fl-pt-3 fl-pb-1 fl-txt-sm" >
+    {% endif %}
+    {% if files.paginator.num_pages > 2 %}
+      <i class="fas fa-arrow-alt-circle-right fl-txt-25"></i>
+    {% else %}
+      2
+    {% endif %}
+  </a>
+</div>

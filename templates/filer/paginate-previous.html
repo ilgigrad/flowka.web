@@ -1,0 +1,7 @@
+{% load i18n %}
+
+{% if files.has_previous %}
+  <a class="w-100 fl-h-50 fl-no-deco d-block text-center fl-txt-light fl-txt-hov-prune" href="?page={{files.previous_page_number }}">
+      <i class="fal fa-chevron-double-up fl-txt-40"></i>
+  </a>
+{% endif %}

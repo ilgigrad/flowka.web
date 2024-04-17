@@ -1,0 +1,282 @@
+@import url("custom-base.css");
+/* ------------- /media-queries -----------------*/
+
+/* Extra small devices (portrait phones, less than 576px)
+ No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and less)*/
+@media (max-device-width: 320px){
+  #id_void {
+    display:block;
+    width:100%;
+    height:100%;
+    margin:auto;
+    text-align: center;
+    vertical-align: middle;
+    font-size:40px;
+    color: var(--fl-peach);
+  }
+
+
+  :not(body):not(html):not(#id_void):not(head)
+    {display:none;}
+}
+
+/*@media only screen and (min-device-width: 320px) and (max-device-width:480px)#smartphones portrait*/
+/*@media only screen and (min-device-width: 480px) and (max-device-width:812px)#smartphones landscape*/
+/*@media only screen and (min-device-width: 768px) and (max-device-width:834px)#tablets portrait*/
+@media only screen and (min-device-width: 320px) and (max-device-width:834px) /*smartphones and tablets-portrait*/
+  {
+  #id_void{display:none;}
+  .fl-outline-plus {
+    margin-top:0;
+    margin-bottom:2px;
+    background-color: var(--fl-prune)!important;
+    color:  var(--fl-white)!important;
+  }
+
+  .fl-myflowka-dropdown {
+    max-width:200px;
+    position:absolute;
+    left:50px;
+  }
+
+  #id-rside{position:absolute;top:100%;}
+  .fl-aside {
+    width:100vw;
+    height:inherit;
+    min-height:inherit;
+  }
+
+  .fl-btn-bar {
+    width:33px;
+    height:33px;
+  }
+
+  .fl-circle-bar {
+    font-size:35px;
+    margin: 0 2px;
+   }
+
+  .fl-btn-bar.right {
+    margin-right:2px;
+  }
+
+  .fl-btn-bar.left {
+     margin-left:2px;
+   }
+
+  #id_tagactionform .select2-search-field, #id_tagaddform .select2-search-choice {
+    height:21px!important;
+   }
+
+  aside {
+    width:100vw;
+  }
+
+  aside .nav-link.flowka {
+    border: 1px solid var(--fl-gray);
+    padding: 4.5px 9px;
+    margin-left:3px;
+    margin-bottom:2px;
+    border-radius:3px;
+    font-size:15px;
+  }
+
+  aside .nav-item #id_asideForm .form-group{
+    margin-bottom:0;
+  }
+
+  aside .nav-link.flowka:hover {
+    border-color:  var(--fl-sadsea);
+  }
+
+
+  .fl-large {
+    width:100vW;
+  }
+
+  body {
+    width:100vW;
+    font-size:80%;
+  }
+
+  .fl-small{
+  width:300px;
+  }
+
+  .fl-medium {
+    width:375px;
+  }
+
+}
+
+
+/* Medium devices (tablets, less than 768px and less)*/
+@media screen and (min-device-width: 320px) {
+  #id_void{display:none;}
+
+  aside {
+    width:100vw;
+  }
+
+  aside .nav-link.flowka {
+    border: 1px solid var(--fl-gray);
+    padding: 4.5px 9px;
+    margin-left:3px;
+    margin-bottom:2px;
+    border-radius:3px;
+    font-size:15px;
+  }
+
+  aside .nav-item #id_asideForm .form-group{
+    margin-bottom:0;
+  }
+
+  aside .nav-link.flowka:hover {
+    border-color:  var(--fl-sadsea);
+  }
+
+
+  .fl-outline-plus{
+    margin-bottom:10px!important;
+    background-color: transparent!important;
+    color: var(--fl-prune)!important;
+  }
+
+  .fl-myflowka-dropdown {
+    max-width:200px;
+    position:absolute;
+    left:50px;
+  }
+
+
+  .fl-btn-bar {
+      width:38px;
+      height:38px;
+    }
+
+   .fl-circle-bar {
+     font-size:40px;
+     margin: 0;
+   }
+
+   .fl-btn-bar.right {
+       margin-right:0;
+     }
+
+     .fl-btn-bar.left {
+         margin-left:0;
+       }
+
+    #id_tagactionform .select2-search-field, #id_tagaddform .select2-search-choice {
+      height:26px!important;
+     }
+
+  .fl-aside{
+    width:100vw;
+    min-width:576px;
+  }
+
+
+    .fl-large{
+      width:100vw;
+      min-width:576px;
+    }
+
+    .fl-small{
+    min-width:320px;
+    max-width:415px;
+    }
+
+    /*.fl-photo{
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    }*/
+
+
+    .fl-medium {
+      width:500px;
+    }
+
+    body {
+      font-size:90%;
+    }
+}
+
+
+@media (min-device-width: 992px) {
+
+  .fl-myflowka-dropdown {
+    max-width:200px;
+    position:absolute;
+    left:-50px;
+  }
+
+
+  .fl-account-img{
+  width:345px!important;
+  }
+
+.w-lg-50 {width:50%!important;}
+  aside .nav-item #id_asideForm .form-group{
+    margin-bottom:1rem;
+  }
+
+  aside {
+    width:187px;
+  }
+
+  aside .nav-link.flowka {
+    border: inherit;
+    padding: inherit;
+    margin-left:5px;
+    margin-bottom:10px;
+  }
+
+    .fl-aside{
+      width:200px!important;
+      min-width:unset;
+    }
+
+    .fl-large{
+      width:1150px;
+
+    }
+
+    .fl-medium {
+      width:600px;
+    }
+
+    .fl-small{
+    width:415px;
+    }
+
+    body {
+      min-width:1500px;
+      font-size:100%;
+    }
+}
+/*Extra large devices (13" screens and up)*/
+@media (min-width: 1200px) {
+
+
+  .fl-medium {
+    width:600px;
+  }
+
+}
+
+/*Extra large devices (19" screens and up)*/
+@media (min-width: 1400px) {
+
+
+}
+
+/*Extra large devices (24" screens and up)*/
+@media (min-width: 1900px) {
+  .fl-large{
+    min-width:1500px;
+  }
+}

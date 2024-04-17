@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %}{% trans 'Profile of' %}{{ user.get_login_name}}{% endblock headtitle %}
+
+{% block css %}
+  {% include 'filer/crop-css.html' %}
+  {% include 'tag/css.html' %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom-objects.css' %}"/>
+
+{% endblock css %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+    {% include 'filer/crop-js.html' %}
+    {% include 'tag/js.html' %}
+{% endblock js %}
+
+
+{% block main %}
+<form method="post" enctype="multipart/form-data" id="id_ProfileForm">
+  <div class="d-flex flex-row flex-lg-row justify-content-center align-items-center">
+    {% csrf_token %}
+    <div class="fl-frame mx-3 my-2">
+      <h3 class="text-uppercase text-center">{% trans 'EDIT PROFILE' %}</h3>
+      <div class="w-100">
+        {% include 'inputbs4.html' with form=profile_form %}
+        <input class="btn btn-lg flowka btn-block" type="submit" name="profile" id="id_profile" value="{% trans 'save profile' %}" />
+      </div>
+    </div>
+    <div class="mx-3 fl-w-200">
+      <!-- FORM TO UPLOAD THE IMAGES -->
+
+      <div class="fl-photo " onClick="clickIt('id_fileToCrop');" style="width:200px;height: 200px;">
+        <img src="{{ avatar_url }}" class="w-100 h-100 d-block img-fluid fl-bd-prune border rounded" alt="Responsive image" />
+          <span class="fl-photo fas fa-camera"></span>
+          <input type="file" name="file" class="fl-hide" id="id_fileToCrop" oninput="document.getElementById('id_spin').classList.remove('d-none');">
+          <input type="hidden" name="height" id="id_height">
+          <input type="hidden" name="width" id="id_width">
+          <input type="hidden" name="x" id="id_x">
+          <input type="hidden" name="y" id="id_y">
+          <input type="hidden" name="avatar_id" id="id_avatar" value={{ avatar_id }}>
+          <input type="hidden" name="avatar_fileSave" id="id_photo_fileSave" value="False">
+        </div>
+        <div class="fl-bd-prune p-10 mt-3">
+          <table id="id_tags" class="fl-noth w-100">
+            {{ interests_form.as_table }}
+          </table>
+        </div>
+        <div class="mt-2">
+          {% include 'message/message.html' %}
+        </div>
+    </div>
+  </div>
+</form>
+
+<!-- MODAL TO CROP THE IMAGE -->
+<div class="modal fade" name="modalCrop" id="id_modalCrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-row-reverse justify-content-between">
+        <button type="button" class="close" data-dismiss="modal" aria-label="{% trans 'Close' %}">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">{% trans 'Edit your picture' %}</h4>
+      </div>
+      <div class="modal-body px-0">
+        <img src=""  name="cropImage" id="id_cropImage" height="auto" width="100%">
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group pull-left" role="group">
+          <button type="button" class="btn js-zoom-in flowka fl-txt-white">
+            <i class="oi oi-zoom-in mt-1" style="font-size:1.5em; font-weight:normal;"></i>
+          </button>
+          <button type="button"class="btn js-zoom-out flowka fl-txt-white ml-1">
+            <i class="oi oi-zoom-out mt-1" style="font-size:1.5em; font-weight:normal;"></i>
+
+          </button>
+        </div>
+        <button type="button" class="btn btn-outline flowka " data-dismiss="modal" >{% trans 'Nevermind' %}</button>
+        <button type="button" class="btn flowka js-crop-and-upload">{% trans 'save picture' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main %}

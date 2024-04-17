@@ -1,0 +1,40 @@
+{% load i18n %}
+<aside class="d-flex flex-column-reverse flex-lg-column">
+    <form class="fl-search d-flex align-items-center mb-md-4" action="{% url 'filer:file_list' folderid=user.myfiles.id uid=user.myfiles.uid next='filer:file_list' %}" method="get" accept-charset="utf-8">
+        <div class="input-group">
+            <input class="form-control flowka" type="text" placeholder="{% trans 'Search..' %}" name="query">
+            <!--<div class="input-group-append">
+                <button type="button" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
+            </div>-->
+        </div>
+    </form>
+    <ul class="nav flex-row flex-lg-column my-2 my-lg-0 mx-0 mx-lg-3 flex-lg-nowrap">
+        <!-- <li class="nav-item"><a class="btn btn-outline btn-block flowka mb-3" href="#">{% trans 'import a file' %}</a></li> -->
+        <li class="nav-item">{% include 'filer/datafile_new.html' with labelclass='fl-outline-plus' source='aside' folderAdd='enabled' folderid=user.myfiles.id uid=user.myfiles.uid  next='filer:datafile_list' textz=True %}</li>
+
+        <li class="nav-item"><a class="nav-link flowka" href="{% url 'filer:datafile_list' folderid=user.myfiles.id uid=user.myfiles.uid %}">{% trans 'my files' %}</a></li>
+        <li class="nav-item"><a class="nav-link flowka" href="{% url 'filer:photo_list' folderid=user.myfiles.id uid=user.myfiles.uid %}">{% trans 'pictures' %}</a></li>
+        <li class="nav-item"><a class="nav-link flowka" href="{% url 'filer:datafile_list' folderid=0 uid=user.myfiles.uid %}">{% trans 'open data' %}</a></li>
+        <li><div class="dropdown-divider"></div></li>
+        <li class="nav-item"><a class="nav-link flowka" href="{% url 'store:listing' %}">{% trans 'Overview' %}</a></li>
+        <li class="nav-item"><a class="nav-link flowka" href="{% url 'home:private' %}">{% trans 'Preparing Data' %}</a></li>
+        <li class="nav-item"><a class="nav-link flowka" href="{% url 'home:hello' %}">{% trans 'Data Collect' %}</a></li>
+        <li class="nav-item"><a class="nav-link flowka" href="#">{% trans 'Data Cleaning' %}</a></li>
+        <li class="nav-item dropdown">
+            <a class="dropdown-toggle nav-link flowka" href="#" data-toggle="dropdown" role="button" id="dropdown-menu">{% trans 'Modelization' %}</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown-menu">
+                <li><a class="dropdown-item flowka" href="{% url 'filer:file_load' folderid=user.myfiles.id uid=user.myfiles.uid next='filer:photo_list'%}">{% trans 'Correlation' %}</a></li>
+                <li><div class="dropdown-divider"></div></li>
+                <li><a class="dropdown-item flowka" href="{% url 'filer:file_load' folderid=user.myfiles.id uid=user.myfiles.uid next='filer:datafile_list'%}">{% trans 'Prediction' %}</a></li>
+                <li><a class="dropdown-item flowka" href="#">{% trans 'Classification' %}</a></li>
+                <li><a class="dropdown-item flowka" href="#">{% trans 'Clusterization' %}</a></li>
+                <li><div class="dropdown-divider"></div></li>
+                <li><a class="dropdown-item disabled fl-txt-light" href="#">{% trans 'Neuron Network' %}</a></li>
+            </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link flowka" href="{% url 'rabbitMQ:send' body='Hello from Mars' %}">{% trans 'Training' %}</a></li>
+        <li class="nav-item"><a class="nav-link flowka" href="{% url 'rabbitMQ:receive' %}">{% trans 'Validation' %}</a></li>
+        <li class="nav-item"><a class="nav-link flowka disabled" href="#">{% trans 'Data Export' %}</a></li>
+        <li class="nav-item"><a class="nav-link flowka" href="#">{% trans 'Assistance' %}</a></li>
+    </ul>
+</aside>

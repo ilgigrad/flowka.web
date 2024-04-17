@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block headtitle %} Flowka - {% trans 'Login' %}{% endblock headtitle %}
+
+{% block main %}
+<div class="fl-bloc">
+    <img src="{% static 'pictures/flowka-login.jpg' %}" class="fl-account-img">
+    <div class="fl-frame fl-small">
+        <h4 class="text-uppercase text-center">{% trans 'ACCOUNT LOGIN' %}</h4>
+        {% if errors is True %}
+          <p class="fl-invalid fl-txt-sm mb-0">
+            {% trans 'Login error. ' %}{% trans 'Please, verify your email and password' %}
+          </p>
+        {% endif %}
+        <form method="post" action="." class="w-100" novalidate>
+            {% csrf_token %}
+            {% include 'inputbs4.html' with form=form %}
+            <input class="btn btn-lg flowka btn-block" type="submit" value="{% trans 'login' %}" />
+            <div class="mx-2 form-check ">
+                <input class="form-check-input fl-cb-lg oi oi-check" name="remember_me" id="remember_me %}" type="checkbox">
+                <label for="remember_me" >{% trans 'remember me' %}</label>
+                <a class ="ml-4 mr-1 fl-txt-prune fl-txt-hov-sadsea"href="{% url 'account:password_reset' %}">{% trans 'Lost password?' %}
+                </a>
+            </div>
+        </form>
+        <p class="d-inline-block mb-0 fl-txt-prune fl-txt-sm ">{% trans 'you do not have a Flowka account ?' %}
+            <a class ="btn btn-outline flowka fl-nobd"href="{% url 'account:signup' %}">{% trans 'SIGN UP' %}
+            </a>
+        </p>
+    </div>
+</div>
+
+{% endblock main %}

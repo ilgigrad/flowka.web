@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load l10n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %}{% endblock headtitle %}
+
+{% block lside %}
+  {% block folder %}
+  <div class="fl-frame fl-aside fl-bg-gray">
+  </div>
+  {% endblock folder %}
+{% endblock lside %}
+
+{% block main %}
+<div class="d-flex flex-column justify-content-start align-items-start fl-frame mx-1 my-1 fl-h-600 p-0 fl-large">
+
+  <div class="row d-flex flex-column justify-content-between h-100 align-items-start w-100 flex-nowrap m-0 ">
+    {% block topbar %}
+    <div class="row d-flex flex-row justify-content-between fl-h-50 w-100 flex-nowrap" >
+      {% block switch %}
+      <ul class="nav nav-tabs  flowka  fl-w-350">
+        <li class="nav-item  {{clean}}">
+          <a id="id_tab_data" class="nav-link {% if next == 'datacollect:data' %}active{% endif %}" href="{% url 'datacollect:clean' uid=file.uid next=prec %}"  >{% trans 'Clean' %}</a>
+        </li>
+        <li class="nav-item">
+          <a id="id_tab_meta" class="nav-link {% if next == 'datacollect:meta' %}active{% endif %}" href="{% url 'datacollect:meta' uid=file.uid next=prec %}"  >{% trans 'Stats' %}</a>
+        </li>
+        <li class="nav-item">
+          <a id="id_tab_snippet" class="nav-link {% if next == 'datacollect:snippet' %}active{% endif %}" href="{% url 'datacollect:snippet' uid=file.uid next=prec %}" >{% trans 'Origin' %}</a>
+        </li>
+      </ul>
+      {% endblock switch %}
+
+      {% block filetoolbar %}
+      <div class="d-flex flex-column justify-content-start align-content-center fl-w-200 m-1">
+        {% if file.original_filename == file.name %}
+          <h4 class="flowka text-uppercase  fl-txt-prune mb-0 fl-txt-sm text-center">{{ file.shortname|truncatechars:20 }}</h4>
+        {% else %}
+          <h4 class="flowka text-uppercase fl-txt-prune mb-0 fl-txt-sm  text-center">{{ file.name|truncatechars:20 }}</h4>
+        {% endif %}
+        <h6  class="flowka fl-txt-xs  fl-txt-gray fl-bd-gray fl-p-2 mb-1 text-center">{{ file.original_filename|truncatechars:30 }}</h6>
+      </div>
+      <div class="d-flex flex-row justify-content-around">
+        <div class="fl-label-group fl-w-150 fl-h-40">
+            <div class="fl-label  fl-h-20">
+              <div class="fl-label-item flowka fl-w-90">{% trans 'type of file' %}</div>
+              <div class="fl-label-item fl-w-60 {{file.type_color}}"><i class="{{file.type_icon}} pr-1 fl-txt-sm"></i>{{file.type}}</div>
+            </div>
+            <div class="fl-label fl-h-20">
+              <div class="fl-label-item flowka fl-w-90">{% trans 'size' %}</div>
+              <div class="fl-label-item fl-w-60">{{file.p_size}}</div>
+            </div>
+        </div>
+        <div class="fl-label-group fl-w-150 fl-h-40">
+          <div class="fl-label fl-h-20">
+            <div class="fl-label-item flowka fl-w-90">{% trans 'status' %}</div>
+            <div class="fl-label-item fl-w-60"><i class="{{file.status_icon}} pr-1 fl-txt-sm"></i>{{file.status}}</div>
+          </div>
+          <div class="fl-label fl-h-20">
+            <div class="fl-label-item flowka fl-w-90">{% trans 'records' %}</div>
+            <div class="fl-label-item fl-w-60"><i class="pr-1 fl-txt-sm"></i>{{counts}}</div>
+          </div>
+        </div>
+        <div class="fl-label-group fl-w-180 fl-h-40">
+          <div class="fl-label fl-h-20">
+            <div class="fl-label-item flowka fl-w-90">{% trans 'creation' %}</div>
+            <div class="fl-label-item fl-w-90 fl-txt-sm {% if file.uploaded_today %}fl-txt-electric{% endif %} ">{{file.shortuploaded_at}}</div>
+          </div>
+          <div class="fl-label fl-h-20">
+            <div class="fl-label-item flowka fl-w-90">{% trans 'modification' %}</div>
+            <div class="fl-label-item fl-w-90  fl-txt-sm {% if file.modified_today %}fl-txt-electric{% endif %}">{{file.shortmodified_at}}</div>
+          </div>
+        </div>
+        <div class="fl-label-group fl-w-80 fl-m-10 fl-h-30">
+            <div class="fl-label fl-h-30">
+                <a class="fl-label-item flowka fl-w-40 fl-txt-hov-white fl-bg-hov-sadsea fl-pointer" href="{{file.url}}">
+                  <i class="fal fa-cloud-download fl-txt-20 p-1"></i> <span class="fl-tooltip p-1" style="margin-top:-5px; margin-left:5px;">{% trans 'download' %}</span></a>
+              <form class="" method="post" action="{% url 'filer:file_delete' folderid=0 uid=file.uid next=prec %}" id="id_fileDeleteForm">
+                  {% csrf_token %}
+                  <input type="hidden" name="fileList" value="{{file.uid}}"">
+                  <div class="fl-label-item flowka fl-w-40 fl-txt-white fl-bg-blood fl-txt-hov-white fl-bg-hov-sadsea  fl-pointer"
+                  onClick="submitForm(this);document.getElementById('id_spin').classList.remove('d-none');">
+                  <i class="fal fa-trash-alt fl-txt-20 fl-pt-6"></i> <span class="fl-tooltip p-1" style="margin-top:-5px; margin-left:5px;">{% trans 'delete' %}</span></div>
+              </form>
+            </div>
+        </div>
+      </div>
+      {% endblock filetoolbar %}
+      {% block back %}
+        <a href="{% url prec folderid=0 uid=file.uid  %}" class="pt-3">
+          <i class="fal fa-times fl-icon fl-txt-blood fl-txt-hov-sadsea"></i>
+          <!--close--></a>
+      {% endblock back %}
+    </div>
+    {% endblock topbar %}
+
+    {% block content %}
+    {% endblock content %}
+
+    {% block bottombar %}
+    {% endblock bottombar %}
+
+  </div>
+</div>
+{% endblock main %}
+{% block rside %}
+<aside id="id-rside" class="d-flex flex-column justify-content-beteen align-items-start fl-h-570 fl-aside my-1 flex-nowrap">
+  {% include 'filer/file_edit.html' with file=file %}
+  <div class="w-100 p-1">
+    <a type="button" href="{% url prec folderid=0 uid=file.uid  %}" class="btn btn-block flowka fl-bg-peach">{% trans 'exit' %}</a>
+  </div>
+  {% block messages %}
+    {% include 'message/message.html'%}
+  {% endblock messages %}
+
+  {% block tagsearch %}
+  {% endblock tagsearch %}
+
+</aside>
+{% endblock rside %}
+
+
+{% block css %}
+  {% include 'tag/css.html' %}
+{% endblock css %}
+
+{% block js %}
+  {% include 'tag/js.html' %}
+{% endblock js %}

@@ -1,0 +1,60 @@
+{% load static %}
+{% load i18n %}
+<header class="navbar navbar-expand-md py-1 fl-bd-b fl-bd-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand mr-auto" href="{% url 'home:home' %}">
+        <img src="{% static 'pictures/flowka-electric-122x60.jpg' %}" width="auto" height="60px" style="margin-top:-5px;margin-bottom:-5px;" alt="">
+      </a>
+      <button type="button" class="navbar-toggler" style="position:absolute;right:0px; top:20px" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+         <i class="fal fa-bars"> </i>
+      </button>
+    </div><!-- cnavbar header-->
+    <div class="collapse navbar-collapse fl-txt-15" id="myNavbar">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link flowka disabled px-2" href="#">{% trans 'Explore' %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link flowka disabled px-2" href="{% url 'home:slider' %}">{% trans 'Models' %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link flowka disabled px-2" href="#">{% trans 'Predictions' %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link flowka disabled px-2" href="#">{% trans 'Help' %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link flowka px-2" href="{% url 'survey:survey' %}">{% trans 'Survey 2019' %}</a>
+        </li>
+      </ul><!-- nabar nav -->
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle btn fl-nav-btn" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {% if user.is_authenticated %}
+          {% if user.m_unread > 0 %}
+            <span class="badge fl-px-5 fl-bg-electric fl-txt-white"
+              style="position: relative;top:-15px;left: -20px;">{{ user.m_unread }}</span>
+          {% endif %}
+          {{ user.profile.get_login_name}}
+        {% else %}
+          {% trans 'My flowka' %}
+        {% endif %}
+        </a><!-- dropdown toggle-->
+        <ul class="dropdown-menu fl-myflowka-dropdown" aria-labelledby="navbarDropdown" id="id_myflowka">
+          <li><a class="dropdown-item flowka" href="{% url 'home:parameters' %}">{% trans 'Parameters' %}</a></li>
+          {% if user.is_authenticated %}
+            <li><a class="dropdown-item flowka" href="#" onclick="loadPosts();">{% trans 'Posts' %}</a></li>
+            {% include 'message/post.html' %}
+            <li><a class="dropdown-item flowka" href="{% url 'account:profile' %}">{% trans 'Profile' %}</a></li>
+            <li><a class="dropdown-item flowka" href="{% url 'account:password_change' %}">{% trans 'Change Password' %}</a></li>
+            <li class="dropdown-divider flowka"></li>
+            <li><a class="dropdown-item flowka" href="{% url 'account:logout' %}">{% trans 'Logout' %}</a></li>
+          {% else %}
+            <li><a class="dropdown-item flowka" href="{% url 'account:login' %}">{% trans 'Login' %}</a></li>
+            <li><a class="dropdown-item flowka" href="{% url 'account:signup' %}">{% trans 'Sign Up' %}</a></li>
+          {% endif %}
+        </ul><!-- dropdown menu -->
+      </div><!-- dropdown -->
+    </div><!-- collapse-->
+  </div><!-- container-fluid -->
+</header>

@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %} Flowka - {% trans 'detail' %}{% endblock headtitle %}
+
+{% block main %}
+<div class="d-flex flex-row py-4  justify-content-center mb-3 flex-wrap">
+    <div class="w-25 card mx-2 px-0 fl-minw-350">
+        <div class="card-header fl-bg-apricot ">
+            <h2 class="my-0 font-weight-normal text-uppercase fl-txt-prune text-center">{% trans fee.label %}</h2>
+        </div>
+        <img class="card-img-top img-fluid d-block pt-3 m-auto"  src="{% static fee.picture %}" style="width:150px; height:150px;" alt="Card image cap">
+        <div class="card-body flex-fill">
+            <h5 class="card-title pricing-card-title fl-txt-peach text-center">{% trans 'FEATURES' %}</h5>
+            <ul class="list-group list-group-flush">
+            {% for feature in fee.features.all %}
+                <li class="list-group-item px-0 py-1">
+                    <h5 class="card-title text-capitalize fl-notxtbrk my-0 py-0">{% trans feature.label %}</h5>
+                    <p class="card-text fl-notxtbrk py-0">{% trans feature.description %}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="card-footer  fl-bg-peach">
+            <h3 class="my-0 text-uppercase text-center fl-txt-white">{{ fee.price|floatformat:"0" }} €</h3>
+        </div>
+    </div>
+    <div class= "w-50 d-flex flex-column justify-content-between">
+        <h2 class="fl-txt-prune text-nowrap">{% trans 'Get your Flowka membership' %}</h2>
+        <div class="row">
+            <div class="col-auto">
+                <h2 class="px-1 text-center fee-label fl-txt-prune">{% blocktrans with feeLabel=fee.label %} Sign up for {{feeLabel}} {% endblocktrans %}</h2>
+                <form  action="{% url 'store:detail' fee_id=fee.id %}" method="post" class="col-12"  novalidate>
+                   {% csrf_token %}
+                        {% include 'inputbs4.html' with form=form help='no' %}  
+                        <button type="submit" class="btn btn-block flowka">{% blocktrans with feeLabel=fee.label %} Buy {{feeLabel}} {% endblocktrans %}
+                        </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}
+

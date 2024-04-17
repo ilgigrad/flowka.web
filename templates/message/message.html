@@ -1,0 +1,10 @@
+{% load i18n %}
+
+{% if messages %}
+  <ul class="messages list-group w-100 fl-overflow-y-auto fl-scroll-thin" style="max-height:250px;">
+    {% for message in messages|slice:"4" %}
+      <li class="fl-{{ message.tags }} icon list-group-item w-100 fl-txt-sm">{{ message|safe }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

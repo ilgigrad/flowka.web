@@ -1,0 +1,55 @@
+{% load i18n %}
+{% load static %}
+<div id="id_posts" class="modal fade fl-bd-prune" role="dialog" style="z-index:2500;margin-left:200px;" >
+  <div class="modal-dialog mr-5" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" id="id_postsclose" class="close fl-txt-blood fl-txt-hov-sadsea px-1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title flowka fl-upc text-center w-100 fl-txt-prune">{% trans 'posts list' %}</h4>
+      </div><!--modal-header-->
+      <ul id="id_postslist" class="modal-body list-group fl-h-500 fl-overflow-y-auto fl-scroll-thin flowka">
+      </ul><!--modal-body-->
+     <div class="modal-footer">
+       <button type="button" class="btn flowka fl-bg-gray fl-bd-gray" data-dismiss="modal" aria-label="Close">{% trans 'cancel' %}</button>
+     </div><!--modal-footer-->
+    </div><!--modal-content-->
+  </div><!--modal-dialog-->
+</div><!--modal-->
+
+<script type="text/javascript" src="{% static 'js/oXHR.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+<script>
+function loadPosts() {
+  var request = getXMLHttpRequest();
+  var requestURL ='{{SITE_URL}}/message/rest_list';
+  request.open("GET", requestURL, true);
+  request.responsetype= 'Json';
+  request.send();
+  request.onload = function() {
+    var JsonMessages = JSON.parse(request.response);
+    listMessages(JsonMessages);
+  }
+}
+
+function listMessages(JsonObj) {
+  rside=document.getElementById("id-rside");
+  posts=document.getElementById("id_posts");
+  list=document.getElementById("id_postslist");
+  close=document.getElementById("id_postsclose");
+  eraseChilds(list);
+  rside.appendChild(posts);
+  for (i = 0; i <JsonObj.length; i++) {
+    var msg_li = document.createElement('li');
+    list.appendChild(msg_li);
+    msg_li.classList.add("fl-"+JsonObj[i].tags,"icon","list-group-item","w-100","fl-visible","fl-op-1");
+    msg_li.innerHTML=JsonObj[i].message;
+    if (JsonObj[i].is_unread===true) {
+      var msg_i = document.createElement('i');
+      msg_li.appendChild(msg_i);
+      msg_i.classList.add("far","fa-dot-circle","fl-txt-peach");
+    }
+  }
+  $('#id_posts').modal('show');
+  close.onclick = function(){eraseChilds(list);$('#id_posts').modal('hide');};
+}
+</script>

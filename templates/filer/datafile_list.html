@@ -1,0 +1,169 @@
+{% extends 'filer/df_base.html' %}
+{% load i18n %}
+{% load l10n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %} Flowka - {% trans 'file list' %}{% endblock headtitle %}
+{% block size %}
+  {{ block.super }}
+{% endblock size %}
+
+
+    {% block folder %}
+      <!-- <i class="float-left fal fa-div fl-txt-sm ml-0 mx-1 my-1"></i>
+      <span class="text-center">{{folders.current.name}}</span> -->
+    {{ block.super }}
+    {% endblock folder %}
+
+        {% block content %}
+        {% if page|length_is:'0' %}
+            <div class="text-center fl-invalid fl-upc">
+                {% trans 'No Files' %}
+            </div>
+        {% else %}
+        <!-- list header -->
+        <div class="fl-table w-100 fl-h-550 m-0 fl-overflow-hidden ">
+
+            <div class="fl-thead" id="id-list-header" >
+                  <a class="fl-th" style="width:60px;" href="?order=_type" >{% trans 'type' %}</a>
+                  <a class="fl-th" style="width:345px;" href="?order=name">{% trans 'title' %}</a>
+                  <a class="fl-th" style="width:115px;" href="?order=_file_size">{% trans 'size' %}</a>
+                  <a class="fl-th" style="width:115px;" href="?order=modified_at">{% trans 'last update' %}</a>
+                  <a class="fl-th" style="width:60px;" href="?order=_status">{% trans 'status' %}</a>
+                  <div class="fl-th" style="width:60px;">
+                    {% trans 'access' %}
+                  </div>
+                  <div class="fl-th" style="width:385px;">
+                    {% trans 'tags' %}
+                  </div>
+            </div>
+            <div class="fl-wrapper  fl-h-500 ">
+            <div class=" fl-tbody fl-scroll-thin fl-overflow-x-hidden">
+              {% if paginate %}
+                {% include 'filer/paginate-previous.html' with files=files %}
+              {% endif %}
+              <!-- files list -->
+              {% for file in files %}
+                <div class="fl-tr fl-striped" id="id-a-{{ file.uid }}" >
+                    <div class="fl-td fl-px-3" style="width:60px;">
+                      <div class="fl-pins {{ file.type_color }}"
+                        id="{{file.uid}}"
+                        onclick="selector(this,'fileList',['id-action-button','id_addtag-button','id_action_icon']);">
+                        <i class="{{file.type_icon}}"></i>
+                      </div>
+                      <div class="fl-w-20 fl-relative fl-pos-l10">
+                        {% if file.is_favorite %}
+                        <i class="fal fa-crown fl-txt-peach fl-icon fl-txt-md"></i>
+                        {% endif %}
+                      </div>
+                    </div>
+
+                    {% if file.has_alert %}
+                      <a class="flowka d-flex fl-cursor-arrow"  href="#">
+                    {% else %}
+                        <a class="flowka d-flex"  href="{% url 'datacollect:snippet' uid=file.uid next=next %}">
+                    {% endif %}
+
+                    <div class="fl-td" style="width:345px;" >
+
+                      {{ file.shortname }}
+
+                      <div class="fl-tooltip">
+                        {{ file.name_description|safe }}
+                      </div>
+                    </div>
+                    <div class="fl-td" style="width:115px;">
+                      {{ file.p_size }}
+                    </div>
+                    <div class="fl-td" style="width:115px;">
+                      {% if file.modified_today %}
+                        {{file.shortmodified_at}}
+                      {% else %}
+                        {{ file.shortmodified_at|date:"SHORT_DATE_FORMAT" }}
+                      {% endif %}
+                      <div class="fl-tooltip">
+                        {%  trans 'uploaded : ' %}
+                        {% if file.uploaded_today %}
+                          {{file.shortuploaded_at}}
+                        {% else %}
+                          {{ file.shortuploaded_at|date:'SHORT_DATE_FORMAT' }}
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="fl-td" style="width:60px;" >
+                      <i class="{{ file.status_icon }} {% if file.is_valid %} fl-icon {% else %} fl-icon-invalid {% endif %}"></i>
+
+                      <div class="fl-tooltip">
+                        {{ file.status_ext }}
+                      </div>
+                    </div>
+                    <div class="fl-td" style="width:60px;">
+                      {% if file.is_shared %}
+                        <i class="fal fa-users fl-icon"></i>
+                      {% else %}
+                        <i class="fal fa-user fl-icon"></i>
+                      {% endif %}
+                    </div>
+                    <div class="fl-td fl-tag-box fl-overflow-hidden"
+                         style="width:385px;">
+                      {% for tag in file.subjects.tags %}
+                        <div class="fl-tag d-inline-block text-truncate">
+                          {{ tag.label }}
+                        </div>
+                      {% endfor %}
+                      {% if file.subjects.tags %}
+                        <p class="fl-tooltip-flex fl-z100">
+                          {% for tag in file.subjects.tags %}
+                            <span class='fl-py-2 fl-px-3 fl-m-2 rounded fl-bg-sadsea fl-txt-white'>
+                              {{ tag.label }}
+                            </span>
+                          {% endfor %}
+                        </p>
+                      {% endif %}
+                    </div>
+                  </a>
+                </div><!--fl-tr-->
+              {% endfor %}<!--files-->
+              {% if paginate %}
+                {% include 'filer/paginate-next.html' with files=files %}
+              {% endif %}
+              </div><!--fl-body-->
+              </div><!--fl-wrapper-->
+            </div>
+          {% endif %}
+        {% endblock content %}
+
+        {% block addtags %}
+              {% include 'tag/actiontags.html' with tags_form=tags_form folderid=folders.current.id uid=folders.current.uid next=next %}
+        {% endblock addtags %}
+
+        {% block actionelement %}
+          {{ block.super }}
+        {% endblock actionelement %}
+
+        {% block newelement %}
+          {% include 'filer/datafile_new.html' with source='datafile_list' folderAdd=folders.current.can_add folderid=folders.current.id uid=folders.current.uid next=next %}
+        {% endblock newelement %}
+
+        {% block messages %}
+          {{ block.super }}
+        {% endblock messages %}
+
+        {% block tagsearch %}
+            <!--{ include 'tag/tagsearch.html' with tagsearch_form=tagsearch_form }-->
+        {% endblock tagsearch %}
+
+        {% block switch %}
+            {{ block.super }}
+        {% endblock switch %}
+
+        {% block css %}
+          {% include 'tag/css.html' %}
+          {{ block.super }}
+        {% endblock css %}
+
+        {% block js %}
+          {% include 'tag/js.html' %}
+          <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+        {% endblock js %}

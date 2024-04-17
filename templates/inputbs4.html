@@ -1,0 +1,54 @@
+{% load widget_tweaks %}
+
+{% for hidden_field in form.hidden_fields %}
+  {{ hidden_field }}
+{% endfor %}
+
+{% if form.non_field_errors %}
+  <div class="alert alert-danger" role="alert">
+    {% for error in form.non_field_errors %}
+      {{ error }}
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% for field in form.visible_fields %}
+  {% if field|widget_type == 'checkboxinput' %}
+    <div class="form-check">
+      {% render_field field class+='form-check-input fl-cb-lg oi oi-check' %}{{ field.label_tag }}
+    </div>
+  {% else %}
+    <div class="form-group">
+      {{ field.label_tag }}
+      {% if form.is_bound %}
+        {% if field.errors %}
+          {% if field|widget_type|slice:"-9:" == 'fileinput' %}
+            {% render_field field class+='form-control-file is-invalid flowka  fl-text-white' %}
+          {% else %}
+            {% render_field field class+='form-control  tooltipis-invalid' %}
+          {% endif %}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% if field|widget_type|slice:"-9:"  == 'fileinput' %}
+            {% render_field field class+='form-control-file is-valid flowka fl-text-white' %}
+          {% else %}
+            {% render_field field class+='form-control is-valid ' %}
+          {% endif %}
+        {% endif %}
+      {% else %}
+          {% if field|widget_type|slice:"-9:" == 'fileinput' %}
+            {% render_field field class+='form-control-file flowka fl-text-white' %}
+          {% else %}
+            {% render_field field class+='form-control ' %}
+          {% endif %}
+      {% endif %}
+      {% if field.help_text and not nohelp %}
+        <div class="fl-tooltip">{% autoescape off %}{{ field.help_text }}{% endautoescape %}</div>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endfor %}

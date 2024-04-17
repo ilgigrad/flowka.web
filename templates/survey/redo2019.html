@@ -1,0 +1,40 @@
+{% extends 'survey/survey_base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %} Flowka - {% trans 'survey 2019' %}{% endblock headtitle %}
+
+{% block lside %}
+  {% block folder %}
+  {% endblock folder %}
+{% endblock lside %}
+
+{% block main %}
+      {% block content %}
+      <div class="fl-frame fl-medium h-100 mx-auto my-1 my-2 d-flex flex-column justify-content-center">
+        <h1 class="flowka fl-txt-prune text-uppercase">welcome back !</h1>
+        <p class="flowka"> {% trans 'You have already complete this survey' %}</p>
+        <p class="flowka"> {% trans 'would you like to fill it again ?' %}</p>
+        <div class="d-inline-block">
+          <a href="{% url next %}" class="flowka btn">{% trans 'yes !' %}</a>
+          <a href="{% url 'home:home' %}" class="flowka btn fl-bg-peach fl-bd-peach fl-bg-hov-sadsea fl-bd-hov-sadsea">{% trans 'discard' %}</a>
+        </div>
+      </div>
+      {% endblock content %}
+
+{% endblock main %}
+{% block rside %}
+    {% block messages %}
+      {% include 'message/message.html'%}
+    {% endblock messages %}
+{% endblock rside %}
+
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+{% endblock js %}

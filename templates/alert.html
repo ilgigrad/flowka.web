@@ -1,0 +1,12 @@
+
+{% load i18n %}
+{% load static %}
+{% if alerts %}
+  <!--<ul class="list-group flowka fl-bg-white fl-bd-prune py-0 w-100 fl-bg-light">-->
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content=
+    {% for alert in alerts %}
+      <!--<li class="list-group-item fl-invalid fl-txt-sm text-left px-1">{{ warning }}</li>-->
+      {{ alert }}
+    {% endfor %}<!-- warning -->
+>Click to toggle popover</button>
+{% endif %}<!-- alerts -->

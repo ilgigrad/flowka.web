@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block headtitle %} Flowka - {% trans 'Contact' %}{% endblock headtitle %}
+
+{% block main %}
+<div class="fl-frame w-50 px-0 py-3 my-3 fl-npd">
+
+    <h4 class="text-uppercase text-center">{% trans 'Contact Flowka' %}</h4>
+    <form method="post" action="." class="" novalidate>
+        {% csrf_token %}
+        {% include 'inputbs4.html' with form=form %}
+        <input class="btn btn-lg flowka btn-block" type="submit" value="{% trans 'send message' %}" />
+    </form>   
+</div>
+{% endblock main %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+{% endblock js %}

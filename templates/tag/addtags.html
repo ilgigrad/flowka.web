@@ -1,0 +1,16 @@
+
+{% load i18n %}
+<div class="d-flex flex-row flex-start"">
+  <form method="post"  class="fl-bd-prune p-0 fl-w-150 mr-0 fl-h38rd3003" id="id_tagaddform"
+    action="{% url 'filer:file_addtags' folderid=folderid uid=uid next=next %}">
+    {% csrf_token %}
+    <div id="id_tags" class="fl-nolabel w-100" style="border-radius:3px 0 0 3px;position:relative; top:4px;">
+      {{ tagadd_form.as_table }}
+      <input type="hidden" name="fileList" value="" >
+    </div>
+  </form>
+  <button class="btn flowka disabled ml-0" style="border-radius:0 3px 3px 0; height:38px" type="submit"
+    name="addtag" id="id_addtag-button" onClick="submitForm('id_tagaddform');">
+    <i class="far fa-tags"></i>
+  </button>
+</div>

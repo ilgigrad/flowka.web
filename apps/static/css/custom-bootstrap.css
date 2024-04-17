@@ -1,0 +1,41 @@
+@import url("custom-base.css");
+
+/* change behavior of bootstrap composants*/
+
+input.is-invalid {
+    border-color : var(--fl-blood)!important;
+}
+
+div.invalid-feedback {
+    display:inherit!important;
+}
+
+.form-group label{display:inline-block;}
+
+
+
+.form-control{
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+.btn{ border-radius:3px; }
+
+.disabled {
+  pointer-events: none;  /**<-----------*/
+  opacity: 0.2;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  display: none!important;
+  left:100%;
+  bottom:-50px;
+  margin-top: -6px
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block!important;
+}

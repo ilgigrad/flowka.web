@@ -1,0 +1,96 @@
+{% extends 'datacollect/dc_base.html' %}
+{% load i18n %}
+{% load l10n %}
+{% load static %}
+{% load core_filters %}
+
+{% block headtitle %} Flowka - {% trans 'data edit' %}{% endblock headtitle %}
+
+    {% block folder %}
+    {% endblock folder %}
+
+        {% block content %}
+
+        <div name="dashboard" class="fl-table fl-h-550 fl-clean-dash" id="id_{{file.uid}}_dashboard" onmouseout="enlight();">
+
+          <div  id="id_thead" class="fl-thead fl-h-25">
+          {% for head in heads %}
+            {% if column == 'col' and not head.index %}
+                <div name="col-{{head.id|unlocalize}}" class="fl-th fl-w-{% widthratio head.width 1 10 %} py-1 fl-txt-sm col-head fl-pointer {% if head.drop %}col-drop{% elif head.target %}col-target{% endif %}"
+                  onclick="clickColumn('{{SITE_URL}}{{columnURL}}','{{file.uid}}',{{head.id|unlocalize}});"
+                  onmouseover="enlight(this);">
+              {% else %}
+                <div class="fl-th fl-w-{% widthratio head.width 1 10 %} py-1 fl-txt-sm" >
+            {% endif %}
+              {{ head.head}}
+            {% if head.desc %}  <span class="fl-tooltip fl-maxw-250"><strong class="fl-txt-prune fl-txt-bold text-uppercase">{{head.head}} : </strong>{{ head.desc }}</span> {% endif %}
+            </div><!--fl-th-->
+          {% endfor %}
+          <!--include 'datacollect/column_rest.html'-->
+          </div><!--fl-head-->
+          <div class="fl-tbody fl-scroll-thin" style="height:520px"  onscroll="scrollHeader(this,'id_thead');"><!--fl-body-->
+          {% if column == 'row' %}
+            {% for row,col in values|zip:cols %}
+                <div class="fl-tr fl-overflow-x-visible fl-striped"
+                  onclick="clickColumn('{{SITE_URL}}{{columnURL}}','{{file.uid}}',{{col.id|unlocalize}});" >
+                {% for data,head in row|zip:heads %}
+                    <div name="col-{{col.id|unlocalize}}" class="fl-td fl-w-{% widthratio head.width 1 10 %} fl-txt-12 {% if forloop.first %}col-first{% endif %} {% if col.drop %}col-drop{% elif col.target %}col-target{% endif %} py-1 pr-0 pl-2"
+                      onmouseover="enlight(this);">
+                      {% if data %}
+                        <span class="d-inline-block py-0 pl-2
+                          {% if head.head == 'nan' and col.nans_alert %} fl-meta-alert
+                          {% elif head.head == 'valid' and col.invalid_alert %} fl-meta-alert
+                          {% elif head.head == 'distinct' and col.id_alert %} fl-meta-alert
+                          {% endif %}">
+                          {{ data|truncatechars:head.width }}
+                        </span>
+                      {% else %} <span class='w-100 text-center'>-</span> {% endif %}
+                      {% if data|length > head.width %} <span class="fl-tooltip" style="margin-top:-20px;">{{ data }}</span> {% endif %}
+                    </div><!--fl-td-->
+                {% endfor %}
+              </div><!--fl-tr-->
+            {% endfor %}
+          {% else %}
+            {% for row in values %}
+              <div class="fl-tr fl-overflow-x-visible fl-striped">
+                {% for data, head in row|zip:heads %}
+                  <div name="col-{{head.id|unlocalize}}" class="fl-td fl-w-{% widthratio head.width 1 10 %} fl-txt-12 {% if head.drop %}col-drop{% elif head.target %}col-target{% endif %}"
+                       onmouseover="enlight(this);"
+                       onclick="clickColumn('{{SITE_URL}}{{columnURL}}','{{file.uid}}',{{head.id|unlocalize}});">
+                      {% if data %} <span style="display:inline-block">{{ data|truncatechars:head.width }}</span>
+                        {% if data|length > head.width %} <span class="fl-tooltip" style="margin-top:-20px;">{{ data }}</span> {% endif %}
+                      {% else %} <span class='w-100 text-center'>-</span>{% endif %}
+                  </div><!--fl-td-->
+                {% endfor %}
+              </div><!--fl-tr-->
+            {% endfor %}
+          {% endif %}1
+          <div class="fl-tr fl-h-30"></div>
+        </div><!--fl-thead-->
+        <div id="id_{{file.uid}}_container"></div>
+      </div><!--fl-table dashboard-->
+        {% endblock content %}
+
+        {% block addtags %}
+        {% endblock addtags %}
+
+        {% block actionelement %}
+        {% endblock actionelement %}
+
+        {% block newelement %}
+        {% endblock newelement %}
+
+        {% block messages %}
+          {{ block.super }}
+        {% endblock messages %}
+
+        {% block css %}
+        {{ block.super}}
+        {% endblock css %}
+
+        {% block js %}
+          <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+          <script type="text/javascript" src="{% static 'js/oXHR.js' %}"></script>
+          <script type="text/javascript" src="{% static 'js/templates/datacollect/data_edit.js' %}"></script>
+          {{ block.super }}
+        {% endblock js %}

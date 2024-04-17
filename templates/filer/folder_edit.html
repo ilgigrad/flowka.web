@@ -1,0 +1,57 @@
+{% load i18n %}
+{% load static %}
+<div class="w-100 fl-h-40 my-0 mx-auto nav-item dropright">
+  {% if  folders.current.can_edit != 'disabled' %}
+    <div class="w-100 fl-txt-white fl-txt-hov-sadsea pt-2 fl-maxh-50 fl-overflow-ellipsis fl-pointer"
+    data-toggle="modal"
+    data-target="#id_editproject">
+  {% else %}
+    <div class="fl-txt-light pt-2 fl-maxh-50 w-100 fl-overflow-ellipsis fl-txt-light ">
+  {% endif %}
+      <i class="float-left fas fa-th fl-txt-sm ml-0 fl-px-5 fl-py-6"></i>
+      <span class="text-center text-uppercase text-truncate">{{folders.current.name}}</span>
+    </div>
+    <div class="modal fade fl-bd-prune" id="id_editproject" role="dialog" style="z-index:2500;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" id="id_postsclose" class="close fl-txt-blood fl-txt-hov-sadsea px-1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title flowka fl-upc text-center w-100 fl-txt-prune">{% trans 'EDIT PROJECT' %}</h4>
+         </div><!--modal-header-->
+         <div class="modal-body">
+           <form method="post" action="{% url 'filer:folder_create' folderid=folders.current.id uid=folders.current.uid next=next%}" id="id_editproject_form">
+             {% csrf_token %}
+             <div class="form-group">
+                 <input type="name" class="form-control flowka" name="name" id="id_editproject_name"
+                        placeholder="{% trans 'new project\'s title' %}"
+                        value="{{folders.current.name}}">
+
+             </div><!--form-group-->
+             <div class="form-group">
+               <textarea name="description" id="id_editproject_description" onkeyup="textCount(this);"
+               maxlength="500" rows="8"
+               class="form-control flowka"
+               placeholder="{% trans 'type a short description' %}">
+               {{folders.current.description}}</textarea>
+             </div><!--form-group-->
+           </form>
+         </div><!--modal-body-->
+         <div class="modal-footer">
+           <button type="submit" class="btn flowka" onclick="submitForm('id_editproject_form');">{% trans 'save' %}</button>
+           {% if folders.current.can_delete %}
+             <a type="button" class="btn flowka mr-1 fl-bg-blood fl-bd-blood"
+                 href="{% url 'filer:folder_delete' folderid=folders.current.id uid=folders.current.uid next=next%}">
+                 {% trans 'delete project' %}
+             </a>
+           {% else %}
+              <button type="submit" class="btn flowka disable mr-1" disable="true">
+              {% trans 'delete project' %}
+            </button>
+           {% endif %}
+           <button type="button" class="btn flowka fl-bg-gray fl-bd-gray" data-dismiss="modal" aria-label="Close">{% trans 'cancel' %}</button>
+         </div><!--modal-footer-->
+       </div><!--modal-content-->
+     </div><!--modal-dialog-->
+    </div><!--modal-->
+
+</div>

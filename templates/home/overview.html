@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block headtitle %} Flowka - {% trans 'overview' %}{% endblock headtitle %}
+
+{% block main %}
+<div class="d-flex flex-column fl-w-600 mx-auto fl-txt-sm" id="view_privacy">
+
+
+  <h1 class="fl-txt-prune fl-txt-lg text-uppercase text-center">
+  {% trans 'OVERVIEW...' %}
+  </h1>
+  <p class="fl-txt-gray px-2  text-justify ">
+    <span class="fl-txt-bold fl-txt-apricot">FLOWKA</span> is a retail-skilled and data science startup company that provides keys for the growth of your revenue.
+    <br>
+    Deep neural network and high dimensional regressors for data analysis, classification and prediction.
+    <br>
+    Our algorithms are optimized for retail and fashion but are suitable for most sectors:
+    <br>
+    Assortment proposal, stock level prediction and replenishment optimization.
+    <p>
+
+    <p class="fl-txt-gray px-2  text-justify ">
+    <span class="fl-txt-bold fl-txt-apricot">FLOWKA</span> is also compatible with many other datasets.
+    <br>
+    From <span class="fl-txtx-bold fl-txt-peach">industry</span> to <span class="fl-txtx-bold fl-txt-peach">sport</span>, <span class="fl-txtx-bold fl-txt-peach">human ressources</span>, <span class="fl-txtx-bold fl-txt-peach">transportation</span>, <span class="fl-txtx-bold fl-txt-peach">healthcare</span> and all kind of <span class="fl-txtx-bold fl-txt-peach">sciences</span>.
+    <br>
+    If you hold data and want to make some predictions or classifications, <span class="fl-txt-bold fl-txt-apricot">FLOWKA</span> can help you whenever you do not have any mathematical or statistical background.
+    <p>
+    <img class="img-fluid" src="{% static 'pictures/pipeline.png' %}">
+    <div class="w-100">
+      <a href="{% url 'survey:survey'%}" class="flowka btn btn-block">{% trans 'fill our survey' %}</a>
+    </div>
+  </div>
+
+{% endblock main %}

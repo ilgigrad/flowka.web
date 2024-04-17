@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block headtitle %} Flowka - {% trans 'Sign up' %}{% endblock headtitle %}
+
+{% block main %}
+<div class="fl-bloc">
+    <img src="{% static 'pictures/flowka-signup.jpg' %}" class="fl-account-img">
+    <div class="fl-frame fl-small">
+        <h4 class="text-uppercase text-center">{% trans 'CREATE NEW ACCOUNT' %}</h4>
+        <form method="post" action="." class="w-100" id="id_PasswordForm" novalidate onkeyup="okPassword();">
+            {% csrf_token %}
+            {% include 'inputbs4.html' with form=form %}
+            <div class="progress w-100 my-2" style="position:relative;bottom:10px;height:15px">
+              <div id="id_progress_bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <input id="id_submitPasswordForm" class="btn btn-lg fl-bg-light fl-txt-white btn-block" disabled type="submit" value="{% trans 'Sign Up' %}" />
+        </form>
+        <p class="d-inline-block align-text-bottom fl-txt-prune fl-txt-sm mb-0 ">{% trans 'you are already a Flowka user ?' %}
+            <a class ="btn btn-outline flowka fl-nobd"href="{% url 'account:login' %}">{% trans 'LOGIN' %}
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock main %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+{% endblock js %}

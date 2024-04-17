@@ -1,0 +1,102 @@
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+  <div id="id_{{uid}}_{{columnid}}_column" class="modal fade fl-bd-prune fl-w-600 fl-z2000 fl-scroll-thin"
+    role="dialog" style="margin-left:300px;margin-top:50px;" name="{{columnid}}" data-class="innerModal">
+    <div id="id_{{uid}}_{{columnid}}_dialog" class="modal-dialog mr-5" role="document">
+      <div id="id_{{uid}}_{{columnid}}_content" class="modal-content">
+        <div id="id_{{uid}}_{{columnid}}_header" class="modal-header">
+          <button type="button" id="id_{{uid}}_{{columnid}}_close"
+          class="close px-1"
+          data-dismiss="modal"
+          aria-label="Close"
+          onclick="closeColumn('id_{{uid}}_{{columnid}}_column');">
+            <i class="fal fa-times fl-icon fl-txt-blood fl-txt-hov-sadsea"></i>
+          <!--close--></button>
+          <h4 id="id_{{uid}}_{{columnid}}_title"
+            class="modal-title flowka fl-upc text-center w-100 fl-txt-prune">
+            {%trans 'edit' %} {{rename}}
+          <!--title--></h4>
+        <!--header--></div>
+        <div id="id_{{uid}}_{{columnid}}_body" class="modal-body">
+          <div id="id_{{uid}}_{{columnid}}_help"
+            class="border px-2 py-1 fl-txt-grey w-100 fl-h-50 lf-txt-md font-weight-bold">
+            <span class="fl-txt-electric" id="id_help_bar_title"></span>
+            <span class="fl-txt-gray" id="id_help_bar_details"></span>
+          <!--help--></div>
+          <form method="post" action="" id="id_{{uid}}_{{columnid}}_form" onmouseout="helpbar();">
+            {% csrf_token %}
+            <ul id="id_{{uid}}_{{columnid}}_list" class="list-group flowka">
+              {% for field in columnform.visible_fields  %}
+              <li id="id_{{uid}}_{{columnid}}_{{field.name}}_item"
+                class="pl-0 mt-2">
+
+                {% if field.field.widget.input_type == 'select' %}
+                  <div class="flowka pt-2 fl-txt-prune mb-1">
+                    <label class="mr-2" onmouseover="helpbar('{{field.label}}','{{field.help_text}}');">{{field.name|title}}</label>
+                    <select name="{{field.name}}" id="id_{{uid}}_{{columnid}}_{{field.name}}"
+                        value={{field.value}}
+                        class="form-control flowka p-2 my-3"
+                        onmouseover="helpbar('{{field.label}}','{{field.help_text}}');"
+                        onchange="select(this);">
+                      {% for value,label in field.field.widget.choices %}
+                          <option {% if field.value|floatformat == value|floatformat %} selected {%endif%} value={{value}}>{{label}}</option>
+                      {%endfor%}
+                    </select>
+                  </div>
+                {% elif field.field.widget.input_type == 'radio' %}
+                    <div class="flowka pt-2 fl-txt-prune mb-1">
+                      <label class="mr-2" onmouseover="helpbar('{{field.label}}','{{field.help_text}}');">{{field.name|title}}</label>
+                      {% for value,label,desc,help,hasSubURL,subURL in field.field.widget.attrs.choices %}
+                        <button type="button" name="{{field.name}}" id="id_{{uid}}_{{columnid}}_{{field.name}}_{{value}}"
+                          class="btn flowka text-capitalize p-1 mr-1 fl-altern-lightprune-prune {% if field.value == value %}fl-selected fl-{{hasSubURL}}{%endif%}"
+                          onclick="boolToggle(this,true);clickSubColumn(this,'{% if hasSubURL %}{{SITE_URL}}{{subURL}}{% endif %}','{{uid}}',{{columnid}},'{{field.name}}');"
+                          onmouseover="helpbar('{{desc}}','{{help}}');" value="{{value}}">
+                          {{label}}
+                        </button>
+                      {%endfor%}
+                    </div>
+
+                {% elif field.field.widget.input_type == 'text' %}
+                  <input type="text" class="form-control fl-bg-light fl-bg-hov-rose fl-txt-md"
+                    id="id_{{uid}}_{{columnid}}_{{field.name}}_text"
+                    placeholder="{{field.help_text}}"
+                    onmouseover="helpbar('{{field.label}}','{{field.help_text}}');"
+                    value="{{field.value}}" name="{{field.name}}"/>
+                {%elif  field.field.widget.input_type == 'checkbox' %}
+                  <button type="button" name="{{field.name}}" id="id_{{uid}}_{{columnid}}_{{field.name}}"
+                    class="btn btn-block flowka fl-h-35 fl-txt-lg {% if field.value %}fl-selected{%endif%}"
+                    onclick="boolToggle(this);"
+                    onmouseover="helpbar('{{field.label}}','{{field.help_text}}');" value="{{field.value}}">
+                    {{field.label}}
+                  </button>
+                {%else%}
+                {%endif%}
+              <!--item--></li>
+              {%endfor %}
+              {% for hidden in columnform.hidden_fields  %}
+                <input type="hidden"
+                  id="id_{{uid}}_{{columnid}}_{{hidden.name}}_input"
+                  value="{{hidden.value}}" name="{{hidden.name}}"/>
+              {%endfor %}
+            <!--list--></ul>
+          <!--form--></form>
+        <!--body--></div>
+        <div id="id_{{uid}}_{{columnid}}_footer" class="modal-footer">
+          <button type="button" id="id_{{uid}}_{{columnid}}_cancel"
+            data-dismiss="modal"
+            aria-label="Close"
+            class="btn flowka fl-bg-gray fl-bd-gray"
+            onclick="closeColumn('id_{{uid}}_{{columnid}}_column');">
+            {% trans 'cancel' %}
+          <!--cancel--></button>
+          <button type="button" id="id_{{uid}}_{{columnid}}_save"
+            class="btn flowka"
+            onclick="sendColumn('{{SITE_URL}}{{restColumnURL}}','{{uid}}',{{columnid}});">{% trans 'save' %}
+          <!--save--></button>
+        <!--footer--></div>
+      <!--content--></div>
+    <!--dialog--></div>
+  <!--column--></div>
+{% endblock content %}

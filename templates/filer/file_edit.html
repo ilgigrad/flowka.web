@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load static %}
+
+<div class="fl-bd-prune w-100 p-1 h-100">
+  <form method="post" class=" d-flex flex-column justify-content-between h-100"
+  action="{% url next uid=file.uid next=prec %}" >
+      {% csrf_token %}
+    <div id="id_tags" class="fl-noth w-100">
+      <p>
+        <input type="text" name="name" value="{{ file.name }}"
+          placeholder="{% trans 'set a title for the file...' %}" id="id_file_name" maxlength="100" class="w-100" required="true">
+      </p>
+      <p>
+        <input type="checkbox" name="is_favorite" id="id_file_favorite" class="fl-crown" {% if file.is_favorite %}checked="checked"{% endif %}>
+        <label class="mx-auto" for="id_file_favorite">{% trans 'crowned' %}</label>
+      </p>
+      <p>
+        <textarea name="description"  id="id_file_description" placeholder="{% trans 'Describe the file content...' %}"
+          class="w-100 fl-txt-gray fl-bg-light fl-bg-hov-gray fl-txt-hov-white fl-txt-sm fl-maxh-200 fl-minh-200 fl-placeholder-hov-electric"
+          cols="40" rows="8" maxlength="1000"
+          onkeyup="textCount(this);">{% if file.description %}{{file.description}}{% endif %}</textarea>
+      </p>
+      <div class="fl-maxh-200 fl-minh-100">
+      {{ subjects_form.as_p }}
+      </div>
+    </div>
+    <button type="submit" class="btn flowka  btn-block">{% trans 'save change' %}</button>
+  </form>
+</div>

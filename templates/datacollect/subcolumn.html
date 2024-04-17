@@ -1,0 +1,56 @@
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div id="id_{{uid}}_{{columnid}}_{{subkey}}_subform" data-class="innerModal"
+  refer="id_{{uid}}_{{columnid}}_{{refer}}_input"
+  class="mx-auto my-2 p-2 fl-bg-gray fl-bd-light border rounded fl-z2500"
+  onmouseout="helpbar();">
+
+  {% for field in subform.visible_fields  %}
+    {% if field.field.widget.input_type == 'select' %}
+      <select name="{{field.name}}" id="id_{{uid}}_{{columnid}}_{{subkey}}_{{field.name}}"
+        value={{field.value}}
+        class="form-control flowka p-2 my-3"
+        onmouseover="helpbar('{{field.label}}','{{field.help_text}}');"
+        onchange="select(this);">
+        {% for value,label in field.field.widget.choices %}
+
+          <option {% if field.value|floatformat == value|floatformat %} selected {%endif%} value={{value}}>{{label}}</option>
+
+        {%endfor%}
+      </select>
+    {% elif field.field.widget.input_type == 'text' %}
+      {% if field.field.widget.attrs.datatype == 'list' %}
+
+      {% else %}
+        <input type="text" class="form-control flowka fl-bg-light fl-txt-md p-2 my-3"
+          name="{{field.name}}" id="id_{{uid}}_{{columnid}}_{{subkey}}_{{field.name}}"
+          placeholder="{{field.help_text}}"
+          onmouseover="helpbar('{{field.label}}','{{field.help_text}}');"
+          value="{{field.value}}"/>
+      {% endif %}
+    {%elif  field.field.widget.input_type == 'checkbox' %}
+      {%if field.field.widget.choices|length > 1 %}
+         {% for choice,label in field.field.widget.choices %}
+          <button type="button" name="{{field.name}}" id="id_{{uid}}_{{columnid}}_{{subkey}}_{{field.name}}_{{choice}}"
+            class="btn flowka fl-bg-light text-capitalize p-1 fl-m-3 {% if choice in field.value %}fl-selected{%endif%}"
+            onclick="boolToggle(this);" onmouseover="helpbar('{{choice.label}}','{{field.help_text}}');"
+            value={{choice}}>
+          {{label}}
+          </button>
+        {% endfor %}
+      {%else%}
+        <button type="button" name="{{field.name}}" id="id_{{uid}}_{{columnid}}_{{subkey}}_{{field.name}}"
+          class="btn flowka fl-bg-light text-capitalize p-1 fl-m-3 {% if field.value %}fl-selected{%endif%}"
+          onclick="boolToggle(this)" onmouseover="helpbar('{{field.label}}','{{field.help_text}}');"
+          value={{field.value}}>
+          {{field.label}}
+        </button>
+      {%endif%}
+    {%else%}
+    {%endif%}
+  {%endfor %}
+<!--form--></div>
+{% endblock content %}

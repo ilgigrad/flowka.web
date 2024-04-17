@@ -1,0 +1,99 @@
+{% load i18n %}
+
+<div class="d-flex flex-column justify-content-start justify-content-md-between align-content-start h-100 w-100">
+  <div class="d-flex justify-content-start flex-column">
+  {% block editfolder %}
+      {% include 'filer/folder_edit.html' with folders=folders next=next%}
+  {% endblock editfolder %}
+
+  <ul class="px-1 mt-1 w-100 fl-nostyle d-block fl-overflow-y-scroll fl-scroll-thin fl-scroll-rose fl-scroll-transparent fl-h-340">
+
+
+    {% if folders.parent %}
+      <li>
+        <a
+          href="{% url 'filer:file_list' folderid=folders.parent.id uid=folders.parent.uid next=next %}"
+          class= "fl-bg-transparent flowka fl-bg-hov-sadsea w-100 border p-1 text-center mt-3 mb-1 py-1 d-block text-truncate"
+          style= "color:{{folders.parent.color}};border-color:{{folders.parent.color}};">
+          <i class="float-left {{folders.parent.icon}} fl-txt-sm my-1"></i>
+          {{folders.parent.name}}
+        </a>
+      </li>
+    {% endif %}
+
+    {% for folder in folders.childs %}
+      <li>
+        <a
+          href="{% url 'filer:file_list' folderid=folder.id uid=folder.uid next=next %}"
+          class= "fl-bg-transparent flowka fl-bg-hov-sadsea w-100 border p-1 text-center my-2 py-1 d-block text-truncate"
+          style= "color:{{folder.color}};border-color:{{folder.color}};">
+          <i class="float-left {{folder.icon}} fl-txt-sm my-1"></i>
+          {{folder.name}}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  </div>
+  <ul class="px-1 mt-3 mb-2 w-100 fl-nostyle d-block">
+    {% for folder in folders.roots %}
+      <li>
+        <a
+          href="{% url 'filer:file_list' folderid=folder.id uid=folder.uid next=next %}"
+          class= "fl-bg-transparent flowka fl-bg-hov-sadsea  w-100 border p-1 text-center text-truncate my-2 py-1  d-block"
+          style= "color:{{folder.color}};border-color:{{folder.color}};">
+          <i class="float-left {{folder.icon}} fl-txt-sm my-1"></i>
+          {{folder.name}}
+        </a>
+      </li>
+    {% endfor %}
+
+    <li>
+      {% if  folders.current.can_add != 'disabled' %}
+          <div
+              class="w-100 d-flex justify-content-center"
+            data-toggle="modal"
+            data-target="#id_newproject">
+              <i class="fas fa-plus-circle flowka  fl-txt-apricot
+                    fl-txt-hov-sadsea" disabled = "True" style="font-size:40px;"></i>
+          </div>
+
+        <div class="modal fade fl-bd-prune" id="id_newproject" role="dialog" style="z-index:2500;">
+             <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <button type="button" id="id_postsclose" class="close fl-txt-blood fl-txt-hov-sadsea px-1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   <h4 class="modal-title flowka fl-upc text-center w-100 fl-txt-prune">{% trans 'NEW PROJECT' %}</h4>
+                </div><!--modal-header-->
+                <div class="modal-body">
+                  <form method="post" action="{% url 'filer:folder_create' folderid=folders.current.id uid=folders.current.uid next=next%}" id="id_newproject_form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="name" class="form-control flowka" name="name" id="id_newproject_name" placeholder="{% trans 'new project\'s title' %}">
+
+                    </div><!--form-group-->
+                    <div class="form-group">
+                      <textarea name="description" id="id_newproject_description"
+                      onkeyup="textCount(this);"
+                      maxlength="500" rows="8"
+                      class="form-control flowka"  placeholder="{% trans 'type a short description' %}"></textarea>
+                    </div><!--form-group-->
+                  </form>
+                </div><!--modal-body-->
+                <div class="modal-footer">
+                  <button type="submit" class="btn flowka" onclick="submitForm('id_newproject_form');">{% trans 'create project' %}</button>
+                  <button type="button" class="btn flowka fl-bg-gray fl-bd-gray" data-dismiss="modal" aria-label="Close">{% trans 'cancel' %}</button>
+                </div><!--modal-footer-->
+              </div><!--modal-content-->
+            </div><!--modal-dialog-->
+          </div><!--modal-->
+      {% else %}
+          <div
+            class="w-100 d-flex justify-content-center"
+            disabled="true">
+            <i class="fas fa-plus-circle flowka fl-txt-apricot disabled"
+            disabled = "True" style="font-size:40px"></i>
+          </div>
+      {% endif %}
+    </li>
+  </ul>
+</div>

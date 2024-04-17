@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block headtitle %}{% trans 'thanks for buying{% endblock headtitle %}
+
+{% block main %}
+<div class="container">
+    <h1 class="display-4 text-center fl-txt-prune">{% trans 'Thanks for buying</h1>
+    <div class="row  d-flex flex-column justify-content-end align-items-center">
+    {% if fee|length_is:"0" or contact|length_is:'0' %}
+        <div class="text-center fl-txt-blood">
+            {% trans 'Something wrong occured !
+        </div>
+    {% else %}
+        <div class="mt-5 p-2 col-8 col-md-6">
+            <p class="lead "> {% if update %} {% blocktrans with name=contact.firstname %} congratulation {{name}} for updating to {% endblocktrans %}
+                              {% else %} {% blocktrans with name=contact.firstname %} congratulation {{name}} for buying {% endblocktrans %} 
+                              {% endif %} 
+                              <b class="text-capitalize">Flowka {{ fee.label}}</b><p>
+        </div>
+    {% endif %}
+    </div>
+</div>
+{% endblock main %}

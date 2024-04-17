@@ -1,0 +1,280 @@
+{% extends 'survey/survey_base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %} Flowka - {% trans 'survey 2019' %}{% endblock headtitle %}
+
+
+{% block main %}
+      <div class="d-flex flex-column justify-content-center align-content-center mx-5">
+        {% if previous %}
+        <a href="{% url 'survey:survey2019' page=previous uid=uid %}"><i class="fal fa-angle-left fl-txt-gray fl-txt-hov-sadsea " style="font-size:60px;"></i></a>
+        {% else %}
+        <a href="#"><i class="fal fa-angle-left fl-txt-gray fl-txt-hov-sadsea disabled" disabled style="font-size:60px;"></i></a>
+        {% endif %}
+      </div>
+      {% block content %}
+
+      <form method="post" class="fl-w-700 my-1 d-flex flex-column justify-content-between"
+      action="{% url 'survey:survey2019' page=page uid=uid %}" >
+        <h2 class="flowka fl-txt-prune text-uppercase text-center ">{{ title }}</h2>
+          {% csrf_token %}
+          {% for field in fillform.visible_fields  %}
+
+          <div class="form-group fl-survey">
+            {% if field.field.widget.input_type == 'radio'  %}
+              <div class="flowka fl-txt-prune fl-txt-lg"><label class=" fl-help mb-1"><span class="font-weight-bold pr-2">{{forloop.counter}}.</span>{{field.label}}</label>
+                <div class="form-check form-check-inline">
+                {% for value,option in field.field.widget.choices %}
+                  <input class="form-check-input ml-1 fl-pointer" type="radio" name="{{field.name}}" id="id_{{field.name}}_{{forloop.counter}}" value="{{value}}" {% if field.value == value %} checked {% endif %}>
+                  <label class="form-check-label fl-txt-gray mr-1 fl-txt-sm fl-h-100 fl-w-110 border rounded p-1 fl-bg-electric fl-txt-white fl-bg-hov-anis fl-txt-hov-prune"
+                      for="id_{{field.name}}_{{forloop.counter}}">{{option}}</label>
+                {% endfor %}
+                </div>
+              </div>
+            {% elif field.field.widget.input_type == 'select' %}
+              <label class= "flowka fl-txt-prune fl-txt-lg  fl-help" for="id_{{field.name}}"><span class="font-weight-bold pr-2">{{forloop.counter}}.</span>{{field.label}}</label>
+              <select class="form-control custom-select fl-txt-md" name="{{field.name}}" id="id_{{field.name}}" {% if field.name in "roleactivitytype" %}onchange="other(this);"{% endif %}>
+                {% for value,option in field.field.choices %}
+                  <option class="fl-txt-gray" value="{{ value }}"
+                    {% if field.value == value %} selected {% endif %}>
+                    <!--{% if forloop.counter0 > 0 %}{{forloop.counter0|stringformat:"02d"}}. {% endif %}-->
+                    {{ option }}
+                  </option>
+                {% endfor %}
+              </select>
+            {% elif field.field.widget.input_type == 'checkbox'  %}
+                <div class="d-flex flex-row justify-content-start align-content-start">
+                  <span class="flowka fl-txt-prune fl-txt-lg font-weight-bold pr-2">{{forloop.counter}}.</span>
+                  <input type="checkbox" name="{{field.name}}" id="id_{{field.name}}" class="form-check-input fl-cb-lg oi oi-check mt-1 ml-1" {% if field.value %} checked {% endif %}>
+                  <label class= "flowka fl-txt-prune fl-txt-lg d-block  pt-0  fl-help" for="id_{{field.name}}">{{field.label}}</label>
+                </div>
+            {% elif field.field.widget.input_type == 'range'  %}
+              <label class= "flowka fl-txt-prune fl-txt-lg fl-help" for="id_{{field.name}}"><span class="font-weight-bold pr-2">{{forloop.counter}}.</span>{{field.label}}</label>
+              <div class="d-flex flex-row">
+                <input type="range" name="{{field.name}}"
+                  class="form-control-range fl-w-300 mt-3"
+                  id="id_{{field.name}}"
+                  oninput="showValue(this);"
+                  min="{{field.field.widget.attrs.min}}"
+                  max="{{field.field.widget.attrs.max}}"
+                  step="{{field.field.widget.attrs.step}}"/>
+                <p id="id_{{field.name}}_value" class= "flowka fl-txt-prune fl-txt-lg d-block  mt-1 ml-3 fl-bd-prune border rounded  py-1 px-1 fl-minw-60 text-center">{{field.value}}</p>
+              </div>
+            {% elif field.field.widget.input_type == 'rating'  %}
+              <label class= "flowka fl-txt-prune fl-txt-lg  fl-help" for="id_{{field.name}}"><span class="font-weight-bold pr-2">{{forloop.counter}}.</span>{{field.label}}</label>
+              <p class="flowka fl-txt-20 fl-pointer fl-mb-7 fl-rating" >
+                <i class="fal fa-circle fl-txt-prune fl-rating-star" rating="1" ></i>
+                <i class="fal fa-circle fl-txt-prune fl-rating-star" rating="2" ></i>
+                <i class="fal fa-circle fl-txt-prune fl-rating-star" rating="3" ></i>
+                <i class="fal fa-circle fl-txt-prune fl-rating-star" rating="4" ></i>
+                <input type="hidden" name="{{field.name}}" id="id_{{field.name}}" value="{{ field.value }}">
+              </p>
+
+            {% elif field.field.widget.input_type == 'email'  %}
+              <label class= "flowka fl-txt-prune fl-txt-lg  fl-help" for="id_{{field.name}}">{{field.label}}</label>
+              <input type="email" name="{{field.name}}" class="form-control  fl-txt-md" id="id_{{field.name}}" aria-describedby="emailHelp" placeholder="{{ field.field.widget.attrs.placeholder|lower|capfirst }}">
+              <small id="emailHelp" class="form-text text-muted flowka">{{field.help_text}}</small>
+
+            {% elif 'keys' in field.name %}
+              <label class= "flowka fl-txt-prune fl-txt-lg fl-help" for="id_{{field.name}}"><span class="font-weight-bold pr-2">{{forloop.counter}}.</span>{{field.label}}</label>
+              {% if 'private' in field.name %}<div class="fl-maxh-50 fl-tagulous">{% else %}<div class="fl-maxh-150 fl-tagulous">{% endif %}
+                {% render_field field %}
+              </div>
+
+            {% elif field.field.widget.attrs.type == 'textarea'  %}
+              <label class= "flowka fl-txt-prune fl-txt-lg  fl-help" for="id_{{field.name}}"><span class="font-weight-bold pr-2">{{forloop.counter}}.</span>{{field.label}}</label>
+              {% render_field field %}
+            {% elif '_other' in field.name  %}
+              <input type="text" class="form-control fl-bg-light fl-bg-hov-rose fl-txt-md d-none" name="{{field.name}}" id="id_{{field.name}}" placeholder="{{ field.label|capfirst }}"></input>
+            {% endif %}
+            {% if field.help_text %}
+              <div class="fl-label-tooltip fl-txt-prune fl-bg-apricot fl-maxw-400">
+                {{ field.help_text }}
+              </div>
+            {% endif %}
+            {% if field.errors %}
+              <ul class="flowka">
+                {% for error in field.errors %}
+                <li class="fl-invalid fl-txt-sm">{{ error|escape }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+
+          {% endfor %}
+        <button type="submit" class="btn flowka mx-auto my-1">{% trans 'next page' %}</button>
+      </form>
+      {% endblock content %}
+      <!-- <div class="d-flex flex-column justify-content-center align-content-center mx-5">
+        {% if nextpage %}
+        <a href="{% url 'survey:survey2019' page=nextpage %}"><i class="fal fa-angle-right fl-txt-gray fl-txt-hov-sadsea " style="font-size:60px;"></i></a>
+        {% else %}
+        <a href="#"><i class="fal fa-angle-right fl-txt-gray fl-txt-hov-sadsea disabled" style="font-size:60px;"></i></a>
+        {% endif %}
+      </div> -->
+
+{% endblock main %}
+{% block rside %}
+{% endblock rside %}
+
+
+{% block css %}
+  {% include 'tag/css.html' %}
+{% endblock css %}
+
+{% block js %}
+  <script>
+
+  document.addEventListener('DOMContentLoaded',function(){
+      elems=document.getElementsByClassName('fl-rating');
+      for (let elem of elems){
+        ratingOut(elem);
+      }
+      helpLabels=document.getElementsByClassName('fl-help');
+      for (let label of helpLabels){
+        var help=document.createElement('i');
+        help.classList.add('fl-span-help', 'fal', 'fa-question-circle', 'fl-relative','fl-pointer','fl-pos-l10', 'fl-txt-gray','fl-txt-sm');
+        label.insertAdjacentElement("afterend", help);
+        help.addEventListener("mousedown",function(){tooltip(this,'block',true);});
+        help.addEventListener("touchstart",function(){tooltip(this,'block',false);});
+        help.addEventListener("mouseup",function(){tooltip(this,'none',true);});
+        help.addEventListener("touchend",function(){tooltip(this,'none',false);});
+        help.addEventListener("mouseout",function(){tooltip(this,'none',true);});
+      }
+
+      var ratings=document.getElementsByClassName("fl-rating");
+      for (let rating of ratings){
+        rating.addEventListener("mouseout",function(){ratingOut(this);});
+      }
+
+      var ratingStars=document.getElementsByClassName("fl-rating-star");
+      for (let ratingStar of ratingStars){
+        ratingStar.addEventListener("click",function(){ratingClick(this);} );
+        ratingStar.addEventListener("mouseover",function(){ratingOver(this);ratingOverCur(this);});
+      }
+    }
+  );
+
+    function getCurStar(el){
+      //return the last element clicked (rating is the same as input value)
+      var curRating = parseInt(el.lastElementChild.value);
+      var current = null;
+      for (let child of el.children){
+        if (parseInt(child.getAttribute('rating'))===curRating){
+          current=child;
+          break;
+        }
+      }
+      return current;
+    }
+
+    function ratingOut(el) {
+      //when pointer is out of the parent container
+      cur=getCurStar(el);
+      if (cur === null){
+        //no elem clicked -> every elems go empty
+        for (let child of el.children) {
+            child.classList.remove("fas","fl-txt-anis","fl-txt-peach");
+            child.classList.add("fal","fa-circle","fl-txt-prune");
+          }
+        }
+      else {
+        //one is selected... plain until selected elem, empty afters
+        ratingOver(cur);
+        }
+      }
+
+
+    function ratingOverCur(el) {
+      //if over last elem clicked , display a color to identify it
+      if ( parseInt(el.parentElement.lastElementChild.value) == parseInt(el.getAttribute('rating'))) {
+        el.classList.remove("fas","fl-txt-prune","fl-txt-peach");
+        el.classList.add("fal","fa-circle","fl-txt-anis");
+      }
+    }
+
+
+    function ratingOver(el) {
+      //when pointer over elem plain next and empty previous
+      var children=el.parentElement.children;
+      var lastStar=parseInt(el.getAttribute('rating'));
+
+      for (let child of children) {
+        currentStar=parseInt(child.getAttribute('rating'));
+        if ( currentStar <= lastStar) {
+          child.classList.remove("fal","fl-txt-anis","fl-txt-peach");
+          child.classList.add("fas","fa-circle","fl-txt-prune");
+        }
+
+        else if (currentStar > lastStar) {
+          child.classList.remove("fas","fl-txt-anis","fl-txt-peach");
+          child.classList.add("fal","fa-circle","fl-txt-prune");
+        }
+      }
+    }
+
+
+    function ratingClick(el) {
+      //get the rating number of the clicked elem / zero if click gain on the same elem
+      var lastRating=parseInt(el.parentElement.lastElementChild.value) || 0;
+      var currentRating=parseInt(el.getAttribute('rating'));
+      if (currentRating===lastRating){
+        el.parentElement.lastElementChild.value=0;
+        }
+      else {
+        el.parentElement.lastElementChild.value=currentRating;
+        el.classList.add("fal","fl-txt-prune","fl-txt-anis");
+        el.classList.add("fas","fl-txt-peach");
+      }
+    }
+
+
+
+
+    function tooltip(el,displ,desktop){
+      parent=el.parentElement
+      ttip=parent.getElementsByClassName("fl-label-tooltip");
+      if (ttip.length===0) {
+        parent=parent.parentElement
+        ttip=parent.getElementsByClassName("fl-label-tooltip");
+      }
+
+      tip=ttip[0];
+          tip.style.display=displ;
+          tip.style.position='absolute';
+          tip.style.top= el.offsetTop+'px';
+          rightBorder=parent.offsetLeft+parent.offsetWidth;
+          if (desktop){
+            tip.style.left=rightBorder-tip.offsetWidth+'px';
+            }
+          else { //mobile
+            leftBorder=el.offsetLeft+el.offsetWidth+30;
+            tip.style.left=leftBorder+'px';
+            tip.style.width=rightBorder-leftBorder-15+'px';
+          }
+    }
+
+
+    function other(elem) {
+      var other=document.getElementById(elem.id+"_other")
+      if (elem.value==99){
+        other.classList.remove("d-none");
+      }
+      else {
+        other.classList.add("d-none");
+      }
+    }
+
+    function showValue(elem) {
+      document.getElementById(elem.id+'_value').innerHTML=elem.valueAsNumber;
+    }
+
+  </script>
+
+
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+  {% include 'tag/js.html' %}
+{% endblock js %}

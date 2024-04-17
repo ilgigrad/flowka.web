@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block headtitle %} Flowka - {% trans 'listing' %}{% endblock headtitle %}
+
+{% block main %}
+<div class="container">
+    <h1 class="display-4 text-center fl-txt-prune">{% trans 'Features' %}</h1>
+    <div class="row  d-flex flex-column justify-content-end align-items-center">
+    {% if features|length_is:'0' %}
+        <div class="text-center fl-txt-blood">
+            {% trans 'No Features' %}
+        </div>
+    {% else %}
+        <div class="mt-5 p-2 col-6 col-md-4">
+            <ul class="list-group">
+        {% for feature in features %}
+                <li class="list-group-item ">{% trans feature.label %}</li>
+        {% endfor %}
+            </ul>
+        </div>
+        {% if paginate %}
+            <h5> {{ features.page }} </h5>
+                <div class="justify-content-center btn-group" role="group">
+                {% if features.has_previous %}
+                    <a type="button" class="btn btn-outline-secondary" href="?page={{ features.previous_page_number }}">{% trans 'Previous' %}</a>
+                {% else %}
+                    <a type="button" tabindex="-1" class="btn btn-outline-secondary disabled"> {% trans 'Previous' %}</a>
+                {% endif %}
+                {% if features.has_next %}
+                    <a type="button" class="btn btn-outline-secondary" href="?page={{ features.next_page_number }}">{% trans 'Next' %}</a>
+                {% else %}
+                    <a type="button" tabindex="-1" class="btn btn-outline-secondary  disabled">{% trans 'Next' %}</a>
+                {% endif %}
+                </div>
+        {% endif %}
+    {% endif %}
+    </div>
+</div>
+{% endblock main %}

@@ -1,0 +1,9 @@
+# pip install -r staging_requirements.txt
+-r base_requirements.txt
+
+whitenoise>=3.3.1
+mod_wsgi-httpd>=2.4.27.1
+mod_wsgi>=4.6.4
+gunicorn>=19.9.0
+django-storages>=1.7.1
+boto3=1.9.130

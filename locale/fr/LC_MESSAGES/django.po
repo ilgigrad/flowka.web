@@ -1,0 +1,3091 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-19 14:22+0100\n"
+"PO-Revision-Date: 2019-03-12 18:27+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: apps/account/admin.py:15 apps/account/admin.py:36
+msgid "Personal info"
+msgstr "Informations Personnelles"
+
+#: apps/account/admin.py:16
+msgid "Permissions"
+msgstr "Autorisations"
+
+#: apps/account/admin.py:18
+msgid "Important dates"
+msgstr "Dates importantes"
+
+#: apps/account/forms.py:15
+msgid "Email"
+msgstr "Email"
+
+#: apps/account/forms.py:15 apps/account/forms.py:22 apps/store/forms.py:10
+#: apps/store/forms.py:39
+msgid "email"
+msgstr "Email"
+
+#: apps/account/forms.py:15 apps/account/forms.py:22
+msgid "Required"
+msgstr "Obligatoire"
+
+#: apps/account/forms.py:16 apps/account/forms.py:23
+#: templates/account/password_change.html:7
+#: templates/account/password_reset.html:6
+msgid "Password"
+msgstr "mot de passe"
+
+#: apps/account/forms.py:16
+msgid "new password"
+msgstr "nouveau mot de passe"
+
+#: apps/account/forms.py:23 apps/account/views.py:92 apps/account/views.py:167
+msgid "password"
+msgstr "mot de passe"
+
+#: apps/account/forms.py:24
+msgid "confirm Password"
+msgstr "confirmez le mot de passe"
+
+#: apps/account/forms.py:24
+msgid "confirm password"
+msgstr "confirmez le mot de passe"
+
+#: apps/account/forms.py:45 apps/account/forms.py:47 apps/account/models.py:56
+#: apps/store/forms.py:27
+msgid "last name"
+msgstr "nom"
+
+#: apps/account/forms.py:54 apps/account/models.py:55 apps/store/forms.py:21
+msgid "first name"
+msgstr "prénom"
+
+#: apps/account/forms.py:60 apps/store/forms.py:15
+msgid "telephone"
+msgstr "téléphone"
+
+#: apps/account/forms.py:82 apps/account/forms.py:85 apps/account/models.py:85
+msgid "city"
+msgstr "ville"
+
+#: apps/account/forms.py:91 apps/account/forms.py:94 apps/account/models.py:83
+msgid "organization"
+msgstr "société"
+
+#: apps/account/forms.py:114
+msgid "interests"
+msgstr "intérêts"
+
+#: apps/account/mixins.py:5
+msgid "owner"
+msgstr "titulaire"
+
+#: apps/account/models.py:54
+msgid "email address"
+msgstr "adresse email"
+
+#: apps/account/models.py:86
+msgid "select country"
+msgstr "choisissez un pays"
+
+#: apps/account/models.py:168 templates/filer/datafile_list.html:34
+msgid "access"
+msgstr "accès"
+
+#: apps/account/models.py:203 apps/filer/models.py:54 apps/filer/models.py:312
+msgid "description"
+msgstr "abonnement"
+
+#: apps/account/perms.py:9
+msgid "is a user"
+msgstr "est un utilisateur"
+
+#: apps/account/perms.py:67
+msgid "holder"
+msgstr "membre"
+
+#: apps/account/perms.py:70
+msgid "permission label"
+msgstr "Autorisations"
+
+#: apps/account/perms.py:74
+msgid "permission"
+msgstr "Autorisations"
+
+#: apps/account/perms.py:75
+msgid "permissions"
+msgstr "Autorisations"
+
+#: apps/account/perms.py:101
+msgid "object permissions"
+msgstr "Autorisations"
+
+#: apps/account/perms.py:103
+msgid "Specific permissions by object."
+msgstr "permissions spécifiques par objet"
+
+#: apps/account/views.py:58
+#, python-brace-format
+msgid "You are now a logged as {0}"
+msgstr "vous êtes connecté(e) en tant que {0}"
+
+#: apps/account/views.py:84
+msgid "logout"
+msgstr "déconnexion"
+
+#: apps/account/views.py:85
+msgid "logout !"
+msgstr "Déconnexion !"
+
+#: apps/account/views.py:85
+msgid "you have been logout"
+msgstr "vous avez été déconnecté(e)"
+
+#: apps/account/views.py:85
+msgid "Click here to login again."
+msgstr "cliquez pour vous connecter de nouveau"
+
+#: apps/account/views.py:93
+msgid "password changed !"
+msgstr "le mot de passe a été changé"
+
+#: apps/account/views.py:93
+msgid "your password have been succesfully changed"
+msgstr "votre mot de passe a été changé"
+
+#: apps/account/views.py:93 apps/account/views.py:133
+msgid "Click here to login."
+msgstr "Cliquez pour vous connecter de nouveau"
+
+#: apps/account/views.py:113
+msgid "Activate your account."
+msgstr "Activez votre compte"
+
+#: apps/account/views.py:126
+msgid "sign up"
+msgstr "créer un compte"
+
+#: apps/account/views.py:127
+msgid "SIGNUP!"
+msgstr "CREER UN COMPTE"
+
+#: apps/account/views.py:127
+msgid ""
+"an email has been sent to <span class=\"fl-txt-peach\">{}</span><br> Please "
+"confirm your email address to complete the registration"
+msgstr ""
+"un email a été envoyé à <span class=\"fl-txt-peach\">{}</span><br> veuillez "
+"confirmez votre email pour valider la création du compte"
+
+#: apps/account/views.py:132
+msgid "Signup failed"
+msgstr "créer un compte"
+
+#: apps/account/views.py:133
+msgid "Signup failed !"
+msgstr "la création de compte a échoué"
+
+#: apps/account/views.py:133
+msgid "Sign up is not allowed yet !"
+msgstr "la création de compte n'est pas autorisée pour le moment"
+
+#: apps/account/views.py:156 apps/account/views.py:158
+msgid "user activation"
+msgstr "activation de l'utlisateur"
+
+#: apps/account/views.py:156
+msgid "Thank you for your email confirmation. You are now a registred user."
+msgstr ""
+"Merci d'avoir confirmé votre adresse mail. Vous êtes désormais enregistré(e)"
+
+#: apps/account/views.py:158
+msgid "activation link is invalid."
+msgstr "ce lien d'activation est invalide"
+
+#: apps/account/views.py:168
+msgid "password reset"
+msgstr "ré-inititialisation du mot de passe"
+
+#: apps/account/views.py:168
+msgid ""
+"We've emailed you instructions for setting your password. <br>If they "
+"haven't arrived in few minutes, check your spam folder."
+msgstr ""
+" Nous vous avons envoyé les instructions pour créer votre mot de passe <br> "
+"si elle ne vous parviennent pas d'ici quelques minutes, veuillez vérifier vos "
+"courriers indésirables ou spams"
+
+#: apps/account/views.py:234
+msgid "this image has an invalid format"
+msgstr "votre numéro de téléphone doit avoir un format valide"
+
+#: apps/account/views.py:256
+msgid "too much tags in your profile"
+msgstr "trop d'étiquettes \"tags\" dans votre profil"
+
+#: apps/core/custom_forms_fields.py:11
+msgid "An email field specific extension"
+msgstr "vérification de l'extension des adresses emails"
+
+#: apps/core/custom_forms_fields.py:35
+msgid "A FileField specific extension for datasets"
+msgstr "vérification de l'extension des adresses emails"
+
+#: apps/core/custom_forms_fields.py:38
+msgid "Unsupported file type."
+msgstr "format de fichier non supporté."
+
+#: apps/core/custom_forms_fields.py:45
+msgid "A ImageField specific extension for Photos"
+msgstr "vérification de l'extension des adresses emails"
+
+#: apps/core/custom_validators.py:13
+msgid "the domain extension of your email address is not allowed yet"
+msgstr ""
+"l'extension de votre nom de domaine n'est pas encore autorisé sur ce site"
+
+#: apps/core/custom_validators.py:22
+msgid "name contains invalid characters"
+msgstr "le nom contient des caractères invalides"
+
+#: apps/core/custom_validators.py:31
+msgid "Phone number should have a valid format"
+msgstr "votre numéro de téléphone doit avoir un format valide"
+
+#: apps/core/custom_validators.py:37
+msgid "Enter a valid color"
+msgstr "choisissez une couleur valide"
+
+#: apps/core/custom_validators.py:43
+msgid "file is not a valid image"
+msgstr "ce fichier ne peut pas être interprété comme une image"
+
+#: apps/core/utils.py:73
+msgid "invalid literal for boolean. Not a string."
+msgstr "format binéaire invalide. CE n'est pas une chaîne de caractères."
+
+#: apps/datacollect/models.py:14
+msgid "datafile"
+msgstr "fichier de données"
+
+#: apps/datacollect/models.py:21
+msgid "label or column name"
+msgstr "label ou nom de colonne"
+
+#: apps/datacollect/models.py:22
+msgid "data type (string, integer, float, date, time...)"
+msgstr "type d données (caractères, entiers, décimaux, date, temps...)"
+
+#: apps/datacollect/models.py:23
+msgid "minimum value"
+msgstr "valeur minimum"
+
+#: apps/datacollect/models.py:24
+msgid "maximum value"
+msgstr "valeur maximum"
+
+#: apps/datacollect/models.py:25
+msgid "maximum length of the values for that label"
+msgstr "taille maximum pour cette colonne"
+
+#: apps/datacollect/models.py:26
+msgid "minimum length of the values for that label"
+msgstr "taille minimum pour cette colonne"
+
+#: apps/datacollect/models.py:27
+msgid "average value for that label; Mean does not apply to objects or strings"
+msgstr "valeur moyenne pour cette colonne"
+
+#: apps/datacollect/models.py:28
+msgid ""
+"Standard Deviation;  measure of the variation or the dispersion between the "
+"values"
+msgstr "Ecart type; mesure la variation de la dispersion des valeurs "
+
+#: apps/datacollect/models.py:29
+#, python-format
+msgid ""
+"first decile or 10th percentile; it is equal to the value below which 10% of "
+"the observations may be found; data below this first decile may be consider "
+"as outiers"
+msgstr ""
+"premier décile ou 10ème percentile; cela correspond au seuil en dessous "
+"duquel on trouve 10% des observations; on peut éventuellement considérer ces "
+"valeurs comme aberrantes."
+
+#: apps/datacollect/models.py:30
+#, python-format
+msgid ""
+"first quartile or 25th percentile; it is equal to the value below which "
+"25% of the observations may be found"
+msgstr ""
+"premier quartile ou 25ème percentile; cela correspond au seuil en dessous "
+"duquel on trouve 25% des observations"
+
+#: apps/datacollect/models.py:31
+msgid ""
+"median or 50th percentile; it is equal to the value below which 50% of the "
+"observations may be found"
+msgstr ""
+"médiane ou 50ème percentile; cela correspond au seuil en dessous duquel on "
+"trouve la moitié des observations"
+
+#: apps/datacollect/models.py:32
+#, python-format
+msgid ""
+"third quartile or 75th percentile; it is equal to the value below which "
+"75% of the observations may be found"
+msgstr ""
+"troisième quartile ou 75ème percentile; cela correspond au seuil en dessous "
+"duquel on trouve 75% des observations"
+
+#: apps/datacollect/models.py:33
+#, python-format
+msgid ""
+"last decile or 90th percentile; it is equal to the value below which 90% of "
+"the observations may be found; data above the last decile may be consider as "
+"outiers"
+msgstr ""
+"dernier décile ou 90ème percentile; cela correspond au seuil en dessous "
+"duquel on trouve 90% des observations.; on peut éventuellement considérer "
+"les valeurs au dessus de ce seuil comme aberrantes."
+
+#: apps/datacollect/models.py:34
+msgid ""
+"Not a Number, none, null or missing values. rules avoiding nans have to be "
+"set. If not, Rows or columns with Nans need to be removed"
+msgstr ""
+"Valeur manquante, vide ou nulle. Il faut préciser une rêgle éliminant les "
+"valeurs manquantes. Sinon les rangs ou les colonnes qui en contiennent "
+"doivent être supprimés"
+
+#: apps/datacollect/models.py:35
+msgid "Number of valid values in the dataset"
+msgstr "nombre de valeurs valides dans le jeu de données"
+
+#: apps/datacollect/models.py:36
+msgid "Total number of values in the dataset"
+msgstr "nombre total de valeurs dans le jeu de données"
+
+#: apps/datacollect/models.py:37
+msgid ""
+"number of distinct values in the dataset. A number of distinct values equal "
+"to count values and string data types could be a name or an identifier and "
+"should be removed"
+msgstr ""
+"nombre de valeurs distinctes (différentes) dans le jeu de données. des "
+"variables de type 'catégorie' qui seraient toutes distinctes dans une "
+"colonne pourraient correspondre à des noms ou des identifiants qu'il faut "
+"alors supprimer."
+
+#: apps/datacollect/models.py:142 apps/datacollect/models.py:152
+#: apps/datacollect/models.py:166
+msgid "Nothing: leave unchanged"
+msgstr ""
+
+#: apps/datacollect/models.py:143
+msgid "Int: transform string numeric values or truncate decimals into ints"
+msgstr ""
+
+#: apps/datacollect/models.py:144
+msgid "Decimal: transform string numeric values or int into floats"
+msgstr ""
+
+#: apps/datacollect/models.py:145
+msgid "Time: select a time or date format for this field"
+msgstr ""
+
+#: apps/datacollect/models.py:146
+msgid "Split: split a field with a separator and create new columns"
+msgstr ""
+
+#: apps/datacollect/models.py:147
+msgid ""
+"Substring: split a field with position and create new columns from those "
+"substrings"
+msgstr ""
+
+#: apps/datacollect/models.py:148
+msgid ""
+"Regex: Split a field based on a regular expression and create new columns"
+msgstr ""
+
+#: apps/datacollect/models.py:153
+msgid "Drop rows: drop rows which contain missing values on that column"
+msgstr ""
+
+#: apps/datacollect/models.py:154
+msgid "Binary: replace missings by \"False\" and other values by \"True\""
+msgstr ""
+
+#: apps/datacollect/models.py:155
+msgid "Median: replace missings by the median value in the column"
+msgstr ""
+
+#: apps/datacollect/models.py:156
+msgid "Mean: replace missings by the mean value in the column"
+msgstr ""
+
+#: apps/datacollect/models.py:157
+msgid ""
+"highest frequency: replace missings by the value that appears with the "
+"highest frequency"
+msgstr ""
+
+#: apps/datacollect/models.py:158
+msgid ""
+"lowest frequency: replace missings by the value that appears with the lowest "
+"frequency"
+msgstr ""
+
+#: apps/datacollect/models.py:159
+msgid "Max: replace missings by the maximum value of the column"
+msgstr ""
+
+#: apps/datacollect/models.py:160
+msgid "Min: replace missings by the minimum value of the column"
+msgstr ""
+
+#: apps/datacollect/models.py:161
+msgid "Value: replace missing by a specific value"
+msgstr ""
+
+#: apps/datacollect/models.py:167
+msgid "Dummies; each distinct value become a new column"
+msgstr ""
+
+#: apps/datacollect/models.py:168
+msgid "Frequencies: replace each value by it's frequency in the column"
+msgstr ""
+
+#: apps/datacollect/models.py:169
+msgid "Ordinals: values are ordered and ranked"
+msgstr ""
+
+#: apps/datacollect/models.py:172
+msgid "column"
+msgstr "colonnes"
+
+#: apps/datacollect/models.py:172
+msgid "column title"
+msgstr "nom de la colonne"
+
+#: apps/datacollect/models.py:173
+msgid "rename"
+msgstr "renommer"
+
+#: apps/datacollect/models.py:173
+msgid "type a new name for the column"
+msgstr ""
+
+#: apps/datacollect/models.py:174
+msgid "drop this column"
+msgstr ""
+
+#: apps/datacollect/models.py:174
+msgid "drop this column ?"
+msgstr ""
+
+#: apps/datacollect/models.py:175
+msgid "is a target ?"
+msgstr ""
+
+#: apps/datacollect/models.py:175
+msgid "is this column a target for prediction or classification ?"
+msgstr ""
+
+#: apps/datacollect/models.py:181
+msgid "field transformation"
+msgstr ""
+
+#: apps/datacollect/models.py:183
+msgid "Do you need to transform this field and how would you transform it ?"
+msgstr ""
+
+#: apps/datacollect/models.py:184
+msgid ""
+"transform string to number or time format, extract a substring or set a "
+"\"regex\" rule"
+msgstr ""
+
+#: apps/datacollect/models.py:187
+msgid "field transformation rule"
+msgstr ""
+
+#: apps/datacollect/models.py:187
+msgid "Please, Specify the rule"
+msgstr "Veuillez préciser la rêgle"
+
+#: apps/datacollect/models.py:193
+msgid "managing missing values"
+msgstr ""
+
+#: apps/datacollect/models.py:195
+msgid "What do you want to do when values are missing ?"
+msgstr ""
+
+#: apps/datacollect/models.py:196
+msgid "Drop rows with none values or set a rule for replacing them them."
+msgstr ""
+
+#: apps/datacollect/models.py:197
+msgid ""
+"e.g. use statistics indicators (median, mean, max...) in place of missing "
+"values"
+msgstr ""
+
+#: apps/datacollect/models.py:200
+msgid "please specify a value"
+msgstr "Veuillez donner une valeur"
+
+#: apps/datacollect/models.py:206
+msgid "managing categories"
+msgstr "gérer des catégories"
+
+#: apps/datacollect/models.py:208
+msgid "How would you manage category velues ?"
+msgstr ""
+
+#: apps/datacollect/models.py:209
+msgid ""
+"Category is a non numerical value that can not be computed (sum, mean,... )"
+msgstr ""
+"les catégories correspondent souvent à des données non numériques et "
+"difficilement 'calculables'"
+
+#: apps/datacollect/models.py:210
+msgid "it is often a text field like country or color..."
+msgstr ""
+"Ce sont principalement des textes comme le nom d'un pays, d'une ville ou "
+"d'une couleur..."
+
+#: apps/filer/folder_views.py:48
+msgid "new folder"
+msgstr "nouveau dossier"
+
+#: apps/filer/folder_views.py:65
+msgid "has been created"
+msgstr "a été créé"
+
+#: apps/filer/folder_views.py:85
+msgid "folder"
+msgstr "dossier"
+
+#: apps/filer/folder_views.py:85
+msgid "has been updated"
+msgstr "a été modifié"
+
+#: apps/filer/folder_views.py:91
+msgid "you do not have enough privilege to update folder"
+msgstr "privilèges insuffisants pour modifier ce dossier"
+
+#: apps/filer/folder_views.py:102 apps/filer/views.py:233
+msgid "has been deleted"
+msgstr "a été supprimé"
+
+#: apps/filer/folder_views.py:104
+msgid "has not been deleted, something weard has happened"
+msgstr "n'a pas été supprimé; quelque chose d'étrange s'est produit."
+
+#: apps/filer/forms.py:69
+msgid "is not a valid image"
+msgstr "n'est pas une image valide"
+
+#: apps/filer/forms.py:71 apps/filer/forms.py:99
+msgid "Could not read the uploaded file."
+msgstr "Impossible de lire le fichier chargé"
+
+#: apps/filer/forms.py:97
+msgid "is not a valid data file"
+msgstr "n'est pas un format de fichier valide"
+
+#: apps/filer/forms.py:132
+msgid "title of the file"
+msgstr "titre du fichier"
+
+#: apps/filer/forms.py:145
+msgid "type a description"
+msgstr "décrivez le document"
+
+#: apps/filer/models.py:51
+msgid "file"
+msgstr "document"
+
+#: apps/filer/models.py:52
+msgid "original filename"
+msgstr "nom initial du document"
+
+#: apps/filer/models.py:53 apps/filer/models.py:311
+msgid "name"
+msgstr "nom"
+
+#: apps/filer/models.py:55 apps/message/models.py:65 apps/survey/models.py:178
+msgid "uploaded at"
+msgstr "chargé à"
+
+#: apps/filer/models.py:56
+msgid "modified at"
+msgstr "modifié à"
+
+#: apps/filer/models.py:57
+msgid "sha1"
+msgstr "code sha1"
+
+#: apps/filer/models.py:58 apps/message/models.py:68
+#: templates/datacollect/dc_base.html:57 templates/filer/datafile_list.html:32
+msgid "status"
+msgstr "état"
+
+#: apps/filer/models.py:59 templates/filer/datafile_list.html:28
+msgid "type"
+msgstr "type"
+
+#: apps/filer/models.py:61
+msgid "file size"
+msgstr "taille du document"
+
+#: apps/filer/models.py:62
+msgid "is valid"
+msgstr "est valide"
+
+#: apps/filer/models.py:63
+msgid "Permissions disabled"
+msgstr "Droits désactivés"
+
+#: apps/filer/models.py:64
+msgid "favorite"
+msgstr "préféré"
+
+#: apps/filer/models.py:213
+msgid "invalid"
+msgstr "incorrecte"
+
+#: apps/filer/models.py:213
+msgid "and"
+msgstr "et"
+
+#: apps/filer/models.py:313
+msgid "icon"
+msgstr "icône"
+
+#: apps/filer/models.py:314
+msgid "color"
+msgstr "couleur"
+
+#: apps/filer/models.py:315
+msgid "parent folder"
+msgstr "dossier parent"
+
+#: apps/filer/models.py:316
+msgid "is public"
+msgstr "est publique"
+
+#: apps/filer/models.py:317
+msgid "root folder"
+msgstr "dossier racine"
+
+#: apps/filer/models.py:319
+msgid "files in folder"
+msgstr "documents dans le dossier"
+
+#: apps/filer/models.py:321
+msgid "file in folders"
+msgstr "document dans le dossier"
+
+#: apps/filer/views.py:197
+msgid "can not be processed for cleaning yet"
+msgstr "peut être corrigé et nettoyé"
+
+#: apps/filer/views.py:206
+msgid "files have been succesfully uploaded"
+msgstr "les documents ont été mis à jour"
+
+#: apps/filer/views.py:208
+msgid "files have not been uploaded"
+msgstr "documents n'ont pas été chargés"
+
+#: apps/filer/views.py:210
+msgid "has been succesfully uploaded"
+msgstr "a été chargé avec succès"
+
+#: apps/filer/views.py:235
+msgid "an error occured while deleting"
+msgstr "une erreur s'est produite pendant la suppression"
+
+#: apps/filer/views.py:237
+msgid "you have no permissions to delete."
+msgstr "vous n'avez pas de droit pour la suppression"
+
+#: apps/filer/views.py:256 apps/filer/views.py:260
+msgid "succesfully removed from"
+msgstr "a été détaché avec succès"
+
+#: apps/filer/views.py:257
+msgid "is public and has been also removed from all descending projects"
+msgstr "est publique et a donc été détaché de tous vos projets"
+
+#: apps/filer/views.py:262
+msgid "you have no permissions for removing objects from"
+msgstr "vous ne disposez pas du droit de détacher des objets de "
+
+#: apps/filer/views.py:262
+msgid "has not been removed; try deletion instead."
+msgstr "n'a pas été détaché; essayez plutôt de la suppression"
+
+#: apps/filer/views.py:289
+msgid "succesfully added to"
+msgstr "ajouté avec succès à"
+
+#: apps/filer/views.py:291
+msgid "you do not have perimission to add files to"
+msgstr ""
+
+#: apps/filer/views.py:293
+msgid "no project or no file selected"
+msgstr "aucun projet ou aucun document sélectionné"
+
+#: apps/filer/views.py:313
+msgid "has been tagged"
+msgstr "a été annoté"
+
+#: apps/filer/views.py:315
+msgid "an error has occured while tagging"
+msgstr "une erreur est survenue pendant l'annotation."
+
+#: apps/filer/views.py:317
+msgid "you do not have permissions to tag"
+msgstr "vous navez pas le droit d'annoter"
+
+#: apps/filer/views.py:320
+msgid "Nothing has been tagged. Tag list is empty."
+msgstr "Rien n'a été annoté. La liste de mots-clefs est vide."
+
+#: apps/filer/views.py:340
+msgid " tags have been removed"
+msgstr " annotations supprimées"
+
+#: apps/filer/views.py:342
+msgid "an error has occured while untagging"
+msgstr "une erreur interne est survenue pendant la suppression des mots-clefs"
+
+#: apps/filer/views.py:344
+msgid "you do not have permissions to remove tags"
+msgstr "vous n'avez pas la permission de supprimer les mots-clefs"
+
+#: apps/filer/views.py:347
+msgid "Nothing has been untagged. Tag list is empty."
+msgstr "aucun mot-clef n'a été supprimé. La liste des mots-clefs est vide"
+
+#: apps/filer/views.py:375
+msgid "has been succesfully duplicated"
+msgstr "a été dupliqué avec succès"
+
+#: apps/filer/views.py:377
+msgid "an error occured while copying"
+msgstr "une erreur est survenue pendant la duplication"
+
+#: apps/filer/views.py:379
+msgid "you hav no permissions to copy"
+msgstr "vous n'avez pas le droit de copie"
+
+#: apps/filer/views.py:395
+msgid "clic to download"
+msgstr "cliquez pour télécharger"
+
+#: apps/filer/views.py:397
+msgid "not find on our servers"
+msgstr "n'a pas été trouvé sur nos serveurs"
+
+#: apps/home/views.py:21
+msgid " Privacy Policy"
+msgstr ""
+
+#: apps/home/views.py:25
+msgid "Terms of Service"
+msgstr ""
+
+#: apps/home/views.py:29 templates/home/lside.html:20
+msgid "Overview"
+msgstr "Apperçu"
+
+#: apps/home/views.py:83
+msgid "something wrong has happened"
+msgstr "quelque chose d'incorrecte s'est produit "
+
+#: apps/message/models.py:64
+msgid "user"
+msgstr "utilisateur"
+
+#: apps/message/models.py:66
+msgid "is visible"
+msgstr "est visible"
+
+#: apps/message/models.py:67
+msgid "is read"
+msgstr "est lu"
+
+#: apps/message/models.py:69
+msgid "extra tag"
+msgstr "mot-clef supplémentaire "
+
+#: apps/message/models.py:70
+msgid "message"
+msgstr "Envoyez un message"
+
+#: apps/store/forms.py:34
+msgid "remain"
+msgstr "disponible"
+
+#: apps/store/forms.py:35
+msgid "exceed"
+msgstr "dépassement"
+
+#: apps/store/forms.py:45
+msgid "subject of the message"
+msgstr "objet du message"
+
+#: apps/store/forms.py:51
+msgid "type your message"
+msgstr "Envoyez un message"
+
+#: apps/store/models.py:60
+msgid "Subscription"
+msgstr "abonnement"
+
+#: apps/store/views.py:76 apps/store/views.py:153
+msgid "an internal error has raised. Please try again."
+msgstr "une erreur interne est survenue. Veuillez ré-essayer"
+
+#: apps/store/views.py:149
+msgid "Your message has been saved<br> You will receive a copy of it at {} "
+msgstr "Votre message a été sauvegardé<br> Vous en recevrez une copie à {} "
+
+#: apps/survey/forms.py:50
+msgid "Tag your KPI"
+msgstr "Ajouter des Tags"
+
+#: apps/survey/forms.py:52
+msgid "Tag the name of your main indicators or dimensions."
+msgstr "Saisissez les mots clefs correspondant à vos indicateurs principaux."
+
+#: apps/survey/forms.py:53
+msgid "Type any key that is important in your reports."
+msgstr ""
+"Saisissez les mots clefs qui correspondent à des choses importantes dans vos "
+"tableaux de bord; noms de colonnes ou de variables, dimensions"
+
+#: apps/survey/forms.py:54
+msgid "For exemple : age, country, revenue, speed, timeout, quantity..."
+msgstr "par exemple : âge, pays, revenu, vitesse, déconnexion, quantité... "
+
+#: apps/survey/forms.py:55 apps/survey/forms.py:241
+msgid ""
+"Use blank to split words and use double quotes to join words in a \"same tag"
+"\""
+msgstr ""
+"Utilisez le caractère 'espace' pour séparer les mots ou encadrer par des "
+"guillemets pour créer des mots composés."
+
+#: apps/survey/forms.py:60
+msgid "Describe here your professional need for IA reports, if any..."
+msgstr "Décrivez quels seraient vos besoins pour une IA à titre professionnel "
+
+#: apps/survey/forms.py:62
+msgid "IA for your business ?"
+msgstr "IA pour les entreprises ?"
+
+#: apps/survey/forms.py:64
+msgid "What are your expectations for IA tools in your business ?"
+msgstr "Qu'attendriez-vous d'un outil d'IA dans votre travail ?"
+
+#: apps/survey/forms.py:65
+msgid ""
+"What could you expect of a machine learning tool for improving your business "
+"analysis ?"
+msgstr ""
+"Pensez-vous qu'un outil d'apprentissage machine puisse vous aider à "
+"développer votre 'business' ?"
+
+#: apps/survey/forms.py:66 apps/survey/forms.py:253
+msgid ""
+"If you \"own\" already such a tool, what are the lacks you wish to overcome ?"
+msgstr ""
+"Si vous disposez d'un tel outil, quelles sont les lacunes que vous "
+"souhaiteriez voir comblées ?"
+
+#: apps/survey/forms.py:69
+msgid "Reports"
+msgstr "Tableaux de bord"
+
+#: apps/survey/forms.py:70
+msgid ""
+"What is the average number of distinct reports or charts are you usually "
+"browsing ?"
+msgstr ""
+"Quel est le nombre moyen de rapports, tableaux de bord ou graphiques "
+"distincts que vous consultez habituellement ?"
+
+#: apps/survey/forms.py:75
+msgid "Indicators"
+msgstr "indicateurs"
+
+#: apps/survey/forms.py:76
+msgid ""
+"What is the average number of columns, indicators or KPI, contained in your "
+"reports ?"
+msgstr ""
+"Quel est le nombre moyen de colonnes, d'indicateurs ou de KPI, contenus dans "
+"vos tableaux de bord ?"
+
+#: apps/survey/forms.py:81
+msgid "Lines"
+msgstr "lignes"
+
+#: apps/survey/forms.py:83
+msgid "What is the average number of lines contained in your reports ?"
+msgstr "Quel est le nombre moyen de lignes que comptent vos tableaux de bord ?"
+
+#: apps/survey/forms.py:84
+msgid ""
+"Wether it's sorted by products services, departments or some geographics "
+"area, how many rows is there in your reports ?"
+msgstr ""
+"Qu'ils soient triés par produits, services ou quelques divisions "
+"géographiques combien de rangées dénombre-t-on dans la plupart de vos "
+"tableaux ?"
+
+#: apps/survey/forms.py:90
+msgid "Categories"
+msgstr "Catégories"
+
+#: apps/survey/forms.py:92
+msgid ""
+"What is the average number of categories or dimensions in your reports ?"
+msgstr ""
+"Quel est le nombre moyen de catégories que comptent vos tableaux de bord ?"
+
+#: apps/survey/forms.py:93
+msgid "Categories are mostly not numeric data."
+msgstr "les catégories, ou dimensions, sont souvent des données non numériques"
+
+#: apps/survey/forms.py:94
+msgid "They can't be computed but provide qualitative informations."
+msgstr ""
+"Elles ne peuvent-être calculées mais fournissent des informations "
+"qualitatives"
+
+#: apps/survey/forms.py:95
+msgid " For exemple : geographic areas, colors or groups of products..."
+msgstr ""
+"par exemple des zones géographiques, des couleurs, des groupes de produits "
+"ou de personnes."
+
+#: apps/survey/forms.py:103
+msgid "Making predictions"
+msgstr "Réaliser des prédictions"
+
+#: apps/survey/forms.py:106
+msgid "How interested are you in building predictions out of your data ?"
+msgstr ""
+"Quel est votre degré d'intérêt pour réaliser des prédictions sur vos "
+"données ?"
+
+#: apps/survey/forms.py:107
+msgid ""
+"Predictions can be any numerical value like a price, a cost, an quantityt of "
+"stock, a distance or a speed..."
+msgstr ""
+"Une prédiction correspond, en général à estimer une valeur numérique comme "
+"un prix, un coût, une quantité de stock, une distance ou une vitesse..."
+
+#: apps/survey/forms.py:108
+msgid ""
+"It allows to make estimations based on the relationships between variables "
+"which are more accurate than any \"human guesses\""
+msgstr ""
+"Cela permet de réaliser des évaluations fondées sur des relations entre les "
+"variables qui sont bien plus précises que l'estimation fondée sur la seule "
+"expérience."
+
+#: apps/survey/forms.py:113
+msgid "Making classification"
+msgstr "Réaliser des classifications"
+
+#: apps/survey/forms.py:116
+msgid ""
+"Classification models identify which category an observation belongs to. It "
+"rely on previous data to learn how to affect a set of inputs to a \"class\"."
+msgstr ""
+" Les modèles de classification permettent d'affecter une observation à une "
+"catégorie. Cela repose sur les données précédentes qui sont 'apprises' pour "
+"affecter des variables en entrée à une classe."
+
+#: apps/survey/forms.py:117
+msgid ""
+"classification could be binary (e.g. is a customer going to churn ? will "
+"this person repay a loan ?)"
+msgstr ""
+"Une classification peut être binaire (e.g. est-ce qu'un client va vous "
+"quitter ? Est-ce que cette personne va rembourser son emprunt ?)"
+
+#: apps/survey/forms.py:118
+msgid ""
+"...or refers to multiclass (e.g. which of this four chanels could be more "
+"efficient for that product ? )"
+msgstr ""
+"...ou faire référence à des classes multiples (e.g. quelle couleur ce client "
+"va-t-il préférer ? lequel de ces quatre canaux de distributions sera le plus "
+"efficace pour ce produit ? )"
+
+#: apps/survey/forms.py:119
+msgid "Results are then analyzed with Matrix confusion"
+msgstr "Les résultats sont confrontés à une 'matrice de confusion"
+
+#: apps/survey/forms.py:120
+msgid "(True:Positive/Negative - False:Positive/Negative )"
+msgstr "(Vrai:Négatif/Positif, Faux:Positif/négatif)"
+
+#: apps/survey/forms.py:125
+msgid "Building clusters"
+msgstr "Créer des segments"
+
+#: apps/survey/forms.py:128
+msgid "Clusterization is building groups of similar data."
+msgstr "La segmentation permet de construire des groupes de données homogènes"
+
+#: apps/survey/forms.py:129
+msgid ""
+"You specify the number of groups you want to create and data are "
+"automaticaly distributed over those groups."
+msgstr ""
+"Vous précisez le nombre de groupes à créer et les données sont "
+"automatiquement distribuées à ces groupes."
+
+#: apps/survey/forms.py:130
+msgid ""
+"It allows to create sets of clients, products or any items, based on every "
+"inputs and not few categories like it used to be."
+msgstr ""
+"Cela permet de créer des ensembles de clients, de produits ou de n'importe "
+"quels éléments. Ces groupes sont basés sur un grand nombre d'indicateurs ou "
+"de catégories et non sur une poignée d'entre eux, comme c'est souvent le cas "
+"lorsque qu'on doit opérer cette segmentation manuellement."
+
+#: apps/survey/forms.py:135
+msgid "Finding Correlations"
+msgstr "Trouver des Corrélations"
+
+#: apps/survey/forms.py:138
+msgid ""
+"Finding Correlations reveals what are the links between your data and what "
+"is the strength of those links."
+msgstr ""
+"Les corrélations révèlent quels sont les liens entre les données et quelle "
+"est la force de chacun de ces liens."
+
+#: apps/survey/forms.py:139
+msgid ""
+"Some correlations may be obvious but some could be surprizing as it becomes "
+"very hard to figure out how data correlates if you have more than two "
+"features."
+msgstr ""
+"Quelques corrélations peuvent apparaître évidentes mais d'autres peuvent se "
+"révéler plus surprenantes. Il est en effet difficile de trouver comment les "
+"données sont corrélées à mesure que le nombre d'indicateurs et de dimension "
+"grandit. "
+
+#: apps/survey/forms.py:144
+msgid "Anomaly detection"
+msgstr "Détection d'anomalies"
+
+#: apps/survey/forms.py:147
+msgid ""
+"Detecting outliers or unusal patterns in your data allow to detect anomalies "
+"or frauds in your systems."
+msgstr "Détecter les valeurs aberrantes."
+
+#: apps/survey/forms.py:148
+msgid "Log files can be analysed as well as any technical informations."
+msgstr ""
+"Les fichiers de log aussi bien que des informations techniques peuvent être "
+"analysés."
+
+#: apps/survey/forms.py:153
+msgid "Image recognition"
+msgstr "Reconnaisance d'Image"
+
+#: apps/survey/forms.py:156
+msgid ""
+"Training the machine to find features and associate appropriate tags to your "
+"picture."
+msgstr ""
+"Entraîner le système à retrouver des caractéristiques et associer aux images "
+"les mots-clefs adéquats."
+
+#: apps/survey/forms.py:157
+msgid ""
+"Automatic detection of colours, items (e.g. bag, glasses, dress, bike...), "
+"faces, landscapes (e.g. beach, mountain, city...) or even situations."
+msgstr ""
+"Détection automatique de couleurs ou d'objets (e.g. sacs, lunettes, robes, "
+"vélos...), de visages, de paysages (e.g. plage, montagne, ville...) ou même "
+"certaine situations."
+
+#: apps/survey/forms.py:162
+msgid "Text mining"
+msgstr "Analyse automatique de textes"
+
+#: apps/survey/forms.py:164
+msgid ""
+"Text mining opens door to Sentiment Analysis (how a writer feels or reacts), "
+"keywords extraction or summarization, or entity recognition (identifying "
+"dates, places, names, organizations...)"
+msgstr ""
+"Analyse de texte permet de déterminer par exemple de déterminer le "
+"'sentiment' contenu dans un texte (ce que ressent ou comment réagit le "
+"rédacteur). Il permet aussi d'extraire des mots clefs, de résumer un texte "
+"ou de retrouver des entités (identifier les dates, les lieux, les noms, les "
+"organisations...)"
+
+#: apps/survey/forms.py:170 apps/survey/forms.py:186 apps/survey/forms.py:202
+#: apps/survey/forms.py:218 apps/survey/models.py:87 apps/survey/models.py:97
+#: apps/survey/models.py:388
+msgid "I don't know"
+msgstr "Je ne sais pas"
+
+#: apps/survey/forms.py:171 apps/survey/models.py:389
+msgid "it's science fiction only"
+msgstr "ça ressemble à de la science fiction"
+
+#: apps/survey/forms.py:172 apps/survey/models.py:390
+msgid "it's a matter of huge company, self driving cars and big data"
+msgstr "Ne concerne que les grosses entreprises de technologie"
+
+#: apps/survey/forms.py:173 apps/survey/models.py:391
+msgid "I would like to know how it can improve my business"
+msgstr "J'aimerais bien savoir si cela peut améliorer mon activité"
+
+#: apps/survey/forms.py:174
+msgid "We are already engaged in AI"
+msgstr "Je travaille déjà là dessus"
+
+#: apps/survey/forms.py:176 apps/survey/models.py:385
+msgid "Artificial intelligence ?"
+msgstr "Intelligence Artificielle ?"
+
+#: apps/survey/forms.py:179
+msgid ""
+"Wether you are vey involved in data science or not, what inspires you the "
+"concept of \"artificial intelligence\" ?"
+msgstr ""
+"Que vous soyez hautement impliqué dans l'analyse de données ou non; que vous inspire le concept "
+"d'Intelligence Artificielle ?"
+
+#: apps/survey/forms.py:180
+msgid ""
+"How closed are you from using such technologies in your business or for some "
+"private analysis ?"
+msgstr "A quel point êtes-vous proche de l'utilisation de telles technologies "
+"dans vos activités professionnelles ou privées ?"
+
+#: apps/survey/forms.py:187
+msgid "Reports depend mainly on acounting data"
+msgstr "Les rapports dépendent surtout de données comptables"
+
+#: apps/survey/forms.py:188
+msgid "Most operational and raw data are followed up"
+msgstr "Les données opérationnelles et brutes sont suivies"
+
+#: apps/survey/forms.py:189
+msgid "We are managing big data and every single data is exploited"
+msgstr "Je gère le Big Data et n'importe quelle donnée est exploitée"
+
+#: apps/survey/forms.py:192
+msgid ""
+"Most systems store huge amounts of data that are not used in business "
+"analysis."
+msgstr "La plupart des systèmes d'information stockent de grandes quantité de "
+"données qui ne sont pas utilisées pour analyser l'activité de l'entreprise."
+
+#: apps/survey/forms.py:193
+msgid ""
+"e.g. Emails and customers informations are mainly quarried for mailing "
+"promotions and newsletters but rarely for building classifications or some "
+"predictions."
+msgstr "e.g. les emails ou les informations clients servent principalement "
+"à l'envoi de messages promotionnels ou des newsletters; plus rarement pour "
+"élaborer des segments ou réaliser des prédictions"
+
+#: apps/survey/forms.py:194
+msgid ""
+"Are you mining informations about your business health in your whole "
+"database or just on few indicators as margin, cost and revenue ?"
+msgstr "Recherchez-vous des informations quant à la santé de votre entreprise "
+"dans l'ensemble de vos données ou à partir seulement de quelques indicateurs "
+"de marge, de coût ou de chiffre d'affaires ?"
+
+#: apps/survey/forms.py:195
+msgid "Wasting data ?"
+msgstr "Gaspillage de données ?"
+
+#: apps/survey/forms.py:203
+msgid "I can easily take decisions by watching my reports"
+msgstr "Je peux aisément prendre des décisions à la vue de mes rapports"
+
+#: apps/survey/forms.py:204
+msgid "Reports are just giving a kind of \"humor\" about the business."
+msgstr ""
+"les rapports ne fournissent qu'une \"impression\" de l'état de "
+"l'activité"
+
+#: apps/survey/forms.py:205
+msgid "There are absolutely no links between data and decisions."
+msgstr "Il n'y a aucun lien entre les données et les décisions"
+
+#: apps/survey/forms.py:207 apps/survey/models.py:406
+msgid "Smart data ?"
+msgstr "Smart data ?"
+
+#: apps/survey/forms.py:210
+msgid ""
+"\"Smart Data\" is a concept that leads to analyze less data but that are more "
+"accurate."
+msgstr ""
+"\"Smart Data\" (données intelligentes) est un concept a concept qui vise à "
+"étudier moins de données mais plus pertinentes."
+
+
+#: apps/survey/forms.py:211
+msgid ""
+"It's quite different from big data which involves huge quantities of data, "
+"from text to pictures or videos."
+msgstr ""
+"Cela est relativement différent du \"big data\" qui implique une très grande "
+"quantité de données, de textes aux images ou aux vidéos."
+
+#: apps/survey/forms.py:212
+msgid "How close do you think your data are from beeing smart ?"
+msgstr ""
+"Pensez-vous que les données contenues dans vos systèmes sont "
+"\"intelligentes\" ? "
+
+#: apps/survey/forms.py:219
+msgid "I don't need to predict anything"
+msgstr "Je n'ai pas besoin d'analyser quoi que ce soit"
+
+#: apps/survey/forms.py:220 apps/survey/models.py:420
+msgid "I already can estimate outputs by myself"
+msgstr "Je peux déjà estimer des résultats moi-même"
+
+#: apps/survey/forms.py:221 apps/survey/models.py:421
+msgid "I won't be confident on prediction given by a machine"
+msgstr "Je n'aurai pas confiance dans des prédictions données par une machine"
+
+#: apps/survey/forms.py:222 apps/survey/models.py:422
+msgid "I would like to try on my own data"
+msgstr "J'aimerais bien tester cela avec mes propres données"
+
+#: apps/survey/forms.py:224 apps/survey/models.py:416
+msgid "Predictions ?"
+msgstr "Prédictions ?"
+
+#: apps/survey/forms.py:226
+msgid ""
+"Regarding your data, are you just watching at them or are you able to make "
+"some prediction on what could happened ?"
+msgstr ""
+"En considérant vos données, les regardez-vous simplement ou bien êtes-vous "
+"capable d'en tirer des prévisions sur ce qui pourrait se passer ?"
+
+#: apps/survey/forms.py:236
+msgid "Tag your private KPI"
+msgstr "Ajoutez des tags extra-professionnels"
+
+#: apps/survey/forms.py:238
+msgid "Tag the name of the elements you would like to analyse."
+msgstr "Saisissez les mots-clefs d'éléments que vous souhaiteriez analyser."
+
+#: apps/survey/forms.py:239
+msgid ""
+"Type any key, dimension or indicator that could appears in your private "
+"interests"
+msgstr ""
+"Indiquez des noms d'indicateurs ou de dimensions que vous aimeriez pouvoir "
+"analyser dans le cadre de vos activités extra-professionnelles ou de vos "
+"intérets personnels."
+
+#: apps/survey/forms.py:240
+msgid "For exemple : pace, speed, time, run, travel, cost..."
+msgstr ""
+"Par exemple : 'vitesse, accélération, moto' ou 'allure, chrono, run', "
+"voyage, 'cuisine, température, temps de cuisson'... "
+
+#: apps/survey/forms.py:246
+msgid "type your text here..."
+msgstr "Saisissez votre texte..."
+
+#: apps/survey/forms.py:248
+msgid "IA for private data ?"
+msgstr "IA pour les données privées ?"
+
+#: apps/survey/forms.py:250
+msgid ""
+"Do you have any expectations for a IA tool for private data or activities ?"
+msgstr "Comment imaginez vous l'utilisation de l'IA pour les particuliers ?"
+
+#: apps/survey/forms.py:251
+msgid "Describe your private  need for IA reports, if any..."
+msgstr ""
+"Décrivez comment l'IA pourrait, selon vous, s'appliquer à vos activités de "
+"loisirs ou à vos intérets personnels, si vous en avez..."
+
+#: apps/survey/forms.py:252
+msgid "What could you expect of a machine learning tool in a private use ?"
+msgstr ""
+"Qu'attendez-vous d'un service d'apprentissage machine dans le cadre d'un "
+"usage privé ?"
+
+#: apps/survey/forms.py:258
+msgid "Comment possible issues of IA analysis"
+msgstr "Saisissez votre texte ici... "
+
+#: apps/survey/forms.py:260
+msgid "Suspecting issues ?"
+msgstr "Doit-on craindre l'Intelligence Artificielle ?"
+
+#: apps/survey/forms.py:262
+msgid "Are you suspecting machine learning to bring issues ?"
+msgstr ""
+"Suspectez vous l'apprentissage machine de créer des problèmes ? Existe-il, "
+"selon vous, des dérives induites par l'utilisation de l'Intelligence "
+"Artificielle ?"
+
+#: apps/survey/forms.py:263
+msgid "Do you have any about a dark side of such tools ?"
+msgstr ""
+"Imaginez-vous un côté sombre à ces outils ou à ces algorithmes ?Décrivez les "
+"dérives possibles ou les problèmes que pourraient poser l'analyse des "
+"données par des systèmes intelligents."
+
+#: apps/survey/forms.py:266
+
+msgid "Thank You !"
+msgstr "Merci !"
+
+#: apps/survey/forms.py:268
+msgid "type your email here"
+msgstr "Saisissez votre adresse email"
+
+#: apps/survey/forms.py:271
+
+msgid ""
+"(optional) Type your email address below if you wish to be informed of our "
+"activities."
+msgstr ""
+"(optionnel) Saisissez votre adresse email ci-dessous pour être informé de nos "
+"activités."
+
+#: apps/survey/forms.py:272 apps/survey/models.py:428
+msgid "We'll never share your email with anyone else..."
+msgstr "Nous ne partagerons pas votre email avec qui que ce soit..."
+
+#: apps/survey/models.py:12
+msgid "self employed"
+msgstr "travailleur indépendant"
+
+#: apps/survey/models.py:13
+msgid "local administration"
+msgstr "administration locale, territoriale,"
+
+#: apps/survey/models.py:14
+msgid "government"
+msgstr "gouvernement"
+
+#: apps/survey/models.py:15 apps/survey/models.py:42 apps/survey/models.py:62
+msgid "education"
+msgstr "éducation, enseignement"
+
+#: apps/survey/models.py:16
+msgid "enterprise"
+msgstr "entreprise"
+
+#: apps/survey/models.py:17
+msgid "non-profit, non governmental organisation"
+msgstr "association, organisation non gouvernementale"
+
+#: apps/survey/models.py:18
+msgid "small or medium business"
+msgstr "petite ou moyenne entreprise"
+
+#: apps/survey/models.py:19
+msgid "start-up"
+msgstr "start-up"
+
+#: apps/survey/models.py:20 apps/survey/models.py:45 apps/survey/models.py:71
+msgid "other..."
+msgstr "autre..."
+
+#: apps/survey/models.py:25
+msgid "wholesale distribution and retail trade"
+msgstr "négoce, distribution spécialisée, boutiques"
+
+#: apps/survey/models.py:26
+msgid "IT, digital, software, internet and telecom"
+msgstr "Informatique, digital, logiciel, internet et télécom"
+
+#: apps/survey/models.py:27
+msgid "bank, insurance or financial activities"
+msgstr "Banques, Assurances, Institutions financières"
+
+#: apps/survey/models.py:28
+msgid "industry and manufacturing"
+msgstr "Industrie et fabrication"
+
+#: apps/survey/models.py:29
+msgid "transportation, storage and logistic"
+msgstr "transport, logiciel, entrepôts"
+
+#: apps/survey/models.py:30
+msgid "construction, building, real estate"
+msgstr "construction, bâtiment, immobilier"
+
+#: apps/survey/models.py:31
+msgid "computers and electronics"
+msgstr "ordinateurs et électronique"
+
+#: apps/survey/models.py:32
+msgid "research, science, environment"
+msgstr "recherche, science, environnement"
+
+#: apps/survey/models.py:33
+msgid "energy, electricity, gas, steam, water supply..."
+msgstr "énergie, électricité, gaz, distribution d'eau"
+
+#: apps/survey/models.py:34
+msgid "agriculture, forestry, fishing, mining"
+msgstr "agriculture, élevage, pêche, exploitation forestière ou minière"
+
+#: apps/survey/models.py:35
+msgid "legal, law"
+msgstr "Justice"
+
+#: apps/survey/models.py:36
+msgid "professional services"
+msgstr "société de services"
+
+#: apps/survey/models.py:37
+msgid "information, media, communication"
+msgstr "information, media, communication"
+
+#: apps/survey/models.py:38
+msgid "cinema, arts, entertainment and gaming"
+msgstr "cinéma, spectacles, arts et jeux vidéo"
+
+#: apps/survey/models.py:39
+msgid "sport, recreation, outdoor"
+msgstr "sport, loisir, activités de plein-air"
+
+#: apps/survey/models.py:40
+msgid "travel, hospitality, accomodation, restaurant, food activities"
+msgstr "voyage, hôtellerie, restauration, alimentation"
+
+#: apps/survey/models.py:41
+msgid "healthcare and social work activities"
+msgstr "Santé et services sociaux"
+
+#: apps/survey/models.py:43
+msgid "public administration, government"
+msgstr "administration publique, gouvernement"
+
+#: apps/survey/models.py:44
+msgid "non-profit organisation"
+msgstr "association à but non lucratif"
+
+#: apps/survey/models.py:50
+msgid "liberal, partner, self employed"
+msgstr "auto-entrepreneur, profession libérale, travailleur indépendant"
+
+#: apps/survey/models.py:51
+msgid "financial, accounting"
+msgstr "finance, comptabilité"
+
+#: apps/survey/models.py:52
+msgid "IT/telecom"
+msgstr "informatique, télécom"
+
+#: apps/survey/models.py:53
+msgid "marketing, communication"
+msgstr "marketing, communication"
+
+#: apps/survey/models.py:54
+msgid "sales"
+msgstr "ventes, activité commerciale"
+
+#: apps/survey/models.py:55
+msgid "storage, logistic, supply-chain, transportation"
+msgstr "transport, logistique, approvisionnement, stockage"
+
+#: apps/survey/models.py:56
+msgid "human ressources"
+msgstr "ressources humaines"
+
+#: apps/survey/models.py:57
+msgid "consultant, advisor"
+msgstr "consultant, audit, conseil"
+
+#: apps/survey/models.py:58
+msgid "research, science academic"
+msgstr "recherche, universitaire"
+
+#: apps/survey/models.py:59
+msgid "health, medical"
+msgstr "santé, médical"
+
+#: apps/survey/models.py:60
+msgid "journalist, media analyst"
+msgstr "journaliste, analyste des media"
+
+#: apps/survey/models.py:61
+msgid "business executive, management, upper management"
+msgstr "cadre d'entreprise, cadre supérieur, dirigeant, haut fonctionnaire"
+
+#: apps/survey/models.py:63 apps/tag/models.py:25
+msgid "legal"
+msgstr "juriste, droit, avocat, magistrat"
+
+#: apps/survey/models.py:64
+msgid "buying, sourcing"
+msgstr "achat, chef de produit, sourcing"
+
+#: apps/survey/models.py:65
+msgid "technical, production"
+msgstr "technique, production, fabrication"
+
+#: apps/survey/models.py:66
+msgid "administration"
+msgstr "agent administratif"
+
+#: apps/survey/models.py:67
+msgid "developer, engineer"
+msgstr "développeur, ingénieur, architecte"
+
+#: apps/survey/models.py:68
+msgid "support services"
+msgstr "services supports"
+
+#: apps/survey/models.py:69
+msgid "entrepreneur"
+msgstr "entrepreneur, chef d'entreprise"
+
+#: apps/survey/models.py:70
+msgid "student"
+msgstr "étudiant"
+
+#: apps/survey/models.py:76
+msgid "daily"
+msgstr "quotidien"
+
+#: apps/survey/models.py:77
+msgid "two or three times a week"
+msgstr "deux à trois fois par semaine"
+
+#: apps/survey/models.py:78
+msgid "weekly"
+msgstr "hebdomadaire"
+
+#: apps/survey/models.py:79
+msgid "two or three times a month"
+msgstr "deux ou trois fois par mois"
+
+#: apps/survey/models.py:80
+msgid "monthly"
+msgstr "mensuel"
+
+#: apps/survey/models.py:81
+msgid "rarely"
+msgstr "rarement"
+
+#: apps/survey/models.py:82
+msgid "never"
+msgstr "jamais"
+
+#: apps/survey/models.py:88
+msgid "raw listings"
+msgstr "listes élémentaires"
+
+#: apps/survey/models.py:89
+msgid "columns tables"
+msgstr "tables et colonnes"
+
+#: apps/survey/models.py:90
+msgid "pivot tables"
+msgstr "tableaux croisés"
+
+#: apps/survey/models.py:91
+msgid "Olap hypercubes"
+msgstr "hypercubes, OLAP"
+
+#: apps/survey/models.py:92
+msgid "graphs, curves or charts"
+msgstr "graphiques, courbes, diagrammes"
+
+#: apps/survey/models.py:98 apps/survey/models.py:155
+msgid "none, a pocket calculator or pencil, rubber and paper..."
+msgstr "Rien, une calculatrice, un crayon, un papier et une gomme..."
+
+#: apps/survey/models.py:99 apps/survey/models.py:156
+msgid "Spreadsheet, Microsoft Excel, Google Sheets, Open Office Calc"
+msgstr "Feuille de calcul, Microsoft Excel, Google Sheets, Open Office Calc"
+
+#: apps/survey/models.py:100
+msgid ""
+"Business Intelligence Desktop tools, Tableau, Qlik Sense, Sisense, Looker..."
+msgstr ""
+"Logiciel de \"Business Intelligence\" et de reporting: Tableau, Qlik Sense, "
+"Sisense, Looker..."
+
+#: apps/survey/models.py:101
+msgid ""
+"Business Intelligence enterprise reporting tools, SAP Business Objects, IBM "
+"Cognos, Microsoft Analysis Services/Power BI "
+msgstr ""
+"Solution de \"Business Intelligence\" et de reporting d'entreprise: SAP "
+"Business Objects, IBM Cognos, Microsoft Analysis Services/Power BI "
+
+#: apps/survey/models.py:102
+msgid ""
+"Enterprise Business Application or Package Software (SAP, PeopleSoft, "
+"Microsoft Dynamics, Cegid, Generix... )"
+msgstr ""
+"Progiciel de gestion (SAP, PeopleSoft, Microsoft Dynamics, Cegid, "
+"Generix... )"
+
+#: apps/survey/models.py:103 apps/survey/models.py:157
+msgid "Web's software as a service solution"
+msgstr "Service Web, application logicielle en ligne"
+
+#: apps/survey/models.py:104
+msgid "IT specific reports"
+msgstr "Développements infomatiques spécifiques"
+
+#: apps/survey/models.py:105
+msgid "AI analysis, IBM Watson, Microsoft Azur Machine Learning..."
+msgstr ""
+"solution d'analyse Intelligence Artificielle, IBM Watson, Microsoft Azur "
+"Machine Learning..."
+
+#: apps/survey/models.py:106
+msgid "developper tools, Python, Java, C#..."
+msgstr "langages de programmation, Python, Java, C, C#..."
+
+#: apps/survey/models.py:107
+msgid "none of this..."
+msgstr "aucun de tous ceux là..."
+
+#: apps/survey/models.py:111
+msgid "not at all"
+msgstr "pas du tout"
+
+#: apps/survey/models.py:112
+msgid "not so much "
+msgstr "pas trop"
+
+#: apps/survey/models.py:113
+msgid "yes "
+msgstr "oui"
+
+#: apps/survey/models.py:114
+msgid "yes, very much"
+msgstr "oui, beaucoup"
+
+#: apps/survey/models.py:115
+msgid "excellent"
+msgstr "excellent"
+
+#: apps/survey/models.py:120
+msgid "less than €1 Million"
+msgstr "moins de 1 Million €"
+
+#: apps/survey/models.py:121
+msgid "€1 Million to €10 Million"
+msgstr "1 Million € à 10 Millions €"
+
+#: apps/survey/models.py:122
+msgid "€10 Million to €100 Million"
+msgstr "10 Millions € à 100 Millions €"
+
+#: apps/survey/models.py:123
+msgid "€100 Million to €500 Million"
+msgstr "100 Millions € à 500 Millions €"
+
+#: apps/survey/models.py:124
+msgid "€500 Million to €1 Billion"
+msgstr "500 Millions € à 1 Milliard €"
+
+#: apps/survey/models.py:125
+msgid "over 1€ Billion"
+msgstr "plus de 1 Milliard €"
+
+#: apps/survey/models.py:130
+msgid "less than 1000"
+msgstr "moins de 1000"
+
+#: apps/survey/models.py:131
+msgid "1000 to 9,999 (thousand)"
+msgstr "1000 à 9 999"
+
+#: apps/survey/models.py:132
+msgid "10,000 to 99,999"
+msgstr "10 000 à 99 999"
+
+#: apps/survey/models.py:133
+msgid "100,000 to 1 Million"
+msgstr "100 000 à 1 Million"
+
+#: apps/survey/models.py:134
+msgid "1 Million to 500 Million"
+msgstr "1 Million à 500 Millions"
+
+#: apps/survey/models.py:135
+msgid "over 500 Million"
+msgstr "plus de 500 Millions"
+
+#: apps/survey/models.py:140
+msgid "sport"
+msgstr "sport"
+
+#: apps/survey/models.py:141
+msgid "somehow scientific"
+msgstr "recherche scientifique ou presque"
+
+#: apps/survey/models.py:142
+msgid "managing an association"
+msgstr "gérer une association"
+
+#: apps/survey/models.py:143
+msgid "personal finance"
+msgstr "finances personnelles, budget familial"
+
+#: apps/survey/models.py:144 templates/home/lside.html:16
+msgid "pictures"
+msgstr "photo, images"
+
+#: apps/survey/models.py:145
+msgid "cinema, music, some arts"
+msgstr "cinéma, musique, arts"
+
+#: apps/survey/models.py:146
+msgid "social media"
+msgstr "réseaux sociaux, facebook, twitter, instagram..."
+
+#: apps/survey/models.py:147
+msgid "games, e-sport"
+msgstr "jeux, jeux vidéos, e-sport"
+
+#: apps/survey/models.py:148
+msgid "bet, gambling, sport statistics"
+msgstr "paris, jeux d'argent, statistiques sportives"
+
+#: apps/survey/models.py:149
+msgid "technologic, engine, personal IT"
+msgstr "technologie, moteurs, informatique personnelle, réseau, hacking"
+
+#: apps/survey/models.py:150
+msgid "other.."
+msgstr "autres..."
+
+#: apps/survey/models.py:158
+msgid "some Apps (Strava, Runkeeper, Imdb, BetClic"
+msgstr ""
+"d'autres applications mobiles ou en ligne (Strava, Runkeeper, Imdb, BetClic)"
+
+#: apps/survey/models.py:159
+msgid "others..."
+msgstr "autres..."
+
+#: apps/survey/models.py:165
+msgid "IP address"
+msgstr "adresse email"
+
+#: apps/survey/models.py:172
+msgid "client browser"
+msgstr ""
+
+#: apps/survey/models.py:186
+msgid "company type"
+msgstr "type d'entreprise"
+
+#: apps/survey/models.py:187
+msgid ""
+"Select the type of company which is closer from the one you are working in..."
+msgstr ""
+"Sélectionnez le type d'entreprise ou d'organisation qui correspond le plus à "
+"celle pour laquelle vous travaillez"
+
+#: apps/survey/models.py:194
+msgid "specify type"
+msgstr "précisez le type d'entreprise"
+
+#: apps/survey/models.py:195
+msgid "Could you, please, specify your company's type in the text field below"
+msgstr ""
+"Pouvez-vous spécifier le type de votre entreprise dans le champs de saisie "
+"ci-dessous"
+
+#: apps/survey/models.py:202
+msgid "company activity"
+msgstr "activité de l'entreprise"
+
+#: apps/survey/models.py:203
+msgid ""
+"Select the main sector of the company/organization you are working in..."
+msgstr ""
+"Sélectionnez le secteur d'activité de l'entreprise ou de l'organisation pour "
+"laquelle vous travaillez..."
+
+#: apps/survey/models.py:210
+msgid "specify activity"
+msgstr "précisez le secteur d'activité"
+
+#: apps/survey/models.py:211
+msgid ""
+"Could you, please, specify  your company's activity in the text field below"
+msgstr "Veuillez préciser l'activité de l'entreprise"
+
+#: apps/survey/models.py:218 apps/survey/models.py:314
+msgid "company annual revenue"
+msgstr "chiffre d'affaires annuel"
+
+#: apps/survey/models.py:219
+msgid ""
+"Select the average annual revenue of your company. Leave empty if not allowed"
+msgstr ""
+"Sélectionnez l'ordre de grandeur du chiffre d'affaires annuel moyen; laissez "
+"vide si vous ne le connaissez pas ou n'avez pas l'autorisation de le "
+"communiquer"
+
+#: apps/survey/models.py:226
+msgid "employee role"
+msgstr "votre fonction"
+
+#: apps/survey/models.py:227
+msgid "What is your occupation or the department in which you work ?"
+msgstr ""
+"Quelle est votre fonction, quel type de poste occupez-vous ou dans quel "
+"département travaillez-vous ?"
+
+#: apps/survey/models.py:235
+msgid "specify occupation"
+msgstr "Précisez votre fonction"
+
+#: apps/survey/models.py:236
+msgid "Could you, please, specify your occupation in the text field below."
+msgstr "Veuillez préciser votre fonction dans la champs de saisie ci-dessous."
+
+#: apps/survey/models.py:242
+msgid "Are you dealing with data ?"
+msgstr "Accès aux données de votre entreprise ?"
+
+#: apps/survey/models.py:243
+msgid ""
+"Check 'yes' if your department is holding data (sales, logistic, clients, "
+"products details, technical data...)"
+msgstr ""
+"Accédez-vous aux données de votre entreprise ? Indiquez si votre fonction ou "
+"le département dans lequel vous travaillez nécessite la consultation ou "
+"l'analyse de données (ventes, logistique, clients, détails produits, données "
+"techniques...)"
+
+#: apps/survey/models.py:250
+msgid "analysis frequency"
+msgstr "fréquence des analyses"
+
+#: apps/survey/models.py:251
+msgid "How often are you analysing or building reports on those data ?"
+msgstr ""
+"Combien de fois par semaine, par mois ou par an analysez-vous ces données ou "
+"consultez-vous des tableaux de bord reposant sur ces données ?"
+
+#: apps/survey/models.py:258
+msgid "reporting style"
+msgstr "solution de reporting"
+
+#: apps/survey/models.py:260
+msgid "How are you mainly visualizing your data ?"
+msgstr ""
+"De quelle façon consultez-vous vos données ? Quel mode de visualisation "
+"utilisez-vous ?"
+
+#: apps/survey/models.py:261
+msgid "What style of reporting are you dealing with ?"
+msgstr "Sous quel format apparaissent vos données ?"
+
+#: apps/survey/models.py:268
+msgid "reporting tool"
+msgstr "solution de reporting"
+
+#: apps/survey/models.py:269
+msgid ""
+"What tool or software are you mainly using for building or looking at "
+"charts ?"
+msgstr ""
+"Quel logiciel ou quel outil principal utilisez-vous pour construire ou "
+"consulter des tableaux de bords ou des graphiques ?"
+
+#: apps/survey/models.py:273
+msgid "data extraction"
+msgstr "extraction de données"
+
+#: apps/survey/models.py:275
+msgid ""
+"Are you sometimes extracting data out of the reporting tool you are using ?"
+msgstr ""
+"Extrayez-vous parfois des données du système de reporting que vous utilisez ?"
+
+#: apps/survey/models.py:276
+msgid ""
+"Check 'yes' if you use to export raw data out of the reporting tool to make "
+"analysis in a spreadsheets tool."
+msgstr ""
+"Sélectionnez 'oui' si vous avez l'habitude d'exporter les données hors de "
+"l'outil de reporting pour faire des analyses sur un tableur, par exemple..."
+
+#: apps/survey/models.py:303
+msgid "Average number of records"
+msgstr "nombre moyen d'enregistrements"
+
+#: apps/survey/models.py:305
+msgid "What is the size of datasets on which reports rely on ?"
+msgstr ""
+"Quelle est la taille des ensembles de données sur lesquels s'appuient vos "
+"tableaux de bords ?"
+
+#: apps/survey/models.py:306
+msgid ""
+"e.g. a report that display informations over three weeks in 200 stores with "
+"an average of 50 sales a day,"
+msgstr ""
+"e.g. un tableau de bord qui présente les informations de trois semaines de "
+"ventes dans 200 boutiques avec 50 ventes en moyenne par jour et par boutique,"
+
+#: apps/survey/models.py:307
+msgid " ...the number of records will be 50 x 200 x 7 x 3 = 210,000"
+msgstr "...le nombre moyen d'enregistrements sera  50 x 200 x 7 x 3 = 210 000"
+
+#: apps/survey/models.py:315
+msgid ""
+"Select the average annual revenue of your company. Leave empty if not "
+"allowed."
+msgstr ""
+"Sélectionnez l'ordre de grandeur du chiffre d'affaires annuel moyen; laissez "
+"vide si vous ne le connaissez pas ou n'avez pas l'autorisation de le "
+"communiquer."
+
+#: apps/survey/models.py:322
+msgid "Engaging in private activities ?"
+msgstr "activités extra professionnelles ?"
+
+#: apps/survey/models.py:324
+msgid ""
+"Whether it yield data you could analyze or not, are you involved in some "
+"private activities ?  "
+msgstr ""
+"Qu'elles disposent ou non de données que vous pourriez analyser, êtes-vous "
+"impliqués dans quelques activités extra-professionnelles ? "
+
+#: apps/survey/models.py:325
+msgid ""
+"From managing an association to training hard in some sports is there a "
+"specific activity in which you spend your free time ?"
+msgstr ""
+"De la gestion d'une association à un entraînement sportif intensif en "
+"passant par le jardinage, la photographie ou l'astronomie, exercez-vous une "
+"activité pendant vos loisirs ?"
+
+#: apps/survey/models.py:331
+msgid "Analyzing private activities ?"
+msgstr "analyse d'activités extra-professionnelles"
+
+#: apps/survey/models.py:332
+msgid "Is there any tool you use for that private activity ?"
+msgstr ""
+"Utilisez-vous un logiciel, un objet connecté ou une application dans le "
+"cadre de cette activité ?"
+
+#: apps/survey/models.py:339
+msgid "could you describe an IA use for your professional needs ?"
+msgstr ""
+"Décrivez succinctement de quelle façon l'Intelligence Artificielle pourrait "
+"être utilisée dans votre activité professionnelle."
+
+#: apps/survey/models.py:340
+msgid "could you describe an IA use for your private activities ?"
+msgstr ""
+"Pouvez-vous décrire une utilisation possible de l'Intelligence Artificielle "
+"dans le cadre de vos activités extra-professionnelles ?"
+
+#: apps/survey/models.py:342
+msgid "do you imagine some issues analysing data with IA tools ?"
+msgstr ""
+"Imaginez-vous des problèmes posés par l'utilisation de système reposant sur "
+"l'IA pour analyser des données ?"
+
+#: apps/survey/models.py:345
+msgid "Do you analyze your data yourself ?"
+msgstr "Analysez vous les données vous-même ?"
+
+#: apps/survey/models.py:347
+msgid ""
+"Do you often dive in your data to have a better understanding of underlying "
+"issues, rather than tracking the evolution of variables thru time ?"
+msgstr ""
+"Analysez-vous des données vous-même ? Vous plongez-vous parfois dans vos "
+"données pour comprendre ce qui provoque tel ou tel résultat, plutôt que de "
+"vous contenter de suivre la variation d'une variable dans le temps ?"
+
+#: apps/survey/models.py:350
+msgid "Are you independant ?"
+msgstr "êtes vous autonome ?"
+
+#: apps/survey/models.py:353
+msgid ""
+"Check 'yes' if you do not feel highly dependant from others to access new "
+"sets of data."
+msgstr ""
+"Vous sentez-vous suffisamment indépendant quant à l'accès aux données "
+"contenues dans les systèmes de votre entreprise ? Vous n'avez pas besoin de "
+"faire appel à votre département informatique pour concevoir de nouvelles "
+"requêtes..."
+
+#: apps/survey/models.py:354
+msgid ""
+"If you do not rely on someone else's work and need to make a request to "
+"another department (e.g. IT) , consultants or a partner company and wait for "
+"a while before getting datasets or reports."
+msgstr ""
+"Si vous ne reposez pas sur le travail de quelqu'un d'autre et n'avez pas "
+"besoin de demander à un autre département (e.g. informatique), des "
+"consultants, une société externe...et attendre un long moment avant "
+"d'accéder à de nouvelles données."
+
+#: apps/survey/models.py:357
+msgid "any mathematical background ?"
+msgstr "Avez-vous un bagage mathématique ?"
+
+#: apps/survey/models.py:360
+msgid ""
+"Do you have any mathematical backgrounds or some knowledge of mathematics "
+"and statistics that allow you to make advanced analysis of your data ?"
+msgstr ""
+"Avez-vous des connaissances avancées en mathématique ou en statistique qui "
+"vous autorisent à faire des analyses poussées sur vos données ?"
+
+#: apps/survey/models.py:361
+msgid ""
+"You master regression analysis (linear, polynomial or logistic) and many "
+"other heuristics and you know how to use them..."
+msgstr ""
+"Vous maitrisez l'analyse de régression (linéaire, polynomiale, logistique) "
+"et beaucoup d'autres heuristiques (que vous savez utiliser)..."
+
+#: apps/survey/models.py:364
+msgid "data analysts around you?"
+msgstr "des data-analysts autour de vous ?"
+
+#: apps/survey/models.py:366
+msgid ""
+"Do you have any data scientists or any dedicated team, easily approachable, "
+"in your working environment, with whom any Analysis question will have its "
+"answer in a few hours ? "
+msgstr ""
+"Avez-vous, dans votre environnement de travail proche, des data-scientists "
+"ou des équipes dédiées aisément accessibles, grâce auxquels toute question "
+"d'analyse un peu complexe trouve sa réponse en quelques heures ?"
+
+#: apps/survey/models.py:369
+msgid "are you dealing with 'open data' ?"
+msgstr "Utilisez-vous l'open-data ?"
+
+#: apps/survey/models.py:371
+msgid ""
+"Data freely provided by government or other organisations like traffic, "
+"meteo, train scheedules..."
+msgstr ""
+"Ce sont des données librement accessible, fournies gratuitement par des "
+"collectivités locales, le gouvernement ou toutes sortes d'organisations: (le "
+"trafic, les horaires du métro ou de train, la météo, les résultats "
+"électoraux,...)"
+
+#: apps/survey/models.py:373
+msgid "anomaly detection ?"
+msgstr "détection d'anomalies ?"
+
+#: apps/survey/models.py:374
+msgid "classification, automated categories assignment"
+msgstr "Classification, affectation automatique de catégories"
+
+#: apps/survey/models.py:375
+msgid "predicting results"
+msgstr "Prédire des résultats"
+
+#: apps/survey/models.py:376
+msgid "finding correlation among your data, causality or links between events"
+msgstr ""
+"trouver des corrélations à travers les données, les liens de causalité entre "
+"les événements"
+
+#: apps/survey/models.py:377
+msgid "segmentation, building relevant groups among your data"
+msgstr "segmentation, création de groupes de données pertinents"
+
+#: apps/survey/models.py:378
+msgid "picture categorization"
+msgstr "classification d'image"
+
+#: apps/survey/models.py:379
+msgid "text categorization"
+msgstr "classification de texte"
+
+#: apps/survey/models.py:386
+msgid ""
+"Wether you know who is HAL or not; What inspires you the concept of "
+"\"artificial intelligence\" ?"
+msgstr ""
+"Que vous sachiez ou non qui est HAL; que vous inspire le concept "
+"d'Intelligence Artificielle ?"
+
+#: apps/survey/models.py:392
+msgid "I'm already engaged'"
+msgstr "J'utilise déjà ce type de solution"
+
+#: apps/survey/models.py:396
+msgid "Machine learning ?"
+msgstr "Apprentissage Machine ?"
+
+#: apps/survey/models.py:397
+msgid "have you already heard of \"machine learning\" ?"
+msgstr "Avez-vous déjà entendu parler de'\"Apprentissage Machine\" ?"
+
+#: apps/survey/models.py:399
+msgid "I don't know and I really don't care"
+msgstr "Je ne sais pas et cela ne m'intéresse pas"
+
+#: apps/survey/models.py:400
+msgid "Somehow a technical thing with computers and machines"
+msgstr "Quelque chose de technique avec des machines et des ordinateurs"
+
+#: apps/survey/models.py:401
+msgid "It is related to education, like MOOCs, but machine are teaching"
+msgstr "L'enseignement où les ordinateurs remplacent les professeurs"
+
+#: apps/survey/models.py:402
+msgid ""
+"Obviously making prediction on some features by \"training\" a model with "
+"data"
+msgstr "prédire des caractéristiques en entraînant un modèle avec des données"
+
+#: apps/survey/models.py:407
+msgid "is \"smart data\" concept relevant to you ?"
+msgstr "est-ce que le concept de \"smart data\" vous inspire quelque chose ?"
+
+#: apps/survey/models.py:409
+msgid "I don't want to know"
+msgstr "Je ne veux pas savoir"
+
+#: apps/survey/models.py:410
+msgid "it's like big data but comming from something smart"
+msgstr "Du \"Big Data\" avec des données issues de systèmes intelligents"
+
+#: apps/survey/models.py:411
+msgid "In my systems, data are not smart, it's only raw data"
+msgstr "Aucune de mes données n'est intelligente, ce sont des données 'brutes'"
+
+#: apps/survey/models.py:412
+msgid ""
+"Less data but more relevant to have significant outputs and make decision"
+msgstr "Des résultats plus pertinents qui favorisent de meilleures décisions "
+
+#: apps/survey/models.py:417
+msgid "Do you believe in prediction given by some algorithms ?"
+msgstr "Croyez-vous aux prédictions réalisées par des algorithmes ?"
+
+#: apps/survey/models.py:419
+msgid "I don't need that"
+msgstr "Je n'ai pas besoin de cela"
+
+#: apps/survey/models.py:429
+msgid ""
+"please, type your email address below if you wish to be informed of our "
+"activities, "
+msgstr ""
+"Veuillez saisir votre adresse email ci-dessous si vous soulez être informé "
+"de nos activités,"
+
+#: apps/tag/models.py:15
+msgid "retail"
+msgstr "retail"
+
+#: apps/tag/models.py:16
+msgid "correlation"
+msgstr "Corrélation"
+
+#: apps/tag/models.py:17
+msgid "production"
+msgstr "Production"
+
+#: apps/tag/models.py:18
+msgid "learning"
+msgstr "apprentissage"
+
+#: apps/tag/models.py:19
+msgid "retail/sales"
+msgstr ""
+
+#: apps/tag/models.py:20
+msgid "retail/stocks"
+msgstr ""
+
+#: apps/tag/models.py:21
+msgid "customers"
+msgstr "customers"
+
+#: apps/tag/models.py:22
+msgid "CRM"
+msgstr "CRM"
+
+#: apps/tag/models.py:23
+msgid "business"
+msgstr "business"
+
+#: apps/tag/models.py:24
+msgid "HR"
+msgstr "HR"
+
+#: apps/tag/models.py:26
+msgid "IT"
+msgstr "IT"
+
+#: flowka/base_settings.py:301
+msgid "French"
+msgstr "Français"
+
+#: flowka/base_settings.py:302
+msgid "English"
+msgstr "English"
+
+#: ressources/auth-views.py:158
+msgid "Logged out"
+msgstr "déconnexion"
+
+#: ressources/auth-views.py:215 templates/account/password_reset_confirm.html:5
+msgid "Password reset"
+msgstr "ré-initialisation du mot de passe"
+
+#: ressources/auth-views.py:243
+msgid "Password reset sent"
+msgstr "ré-initialisation du mot de passe envoyée"
+
+#: ressources/auth-views.py:252
+msgid "Enter new password"
+msgstr "entrez un nouveau mot de passe"
+
+#: ressources/auth-views.py:312
+msgid "Password reset unsuccessful"
+msgstr "la ré-initialisation du mot de passe a échoué"
+
+#: ressources/auth-views.py:320
+msgid "Password reset complete"
+msgstr "la ré-initialisation du mot de passe a réussi"
+
+#: ressources/auth-views.py:332
+msgid "Password change"
+msgstr "changer mot de passe"
+
+#: ressources/auth-views.py:355
+msgid "Password change successful"
+msgstr "changement du mot de passe réussi"
+
+#: templates/account/login.html:5 templates/home/footer.html:39
+#: templates/home/header.html:48
+msgid "Login"
+msgstr "Connexion"
+
+#: templates/account/login.html:11
+msgid "ACCOUNT LOGIN"
+msgstr "Se connecter"
+
+#: templates/account/login.html:14
+msgid "Login error. "
+msgstr "erreur de connexion"
+
+#: templates/account/login.html:14
+msgid "Please, verify your email and password"
+msgstr "Veuillez vérifier vos emails et mots de passe"
+
+#: templates/account/login.html:20
+msgid "login"
+msgstr "Connexion"
+
+#: templates/account/login.html:23
+msgid "remember me"
+msgstr "se souvenir de moi"
+
+#: templates/account/login.html:24 templates/account/password_change.html:22
+msgid "Lost password?"
+msgstr "mot de passe oublié ?"
+
+#: templates/account/login.html:28
+msgid "you do not have a Flowka account ?"
+msgstr "Vous n'avez pas de compte Flowka ?"
+
+#: templates/account/login.html:29
+msgid "SIGN UP"
+msgstr "Inscrivez Vous"
+
+#: templates/account/password_change.html:13
+msgid "CHANGE PASSWORD"
+msgstr "changer"
+
+#: templates/account/password_change.html:20 templates/home/header.html:44
+msgid "Change Password"
+msgstr "changer"
+
+#: templates/account/password_reset.html:12
+msgid "PASSWORD RESET"
+msgstr "ré-initialiser le mot de passe"
+
+#: templates/account/password_reset.html:16
+#: templates/account/password_reset_confirm.html:12
+#: templates/account/password_reset_confirm.html:19
+msgid "reset password"
+msgstr "ré-initialiser le mot de passe"
+
+#: templates/account/password_reset.html:18
+msgid "I remember my password and I want to"
+msgstr "Je me souviens de mon mot de passe et je veux me"
+
+#: templates/account/password_reset.html:19 templates/account/signup.html:23
+msgid "LOGIN"
+msgstr "CONNEXION"
+
+#: templates/account/password_reset_confirm.html:22
+msgid "reset password failed !"
+msgstr "la ré-initialisation du mot de passe a échoué"
+
+#: templates/account/password_reset_confirm.html:24
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"Ce lien de ré-initialisation est invalide. Il a probablement déjà été "
+"utilisé. Renouvelez la demande de ré-initialisation"
+
+#: templates/account/password_reset_confirm.html:25
+msgid "SEND AGAIN"
+msgstr "ENVOYEZ DE NOUVEAU"
+
+#: templates/account/password_reset_email.html:2
+msgid "Someone asked for password reset for email"
+msgstr "quelqu'un a demandé la ré-initialisation du mot de passe"
+
+#: templates/account/password_reset_email.html:2
+msgid "Follow the link below:"
+msgstr "suivez le lien ci-dessous"
+
+#: templates/account/password_reset_subject.txt:2
+msgid "Flowka password reset"
+msgstr "Flowka - ré-initialisation du mot de passe"
+
+#: templates/account/profile.html:6
+msgid "Profile of"
+msgstr "informations personnelles de"
+
+#: templates/account/profile.html:26
+msgid "EDIT PROFILE"
+msgstr "INFORMATIONS PERSONNELLES"
+
+#: templates/account/profile.html:29
+msgid "save profile"
+msgstr "enregistrer les informations"
+
+#: templates/account/profile.html:63 templates/filer/photo_new.html:40
+msgid "Close"
+msgstr "fermer"
+
+#: templates/account/profile.html:66 templates/filer/photo_new.html:43
+msgid "Edit your picture"
+msgstr "modifier votre photo"
+
+#: templates/account/profile.html:81 templates/filer/photo_new.html:57
+msgid "Nevermind"
+msgstr "abandonner"
+
+#: templates/account/profile.html:82 templates/filer/photo_new.html:58
+msgid "save picture"
+msgstr "enregistrer l'image'"
+
+#: templates/account/signup.html:7
+msgid "Sign up"
+msgstr "créer un compte"
+
+#: templates/account/signup.html:13
+msgid "CREATE NEW ACCOUNT"
+msgstr "CREER UN COMPTE"
+
+#: templates/account/signup.html:20 templates/home/footer.html:40
+#: templates/home/header.html:49
+msgid "Sign Up"
+msgstr "Créer un compte"
+
+#: templates/account/signup.html:22
+msgid "you are already a Flowka user ?"
+msgstr "Vous possédez déjà un compte Flowka ?"
+
+#: templates/account/signup_email.html:3
+msgid "Hi"
+msgstr "Bonjour"
+
+#: templates/account/signup_email.html:4
+msgid "Please click on the link to confirm your registration ,"
+msgstr ""
+"Cliquez s'il vous plaît sur le lien ci-dessous pour confirmer la création de "
+"votre compte"
+
+#: templates/datacollect/column_edit.html:8
+msgid "EDIT column"
+msgstr "éditer la colonne"
+
+#: templates/datacollect/column_edit.html:17
+msgid "enter nothing"
+msgstr ""
+
+#: templates/datacollect/column_edit.html:20
+msgid "enter new name"
+msgstr "entrez un nouveau mot de passe"
+
+#: templates/datacollect/column_edit.html:29
+msgid "alter rule"
+msgstr ""
+
+#: templates/datacollect/column_edit.html:35
+#: templates/filer/folder_edit.html:40
+msgid "save"
+msgstr "enregistrer"
+
+#: templates/datacollect/column_edit.html:36
+#: templates/datacollect/column_rest.html:13 templates/filer/folder.html:84
+#: templates/filer/folder_edit.html:51 templates/message/post.html:13
+msgid "cancel"
+msgstr "abandonner"
+
+#: templates/datacollect/column_rest.html:8 templates/message/post.html:8
+msgid "posts list"
+msgstr "liste des messages"
+
+#: templates/datacollect/dc_base.html:24
+msgid "Edit"
+msgstr "modifier"
+
+#: templates/datacollect/dc_base.html:27
+msgid "Stats"
+msgstr "Stats"
+
+#: templates/datacollect/dc_base.html:30
+msgid "Samples"
+msgstr "Extraits"
+
+#: templates/datacollect/dc_base.html:47
+msgid "type of file"
+msgstr "type de fichier"
+
+#: templates/datacollect/dc_base.html:51 templates/filer/datafile_list.html:30
+msgid "size"
+msgstr "taille"
+
+#: templates/datacollect/dc_base.html:63
+msgid "creation"
+msgstr "Création"
+
+#: templates/datacollect/dc_base.html:67
+msgid "modification"
+msgstr "modification"
+
+#: templates/datacollect/dc_base.html:74 templates/filer/file_actions.html:75
+msgid "download"
+msgstr "télécharger"
+
+#: templates/datacollect/dc_base.html:80 templates/filer/file_actions.html:85
+msgid "delete"
+msgstr "supprimer"
+
+#: templates/datacollect/dc_base.html:87
+msgid "back to list"
+msgstr "retour à la liste"
+
+#: templates/datacollect/dc_edit.html:7
+msgid "data edit"
+msgstr "modifier les données"
+
+#: templates/filer/datafile_list.html:6
+msgid "file list"
+msgstr "liste des documents"
+
+#: templates/filer/datafile_list.html:21
+msgid "No Files"
+msgstr "Aucun Document"
+
+#: templates/filer/datafile_list.html:29
+msgid "title"
+msgstr "titre"
+
+#: templates/filer/datafile_list.html:31
+msgid "last update"
+msgstr "dernière mise à jour"
+
+#: templates/filer/datafile_list.html:37
+msgid "tags"
+msgstr "mots-clefs"
+
+#: templates/filer/datafile_list.html:84
+msgid "uploaded : "
+msgstr "chargé : "
+
+#: templates/filer/datafile_new.html:10 templates/filer/datafile_new.html:22
+msgid "upload a dataset"
+msgstr "importer fichier"
+
+#: templates/filer/file_actions.html:7
+msgid "action"
+msgstr "action"
+
+#: templates/filer/file_actions.html:18
+msgid "share"
+msgstr "partager"
+
+#: templates/filer/file_actions.html:27
+msgid "duplicate"
+msgstr "dupliquer"
+
+#: templates/filer/file_actions.html:32
+msgid "add to"
+msgstr "ajouter à"
+
+#: templates/filer/file_actions.html:35
+msgid "add to folder"
+msgstr "ajouter au projet"
+
+#: templates/filer/file_actions.html:57
+msgid "drop"
+msgstr "détacher"
+
+#: templates/filer/file_actions.html:66
+msgid "clear tags"
+msgstr "supprimer mots-clefs"
+
+#: templates/filer/file_edit.html:11
+msgid "set a title for the file..."
+msgstr "donner un titre au document..."
+
+#: templates/filer/file_edit.html:15
+msgid "crowned"
+msgstr "couroné"
+
+#: templates/filer/file_edit.html:18
+msgid "Describe the file content..."
+msgstr "décrire le contenu du document..."
+
+#: templates/filer/file_edit.html:27
+msgid "save change"
+msgstr "sauvegarder les modifications"
+
+#: templates/filer/folder.html:65
+msgid "NEW PROJECT"
+msgstr "Nouveau Projet"
+
+#: templates/filer/folder.html:71 templates/filer/folder_edit.html:26
+msgid "new project\\"
+msgstr "nouveau projet\\"
+
+#: templates/filer/folder.html:78 templates/filer/folder_edit.html:34
+msgid "type a short description"
+msgstr "saisir une brève description"
+
+#: templates/filer/folder.html:83
+msgid "create project"
+msgstr "créer le projet"
+
+#: templates/filer/folder_edit.html:19
+msgid "EDIT PROJECT"
+msgstr "MODIFIER LE PROJET"
+
+#: templates/filer/folder_edit.html:44 templates/filer/folder_edit.html:48
+msgid "delete project"
+msgstr "supprimer le projet"
+
+#: templates/filer/photo_list.html:6
+msgid "photo list"
+msgstr "liste des images"
+
+#: templates/filer/photo_list.html:20
+msgid "No Photos"
+msgstr "Aucune Image"
+
+#: templates/filer/photo_new.html:10 templates/filer/photo_new.html:24
+msgid "import an image"
+msgstr "Importer une image"
+
+#: templates/home/footer.html:9
+msgid "All rights reserved"
+msgstr "Tous droits réservés"
+
+#: templates/home/footer.html:14
+msgid "PRODUCTS"
+msgstr "Produits"
+
+#: templates/home/footer.html:16
+msgid "solutions"
+msgstr "solutions"
+
+#: templates/home/footer.html:17
+msgid "services"
+msgstr "services"
+
+#: templates/home/footer.html:18
+msgid "pricing"
+msgstr "tarifs"
+
+#: templates/home/footer.html:22
+msgid "FOLLOW US"
+msgstr "SUIVEZ-NOUS"
+
+#: templates/home/footer.html:31
+msgid "ABOUT US"
+msgstr "A PROPOS DE NOUS"
+
+#: templates/home/footer.html:33 templates/home/legal.html:5
+msgid "terms of service"
+msgstr "conditions d'utilisation"
+
+#: templates/home/footer.html:34 templates/home/legal.html:20
+msgid "privacy policy"
+msgstr "confidentialité des données"
+
+#: templates/home/footer.html:36 templates/home/overview.html:5
+msgid "overview"
+msgstr "à propos..."
+
+#: templates/home/footer.html:37
+msgid "contact"
+msgstr "contact"
+
+#: templates/home/header.html:10
+msgid "Explore"
+msgstr "explorer"
+
+#: templates/home/header.html:13
+msgid "Models"
+msgstr "Modèles"
+
+#: templates/home/header.html:16
+msgid "Predictions"
+msgstr "Prédictions"
+
+#: templates/home/header.html:19
+msgid "Help"
+msgstr "Aide"
+
+#: templates/home/header.html:22 templates/survey/intro2019.html:20
+msgid "Survey 2019"
+msgstr "sondage 2019"
+
+#: templates/home/header.html:35
+msgid "My flowka"
+msgstr "Mon Flowka"
+
+#: templates/home/header.html:39
+msgid "Parameters"
+msgstr "Paramètres"
+
+#: templates/home/header.html:41
+msgid "Posts"
+msgstr "messages"
+
+#: templates/home/header.html:43
+msgid "Profile"
+msgstr "Profile"
+
+#: templates/home/header.html:46
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: templates/home/home.html:5
+msgid "home"
+msgstr "Accueil"
+
+#: templates/home/home.html:9
+msgid "Welcome on Flowka"
+msgstr "Bienvenue sur Flowka"
+
+#: templates/home/home.html:10
+msgid "make a test with some data"
+msgstr "Faites un test avec quelques Données"
+
+#: templates/home/legal.html:10
+msgid "Terms of service..."
+msgstr "conditions d'utilisation"
+
+#: templates/home/lside.html:5
+msgid "Search.."
+msgstr "Chercher.."
+
+#: templates/home/lside.html:12
+msgid "import a file"
+msgstr "importer un fichier"
+
+#: templates/home/lside.html:15
+msgid "my files"
+msgstr "Fichiers"
+
+#: templates/home/lside.html:17
+msgid "open data"
+msgstr "Open data"
+
+#: templates/home/lside.html:21
+msgid "Preparing Data"
+msgstr "Préparer"
+
+#: templates/home/lside.html:22
+msgid "Data Collect"
+msgstr "Collecter"
+
+#: templates/home/lside.html:23
+msgid "Data Cleaning"
+msgstr "Nettoyer"
+
+#: templates/home/lside.html:25
+msgid "Modelization"
+msgstr "Modélisation"
+
+#: templates/home/lside.html:27
+msgid "Correlation"
+msgstr "Corrélation"
+
+#: templates/home/lside.html:29
+msgid "Prediction"
+msgstr "Prédiction"
+
+#: templates/home/lside.html:30
+msgid "Classification"
+msgstr "Classification"
+
+#: templates/home/lside.html:31
+msgid "Clusterization"
+msgstr "Segmentation"
+
+#: templates/home/lside.html:33
+msgid "Neuron Network"
+msgstr "Réseaux de Neurones"
+
+#: templates/home/lside.html:36
+msgid "Training"
+msgstr "Apprentissage"
+
+#: templates/home/lside.html:37
+msgid "Validation"
+msgstr "Validation"
+
+#: templates/home/lside.html:38
+msgid "Data Export"
+msgstr "Exporter les Données"
+
+#: templates/home/lside.html:39
+msgid "Assistance"
+msgstr "Aide"
+
+#: templates/home/overview.html:12
+msgid "OVERVIEW..."
+msgstr ""
+
+#: templates/home/overview.html:33
+msgid "fill our survey"
+msgstr "participez à notre sondage"
+
+#: templates/home/parameters.html:5
+msgid "parameters"
+msgstr "paramètres"
+
+#: templates/home/parameters.html:11
+msgid "PARAMETERS"
+msgstr "PARAMETRES"
+
+#: templates/home/parameters.html:19 templates/survey/intro2019.html:34
+msgid "select your language"
+msgstr "choisissez votre langue"
+
+#: templates/home/parameters.html:30
+msgid "save parameters"
+msgstr "enregistrer les paramètres"
+
+#: templates/home/privacy.html:5
+msgid "Privacy Policy"
+msgstr "confidentialité"
+
+#: templates/home/slider.html:5
+msgid "slider"
+msgstr "Diaporama"
+
+#: templates/home/slider.html:25 templates/store/listing.html:26
+#: templates/store/listing.html:28
+msgid "Previous"
+msgstr "Précédent"
+
+#: templates/home/slider.html:29 templates/store/listing.html:31
+#: templates/store/listing.html:33
+msgid "Next"
+msgstr "Suivant"
+
+#: templates/home/support.html:5
+msgid "support"
+msgstr "assistance"
+
+#: templates/home/support.html:9
+msgid "SUPPORT..."
+msgstr "ASSISTANCE"
+
+#: templates/store/contact.html:5
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/store/contact.html:10
+msgid "Contact Flowka"
+msgstr "Contactez Flowka"
+
+#: templates/store/contact.html:14
+msgid "send message"
+msgstr "Envoyez un message"
+
+#: templates/store/detail.html:7
+msgid "detail"
+msgstr "détails"
+
+#: templates/store/detail.html:17
+msgid "FEATURES"
+msgstr "fonctionnalités"
+
+#: templates/store/detail.html:32
+msgid "Get your Flowka membership"
+msgstr "Devenez membre de Flowka"
+
+#: templates/store/detail.html:35 templates/store/pricelist.html:32
+#, python-format
+msgid " Sign up for %(feeLabel)s "
+msgstr " Abbonez vous à l'offre %(feeLabel)s "
+
+#: templates/store/detail.html:39
+#, python-format
+msgid " Buy %(feeLabel)s "
+msgstr "Abonnez vous à %(feeLabel)s"
+
+#: templates/store/index.html:4
+msgid "index"
+msgstr "Sommaire"
+
+#: templates/store/listing.html:4
+msgid "listing"
+msgstr "liste"
+
+#: templates/store/listing.html:8
+msgid "Features"
+msgstr "Fonctionnalités"
+
+#: templates/store/listing.html:12
+msgid "No Features"
+msgstr "pas de fonctionnalités"
+
+#: templates/store/pricelist.html:8
+msgid "Pricing"
+msgstr "Tarifs"
+
+#: templates/store/pricelist.html:9
+msgid "flowka pricing table may change."
+msgstr "la liste des offres Flowka est susceptible de changer"
+
+#: templates/store/pricelist.html:14
+msgid "No Pricing option nor Feature matches with your search..."
+msgstr "aucune offre ni aucune fonctionalité ne correspond à votre recherche"
+
+#: templates/store/pricelist.html:24
+msgid "/mo"
+msgstr "/mois"
+
+#: templates/store/thanksbuying.html:16
+#, python-format
+msgid " congratulation %(name)s for updating to "
+msgstr " Félicitations %(name)s pour votre mise à jour vers "
+
+#: templates/store/thanksbuying.html:17
+#, python-format
+msgid " congratulation %(name)s for buying "
+msgstr " Félicitations %(name)s pour votre mise à jour vers "
+
+#: templates/survey/intro2019.html:6 templates/survey/redo2019.html:6
+#: templates/survey/survey2019.html:8
+msgid "survey 2019"
+msgstr "sondage 2019"
+
+#: templates/survey/intro2019.html:21
+msgid ""
+"The purpose of this survey is to gather your interest in the use of "
+"artificial intelligence algorithms for data analysis"
+msgstr ""
+"Cette enquête a pour objectif de mesurer votre intérêt quant à l'utilisation "
+"des solutions d'Intelligence Artificielle pour analyser les données."
+
+#: templates/survey/intro2019.html:22
+msgid "This survey is anonymous"
+msgstr "Cette enquête est anonyme."
+
+#: templates/survey/intro2019.html:23
+msgid ""
+"This survey will examine the need of a data predicting tool for business and "
+"individuals."
+msgstr ""
+"Ce sondage a pour objet d'examiner les besoins qui pourraient exister quant "
+"à un outil de prédiction autant pour les entreprises que pour les "
+"particuliers"
+
+#: templates/survey/intro2019.html:24
+msgid ""
+"No expertises in mathematics or Artificial Intelligence are needed as we are "
+"developping a service that is accessible even to beginners."
+msgstr ""
+"Aucune expertise en mathématique ou en intelligence artificelle n'est "
+"nécessaire, puisque le service que nous développons vise autant les "
+"analystes de données que les débutants"
+
+#: templates/survey/intro2019.html:25
+msgid ""
+"Whether you have access or not to business sets of data in your activity or "
+"in a former activity,"
+msgstr ""
+"Que vous ayez ou non accès à des tableaux de bord ou à ensembles de données "
+"dans le cadre de votre activité professionnelle,"
+
+#: templates/survey/intro2019.html:26
+msgid "we would be grateful if you try to fill this form as well as possible."
+msgstr ""
+"nous vous serions reconnaissants de bien vouloir remplir ce questionnaire "
+"aussi complètement que possible."
+
+#: templates/survey/intro2019.html:27
+msgid "with best regards from"
+msgstr "Avec les sincères salutations de l'équipe"
+
+#: templates/survey/intro2019.html:29
+msgid "continue"
+msgstr "Continuer"
+
+#: templates/survey/intro2019.html:30
+msgid "abort"
+msgstr "abandonner"
+
+#: templates/survey/redo2019.html:17
+msgid "You have already complete this survey"
+msgstr "vous avez déjà rempli ce formulaire"
+
+#: templates/survey/redo2019.html:18
+msgid "would you like to fill it again ?"
+msgstr "Souhaitez-vous le remplir de nouveau"
+
+#: templates/survey/redo2019.html:20
+msgid "yes !"
+msgstr "oui !"
+
+#: templates/survey/redo2019.html:21
+msgid "discard"
+msgstr "abandonner"
+
+#: templates/survey/survey2019.html:25
+msgid "Thank you for your answers and your help in improving Flowka services."
+msgstr ""
+
+#: templates/survey/survey2019.html:60
+msgid "Yes"
+msgstr "oui"
+
+#: templates/survey/survey2019.html:61
+msgid "No"
+msgstr "Non"
+
+#: templates/survey/survey2019.html:89
+msgid "select from 0 to 4 - 0 is less prefered - 4 if you totally agree"
+msgstr ""
+"sélectionner une réponse de 0 à 4  - 0, si vous n'êtes pas d'accord - 4 si "
+"vous êtes tout à fait d'accord"
+
+#: templates/survey/survey2019.html:96 templates/survey/survey2019.html:195
+msgid "We\\"
+msgstr "Nous\\"
+
+#: templates/survey/survey2019.html:112
+msgid "send"
+msgstr "envoyer"
+
+#: templates/survey/survey2019.html:114
+msgid "next page"
+msgstr "page suivante"
+
+#: templates/survey/survey2019.html:201
+msgid "Email format is invalid"
+msgstr "le format de l'email est invalide"
+
+#: templates/tag/tagsearch.html:10
+msgid "strict Match"
+msgstr "correspondance exacte"
+
+#: templates/tag/tagsearch.html:11
+msgid "search"
+msgstr "Chercher.."
+
+#~ msgid "I don't know "
+#~ msgstr "Je ne sais pas"
+
+#~ msgid "Making prediction on features by \"training\" a model with data"
+#~ msgstr ""
+#~ "Prédire des caractéristiques en entraînant un modèle avec des données"
+
+#~ msgid "Have you already heard of \"machine learning\" ?"
+#~ msgstr "Avez-vous déjà entendu parler d'Apprentissage Machine ?"
+
+#~ msgid "it's like big data but out of smart systems"
+#~ msgstr "Du 'Big Data' avec des données issues de systèmes intelligents"
+
+#~ msgid "Is \"smart data\" concept relevant to you ?"
+#~ msgstr "Est-ce que le concept de 'smart data' vous inspire quelque chose ?"
+
+#~ msgid "Do you believe in prediction given by some algorythms ?"
+#~ msgstr "Croyez-vous aux prédictions réalisées par des algorithmes ?"
+
+#~ msgid "(optional) your email"
+#~ msgstr "(optionnel) Saisissez votre email"
+
+#~ msgid "The first part focus on companies data analysis."
+#~ msgstr ""
+#~ "La première partie se concentre sur la problématique de l'analyse des "
+#~ "données pour les entreprises."
+
+#~ msgid "for contributing to our improvement"
+#~ msgstr "pour votre participation à l'amélioration de Flowka"

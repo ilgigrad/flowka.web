@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load static %}
+
+    <!-- FORM TO UPLOAD THE FILE -->
+<form method="post" enctype="multipart/form-data" id="id_{{source}}Form" action="{% url 'filer:file_load' folderid=folderid uid=uid next=next %}" onchange="submitForm(this);">
+  {% csrf_token %}
+  <div class="" >
+    {% if  folderAdd != 'disabled' %}
+      {% if textz %}
+        <label onClick="clickIt('id_{{source}}FileToLoad');" for="file" id="id_fileLabel" class="btn flowka btn-file {% if labelclass %}{{labelclass}}{% else %}fl-text-white{% endif %}">{% trans 'upload a dataset' %}
+        </label>
+      {% else %}
+        <label onClick="clickIt('id_{{source}}FileToLoad');" for="file" id="id_fileLabel" class="fl-pointer">
+          <span><i class="fas fa-plus-circle fl-circle-bar {% if labelclass %}{{labelclass}}{% else %}{% endif %}"></i></span>
+        </label>
+      {% endif %}
+    <!--labelclass allow to add a transparent background if the button is deplayed in menu -->
+      <input type="file" name="file" class="fl-hide" id="id_{{source}}FileToLoad" multiple oninput="document.getElementById('id_spin').classList.remove('d-none');"oninput="document.getElementById('id_spin').classList.add('d-none');" />
+      <input type="hidden" name="fileSave" id="id_fileSave" value="True">
+    {% else %}
+      {% if textz %}
+        <button type="submit" class="btn flowka disabled fl-outline-plus " disabled=True>{% trans 'upload a dataset' %}
+        </button>
+      {% else %}
+        <div class="">
+        <span><i class="fas fa-plus-circle flowka disabled fl-circle-bar" disabled = "True"></i></span>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</form>

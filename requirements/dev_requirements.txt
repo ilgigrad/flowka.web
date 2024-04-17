@@ -1,0 +1,6 @@
+# pip install -r dev_requirements.txt
+-r base_requirements.txt
+
+django_debug_toolbar>=1.9.1
+ipdb>=0.11
+django-minio-storage>=0.2.2

@@ -1,0 +1,90 @@
+{% load i18n %}
+{% load static %}
+{% load l10n %}
+<div class="d-flex dropup">
+  {% if textz %}
+    <div id="id-action-button" class="btn flowka fl-bg-blood disabled fl-pointer dropdown-toggle" style="height:38;"
+      data-toggle="dropdown">
+      {% trans 'action' %}
+    </div>
+  {% else %}
+  <div id="id-action-button" class="disabled fl-pointer dropdown-toggle" fl-no-caret
+    data-toggle="dropdown">
+    <span><i class="disabled fas fa-chevron-circle-up fl-circle-bar" id="id_action_icon"></i></span>
+  </div>
+  {% endif %}
+  <div class="dropdown-menu fl-minw-120"  role="menu" aria-labelledby="dropdownMenu">
+
+      <div class="dropdown-item disabled flowka fl-bg-hov-sadsea fl-txt-hov-white px-2" >
+        {% trans 'share' %}
+        <i class="float-right fal fa-share-square fl-txt-sm my-1 disabled"></i>
+      </div>
+      <form class="dropdown-item flowka fl-bg-hov-sadsea fl-txt-hov-white px-2 fl-pointer"
+        method="post" action="{% url 'filer:file_copy' folderid=folderid uid=uid next=next %}" id="id_filecopyForm">
+          {% csrf_token %}
+          <input type="hidden" name="fileList" value="">
+          <div onClick="submitForm(this);document.getElementById('id_spin').classList.remove('d-none');">
+            <i class="float-right far fa-clone fl-txt-sm my-1"></i>
+            {% trans 'duplicate' %}
+          </div>
+      </form>
+
+      <div class="dropdown-submenu flowka fl-bg-hov-sadsea fl-txt-hov-white px-2 fl-pointer" >
+        {% trans 'add to' %}
+        <i class="float-right fal fa-plus-square fl-txt-sm my-1"></i>
+        <div class="dropdown-menu d-flex flex-wrap fl-w-300">
+          <h4 class='text-uppercase fl-txt-prune text-center'>{% trans 'add to folder' %} </h4>
+          <form class=""
+            method="post" action="{% url 'filer:file_addtofolder' folderid=folderid uid=uid next=next %}" id="id_fileaddtoForm">
+              {% csrf_token %}
+            {% for folder in request.user.myfolders %}
+              <div href="#" id="id-folderadd-{{folder.id|unlocalize}}"
+              class="btn btn-outline flowka m-1 py-1 fl-txt-hov-sadsea"
+              onclick="submitSelected(this);;document.getElementById('id_spin').classList.remove('d-none');">
+                {{ folder.name }}
+              </div>
+            {% endfor %}
+            <input type="hidden" name="folderList" class="fl_obj_selected" value="">
+            <input type="hidden" name="fileList" value="">
+          </form>
+        </div>
+      </div>
+      <form class="dropdown-item flowka fl-bg-hov-sadsea fl-txt-hov-white px-2 fl-pointer"
+        method="post" action="{% url 'filer:file_remove' folderid=folderid uid=uid next=next%}" id="id_fileRemoveForm">
+          {% csrf_token %}
+          <input type="hidden" name="fileList" value="">
+          <div onClick="submitForm(this);;document.getElementById('id_spin').classList.remove('d-none');">
+            <i class="float-right fal fa-minus-square fl-txt-sm my-1"></i>
+            {% trans 'drop' %}
+          </div>
+      </form>
+      <form class="dropdown-item flowka fl-bg-hov-sadsea fl-txt-hov-white px-2 fl-pointer"
+        method="post" action="{% url 'filer:file_removetags' folderid=folderid uid=uid next=next%}" id="id_fileRemoveForm">
+          {% csrf_token %}
+          <input type="hidden" name="fileList" value="">
+          <div onClick="submitForm(this);;document.getElementById('id_spin').classList.remove('d-none');">
+            <i class="float-right fal fa-times-square fl-txt-sm my-1"></i>
+            {% trans 'clear tags' %}
+          </div>
+      </form>
+      <form class="dropdown-item flowka fl-bg-hov-sadsea fl-txt-hov-white px-2 fl-pointer"
+        method="post" action="{% url 'filer:file_download' folderid=folderid uid=uid next=next%}" id="id_fileRemoveForm">
+          {% csrf_token %}
+          <input type="hidden" name="fileList" value="">
+          <div onClick="submitForm(this);document.getElementById('id_spin').classList.remove('d-none');">
+            <i class="float-right fal fa-cloud-download fl-txt-sm my-1"></i>
+            {% trans 'download' %}
+          </div>
+      </form>
+      <div class="dropdown-divider flowka"></div>
+      <form class="dropdown-item flowka fl-bg-hov-sadsea fl-txt-hov-white px-2 fl-pointer"
+        method="post" action="{% url 'filer:file_delete' folderid=folderid uid=uid next=next%}" id="id_fileDeleteForm">
+          {% csrf_token %}
+          <input type="hidden" name="fileList" value="">
+          <div onClick="submitForm(this);document.getElementById('id_spin').classList.remove('d-none');">
+            <i class="float-right fal fa-trash-alt fl-txt-sm my-1"></i>
+            {% trans 'delete' %}
+          </div>
+      </form>
+  </div>
+</div>

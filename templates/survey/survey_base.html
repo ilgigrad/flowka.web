@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>{% block headtitle %}{% endblock headtitle %}</title>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% include 'css.html' %}
+    {% block css %}
+    {% endblock css %}
+</head>
+<html lang="en">
+<body>
+
+  </div>
+
+    <div class="container-fluid px-0">
+      <!-- add  h-100 to container -->
+        <!-- .app-navbar -->
+         {% include 'home/header.html' %}
+         <!-- /.app-navbar -->
+
+        <!-- .insert element -->
+        <!-- / .insert element-->
+
+        <div class="row-fluid d-flex flex-row justify-content-center align-content-between border-bottom border-light my-2 fl-h-700">
+            <!--<aside class="col-12 col-md-3 col-xl-2 fl-side flex-column">-->
+                    {% block main %}
+                    {% endblock main %}
+                    {% block rside %}
+                    {% endblock rside %}
+        </div>
+        <footer class= "fl-bg-white w-100">
+            {% include 'home/footer.html' %}
+        </footer>
+    </div>
+    {% include 'js.html' %}
+    {% block js %}
+    {% endblock js %}
+</body>
+</html>

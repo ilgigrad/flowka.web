@@ -1,0 +1,64 @@
+{% extends 'survey/survey_base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %} Flowka - {% trans 'survey 2019' %}{% endblock headtitle %}
+
+{% block lside %}
+  {% block folder %}
+  {% endblock folder %}
+{% endblock lside %}
+
+{% block main %}
+
+
+      {% block content %}
+
+      <div class="fl-frame fl-medium  h-100 mx-auto my-1 d-flex flex-column justify-content-center">
+
+        <h1 class="flowka fl-txt-prune text-uppercase text-center">{% trans 'Survey 2019' %}</h1>
+         <p class="flowka fl-txt-peach text-center"> {% trans 'The purpose of this survey is to gather your interest in the use of artificial intelligence algorithms for data analysis' %}</p>
+         <h4 class="flowka fl-txt-peach text-center"> {% trans 'This survey is anonymous' %}</h4>
+        <p class="flowka fl-txt-md text-center">{% trans 'This survey will examine the need of a data predicting tool for business and individuals.' %}</p>
+        <p class="flowka fl-txt-md  text-center">{% trans 'No expertises in mathematics or Artificial Intelligence are needed as we are developping a service that is accessible even to beginners.' %}</p>
+        <p class="flowka fl-txt-md  text-center">{% trans 'Whether you have access or not to business sets of data in your activity or in a former activity,' %}
+          {% trans 'we would be grateful if you try to fill this form as well as possible.'%}</p>
+        <p class="flowka fl-txt-md  text-center">{% trans 'with best regards from' %} <span class="fl-txt-apricot">Flowka</span>,</p>
+        <div class="d-inline-block text-center">
+          <a href="{% url next %}" class="flowka btn">{% trans 'continue' %}</a>
+          <a href="{% url 'home:home' %}" class="flowka btn fl-bg-peach fl-bd-peach fl-bg-hov-sadsea fl-bd-hov-sadsea">{% trans 'abort' %}</a>
+        </div>
+        <form id="id_parameters" method="post" class="form-group mt-5" action="{% url 'home:parameters' %}">
+            {% csrf_token %}
+            <label for="language">{% trans 'select your language' %}</label>
+            <select name="language" class="custom-select" id="language" onchange="submitForm(id_parameters)">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                    {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+            <input type='hidden' name="next" value="survey:survey" />
+        </form>
+      </div>
+      {% endblock content %}
+
+{% endblock main %}
+{% block rside %}
+    {% block messages %}
+      {% include 'message/message.html'%}
+    {% endblock messages %}
+{% endblock rside %}
+
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+{% endblock js %}

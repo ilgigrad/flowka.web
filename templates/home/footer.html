@@ -1,0 +1,44 @@
+{% load static %}
+{% load i18n %}
+    <div class="d-flex flex-column-reverse flex-lg-row flex-wrap justify-content-between px-2 py-3 mx-0 w-100 fl-txt-12">
+        <div class="col-md-3 col-sm-12 pb-5">
+            <a href="/">
+                <img src="{% static 'pictures/flowka-anis-122x60.jpg' %}" height="50px" alt="">
+            </a>
+            <div class="copyright">
+                © 2018 Flowka SAS<br>{% trans 'All rights reserved' %}
+            </div>
+        </div>
+        <div class="d-flex flex-row col-md-9 col-sm-12 flex-sm-wrap flex-sm-nowrap  ">
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <h6 class="fl-txt-gray font-weight-bold" >{% trans 'PRODUCTS' %}</h6>
+            <ul  class="list-unstyled">
+                <li class=""><a class="flowka" href="#" >{% trans 'solutions' %}</a></li>
+                <li class=""><a class="flowka" href="#" >{% trans 'services' %}</a></li>
+                <li class=""><a class="flowka" href="{% url 'store:pricing' %}" >{% trans 'pricing' %}</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <h6 class="fl-txt-gray font-weight-bold" >{% trans 'FOLLOW US' %}</h6>
+            <ul class="list-unstyled">
+                <li class=""><a href="http://www.facebook.com/flowka" class="flowka"><i class="fab fa-facebook-square"></i> facebook</a></li>
+                <li class="menu-item"><a href="http://www.twitter.com/flowka" class="flowka"><i class="fab fa-twitter-square"></i> twitter</a></li>
+                <li class="menu-item"><a href="http://www.linkedin.com/flowka" class="flowka"><i class="fab fa-linkedin"></i> linkedin</a></li>
+                <li class="menu-item"><a href="http://www.instagram.com/flowka" class="flowka"><i class="fab fa-instagram"></i> instagram</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <h6 class="fl-txt-gray font-weight-bold" >{% trans 'ABOUT US' %}</h6>
+            <ul  class="list-unstyled">
+                <li  class=""><a class="flowka" href="{% url 'home:legal' %}" >{% trans 'terms of service' %}</a></li>
+                <li  class=""><a class="flowka" href="{% url 'home:privacy' %}" >{% trans 'privacy policy' %}</a></li>
+                <li  class="flowka"><span class="invisible">linejump</span></li>
+                <li  class=""><a class="flowka" href="{% url 'home:overview' %}" >{% trans 'overview' %}</a></li>
+                <li  class=""><a class="flowka" href="{% url 'contact' %}" >{% trans 'contact' %}</a></li>
+                <li  class="flowka"><span class="invisible">linejump</span></li>
+                <li  class=""> <a class="flowka" href="{% url 'account:login' %}">{% trans 'Login' %}</a></li>
+                <li  class=""><a class="flowka" href="{% url 'account:signup' %}">{% trans 'Sign Up' %}</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>

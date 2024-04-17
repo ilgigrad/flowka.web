@@ -1,0 +1,13 @@
+
+{% load i18n %}
+<form method="post"  class="fl-bd-prune p-0 w-100 my-3" id="id_tagsearchform" action="{% url 'tag:tag_search' next=next%}">
+  {% csrf_token %}
+  <div id="id_tags" class="fl-nolabel fl-my-3-p">
+    {{ tagsearch_form.as_p }}
+  </div>
+  <div>
+    <!--<input type="checkbox" class=" oi oi-check" name="strict" id="id_strict">
+    <label for="id_strict">{% trans 'strict Match' %}</label>-->
+    <input class="btn flowka btn-block" type="submit" name="profile" id="id_profile" value="{% trans 'search' %}" />
+  </div>
+</form>

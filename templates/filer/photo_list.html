@@ -1,0 +1,78 @@
+{% extends 'filer/df_base.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block headtitle %} Flowka - {% trans 'photo list' %}{% endblock headtitle %}
+{% block size %}
+  {{ block.super }}
+{% endblock size %}
+
+{% block folder %}
+  <!-- <i class="float-left fal fa-images fl-txt-sm ml-0 mx-1 my-1"></i>
+  <span class="text-center">{{folders.current.name}}</span> -->
+  {{ block.super }}
+{% endblock folder %}
+
+{% block content %}
+      {% if files|length_is:'0' %}
+          <div class="text-center fl-invalid fl-upc">
+              {% trans 'No Photos' %}
+          </div>
+      {% else %}
+        <div class="d-flex flex-row justify-content-start flex-wrap align-content-start fl-overflow-x-hidden fl-overflow-y-scroll fl-scroll-thin fl-thumb-board-{{pictSize}} w-100">
+          {% for photo in files %}
+            <div class="fl-m-3 p-0 fl-thumb-{{pictSize}}">
+              <img src="{{ photo.url }}" class="img-fluid rounded border-0 fl-bg-hov-anis fl-thumb-{{pictSize}}" id="{{ photo.id }}" >
+              <div class="fl-photo fl-thumb-{{pictSize}} fl-thumb" id="{{ photo.uid }}" onclick="selector(this,'fileList',['id-action-button','id_addtag-button','id_action_icon']);"></div>
+              <div class="fl-pins-{{pictSize}}"></div>
+            </div>
+          {% endfor %}
+
+        </div>
+      {% endif %}
+    {% endblock content %}
+
+
+    {% block newelement %}
+      {% include 'filer/photo_new.html' with folderAdd=folders.current.can_add folderid=folders.current.id uid=folders.current.uid next=next %}
+    {% endblock newelement %}
+
+    {% block actionelement %}
+      {{ block.super }}
+    {% endblock actionelement %}
+
+    {% block addtags %}
+      {% include 'tag/actiontags.html' with tags_form=tags_form folderid=folders.current.id uid=folders.current.uid next=next %}
+    {% endblock addtags %}
+
+    {% block resize %}
+    <div class="btn-group">
+      <a  class="btn flowka fl-btn-bar left" href="?pictDim=st"><i class="fal fa-expand fl-txt-25 "></i></a>
+      <a  class="btn flowka fl-btn-bar" href="?pictDim=sm"><i class="fal fa-expand fl-txt-15 "></i></a>
+      <a  class="btn flowka fl-btn-bar right"  href="?pictDim=xs"><i class="fal fa-expand fl-txt-10 "></i></a>
+    </div>
+    {% endblock resize %}
+
+    {% block switch %}
+        {{ block.super }}
+    {% endblock switch %}
+
+    {% block messages %}
+      {{ block.super }}
+    {% endblock messages %}
+
+    {% block tagsearch %}
+      <!--{ include 'tag/tagsearch.html' with tagsearch_form=tagsearch_form  folderid=folders.current.id uid=folders.current.uid next=next }-->
+    {% endblock tagsearch %}
+
+    {% block css %}
+      {% include 'tag/css.html' %}
+      {% include 'filer/crop-css.html' %}
+    {% endblock css %}
+
+    {% block js %}
+      {% include 'tag/js.html' %}
+      {% include 'filer/crop-js.html' %}
+      <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+    {% endblock js %}
